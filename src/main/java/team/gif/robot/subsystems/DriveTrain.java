@@ -40,6 +40,6 @@ public class DriveTrain extends SubsystemBase {
 
     drive = new DifferentialDrive(leftFrontTalon, rightFrontTalon);
   }
-
-  
+  public void driveTank(double leftSpeed, double rightSpeed){drive.tankDrive(leftSpeed, rightSpeed);}
+  public void driveArcade(double speed, double rotation){drive.arcadeDrive(speed, rotation);}
 }
