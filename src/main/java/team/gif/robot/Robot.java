@@ -21,7 +21,6 @@ public class Robot extends TimedRobot {
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
   public static OI oi;
-  public static TankDrive tankDrive;
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -32,7 +31,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     oi = new OI();
-    driveTrain.setDefaultCommand(tankDrive);
+    driveTrain.setDefaultCommand(new TankDrive());
 
   }
 
