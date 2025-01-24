@@ -7,7 +7,8 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.TankDrive;
+import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
 
 /**
@@ -31,7 +32,8 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     oi = new OI();
-    driveTrain.setDefaultCommand(new TankDrive());
+    //driveTrain.setDefaultCommand(new TankDrive());
+    driveTrain.setDefaultCommand(new ArcadeDrive());
 
   }
 
