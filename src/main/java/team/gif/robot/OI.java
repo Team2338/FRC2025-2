@@ -104,7 +104,7 @@ public class OI {
          */
 
         // driver controls
-        dB.onTrue(new CouchForward());
-        dDPadUp.onTrue(new CouchBackward());
+        dB.whileTrue(new CouchForward());
+        dDPadUp.whileTrue(new CouchBackward());
     }
 }

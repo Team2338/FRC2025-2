@@ -13,6 +13,6 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final double COUCH_TALON_PERCENT = .5;
+    public static final double COUCH_TALON_PERCENT = .2;
 }
 
