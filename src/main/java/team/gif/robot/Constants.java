@@ -14,5 +14,6 @@ package team.gif.robot;
  */
 public final class Constants {
     public static final double COUCH_TALON_PERCENT = .2;
+    public static final double HAM_BURGER_TALON_PERCENT = 1;
 }
 

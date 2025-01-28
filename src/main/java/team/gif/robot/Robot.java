@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
+import team.gif.robot.subsystems.HamBurger;
+import team.gif.robot.subsystems.HamBurgerRight;
 import team.gif.robot.subsystems.drivers.Couch;
 
 /**
@@ -24,6 +26,8 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static Couch couch;
   public static OI oi;
+  public static HamBurger hamBurger;
+  public static HamBurgerRight hamBurgerRight;
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -35,8 +39,11 @@ public class Robot extends TimedRobot {
     driveTrain = new DriveTrain();
     couch = new Couch();
     driveTrain.setDefaultCommand(new TankDrive());
-    oi = new OI();
     //driveTrain.setDefaultCommand(new ArcadeDrive());
+    hamBurger = new HamBurger();
+    hamBurgerRight = new HamBurgerRight();
+    oi = new OI();
+
 
   }
 
