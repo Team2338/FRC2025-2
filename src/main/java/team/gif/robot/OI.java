@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.AlgaeShooterBackward;
+import team.gif.robot.commands.AlgaeShooterForward;
 import team.gif.robot.commands.CouchBackward;
 import team.gif.robot.commands.CouchForward;
 import team.gif.robot.commands.EverybotForward;
@@ -108,5 +110,7 @@ public class OI {
         dB.whileTrue(new CouchForward());
         dDPadUp.whileTrue(new CouchBackward());
         dDPadDown.whileTrue(new EverybotForward());
+        dY.whileTrue(new AlgaeShooterBackward());
+        dY.whileTrue(new AlgaeShooterForward());
     }
 }

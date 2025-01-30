@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.drivetrain.TankDrive;
+import team.gif.robot.subsystems.AlgaeShooter;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.EverybotShooter;
 import team.gif.robot.subsystems.drivers.Couch;
@@ -25,6 +26,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static Couch couch;
   public static EverybotShooter everybot;
+  public static AlgaeShooter algaeShooter;
   public static OI oi;
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -36,6 +38,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     couch = new Couch();
+    algaeShooter = new AlgaeShooter();
     driveTrain.setDefaultCommand(new TankDrive());
     oi = new OI();
     //driveTrain.setDefaultCommand(new ArcadeDrive());
