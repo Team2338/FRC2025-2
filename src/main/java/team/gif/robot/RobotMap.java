@@ -10,8 +10,9 @@ public abstract class RobotMap {
     public static final int RIGHT_FRONT_TALON = 1;
     public static final int RIGHT_BACK_TALON = 10;
     public static final int COUCH_TALON_TEST = 6;
-    public static final int ALGAE_TALON = 0;
-    public static final int ALGAE_TALON_SECONDARY = 0;
+    public static final int ALGAE_TALON = 6;
+    public static final int ALGAE_TALON_SECONDARY = 4
+            ;
 
     
 }
