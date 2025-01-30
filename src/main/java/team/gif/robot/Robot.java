@@ -38,10 +38,11 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     couch = new Couch();
+    everybot = new EverybotShooter();
     algaeShooter = new AlgaeShooter();
     driveTrain.setDefaultCommand(new TankDrive());
     oi = new OI();
-    //driveTrain.setDefaultCommand(new ArcadeDrive());
+//    driveTrain.setDefaultCommand(new ArcadeDrive());
 
   }
 
