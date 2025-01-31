@@ -7,10 +7,12 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.HamBurgerIndex;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.HamBurger;
+import team.gif.robot.subsystems.HamBurgerIndexer;
 import team.gif.robot.subsystems.HamBurgerRight;
 import team.gif.robot.subsystems.drivers.Couch;
 
@@ -25,9 +27,11 @@ public class Robot extends TimedRobot {
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
   public static Couch couch;
-  public static OI oi;
   public static HamBurger hamBurger;
   public static HamBurgerRight hamBurgerRight;
+  public static HamBurgerIndexer hamBurgerIndexer;
+  public static OI oi;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -42,6 +46,7 @@ public class Robot extends TimedRobot {
     //driveTrain.setDefaultCommand(new ArcadeDrive());
     hamBurger = new HamBurger();
     hamBurgerRight = new HamBurgerRight();
+    hamBurgerIndexer = new HamBurgerIndexer();
     oi = new OI();
 
 

@@ -9,6 +9,7 @@ public class HamBurgerShoot extends Command {
     public HamBurgerShoot() {
         super();
         addRequirements(Robot.hamBurger);
+        addRequirements(Robot.hamBurgerRight);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -20,7 +21,7 @@ public class HamBurgerShoot extends Command {
     @Override
     public void execute() {
         Robot.hamBurger.turnmotor(Constants.HAM_BURGER_TALON_PERCENT);
-
+        Robot.hamBurgerRight.turnmotor(-Constants.HAM_BURGER_TALON_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -33,5 +34,7 @@ public class HamBurgerShoot extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.hamBurger.turnmotor(0);
+        Robot.hamBurgerRight.turnmotor(0);
+
     }
 }
