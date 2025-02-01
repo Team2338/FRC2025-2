@@ -13,5 +13,6 @@ public abstract class RobotMap {
     public static final int HAM_BURGER_TALON_RIGHT = 4;
     public static final int HAM_BURGER_TALON_LEFT = 6;
     public static final int HAM_BURGER_TALON_INDEX = 33;
+    public static final int HAM_BURGER_TALON_INDEX2 = 0;
 
 }
