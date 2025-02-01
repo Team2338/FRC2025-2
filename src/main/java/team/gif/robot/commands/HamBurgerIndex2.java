@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class HamBurgerIndex extends Command {
+public class HamBurgerIndex2 extends Command {
 
-    public HamBurgerIndex() {
+    public HamBurgerIndex2() {
         super();
-        addRequirements(Robot.hamBurgerIndexer);
+        addRequirements(Robot.hamBurgerIndexer2);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -19,7 +19,7 @@ public class HamBurgerIndex extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.hamBurgerIndexer.turnmotor(-Constants.HAM_BURGER_INDEX_TALON_PERCENT);
+        Robot.hamBurgerIndexer2.turnmotor(-Constants.HAM_BURGER_INDEX_TALON_PERCENT);
 
     }
 
@@ -32,7 +32,7 @@ public class HamBurgerIndex extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.hamBurgerIndexer.turnmotor(0);
+        Robot.hamBurgerIndexer2.turnmotor(0);
 
     }
 }

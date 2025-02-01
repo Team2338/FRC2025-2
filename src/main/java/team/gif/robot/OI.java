@@ -105,6 +105,6 @@ public class OI {
         dB.whileTrue(new CouchForward());
         dDPadUp.whileTrue(new CouchBackward());
         dA.whileTrue(new HamBurgerShoot());
-        dY.whileTrue(new HamBurgerIndex());
+        dRBump.whileTrue(new HamBurgerIndex());
     }
 }
