@@ -12,5 +12,9 @@ package team.gif.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {}
+public final class Constants {
+    public static final double COUCH_TALON_PERCENT = .2;
+    public static final double HAM_BURGER_TALON_PERCENT = .7;
+    public static final double HAM_BURGER_INDEX_TALON_PERCENT = .7;
+}
 
