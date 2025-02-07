@@ -27,6 +27,13 @@ public class Couch extends SubsystemBase {
   }
   public void turnmotor(double percentOutput) {
     couch.set(TalonSRXControlMode.PercentOutput, percentOutput);
+    System.out.println(couch.getSelectedSensorPosition(4096));
+  }
+  public double getPosition(){
+    return couch.getSelectedSensorPosition();
+  }
+  public void zeroEncoder(){
+    couch.setSelectedSensorPosition(0);
   }
 
   

@@ -16,5 +16,6 @@ public final class Constants {
     public static final double COUCH_TALON_PERCENT = .5;
     public static final double HAM_BURGER_TALON_PERCENT = .7;
     public static final double HAM_BURGER_INDEX_TALON_PERCENT = .7;
+    public static final double COUCH_HOLD = .2;
 }
 
