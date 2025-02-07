@@ -45,8 +45,8 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     couch = new Couch();
-    driveTrain.setDefaultCommand(new TankDrive());
-    //driveTrain.setDefaultCommand(new ArcadeDrive());
+    //driveTrain.setDefaultCommand(new TankDrive());
+    driveTrain.setDefaultCommand(new ArcadeDrive());
     hamBurger = new HamBurger();
     hamBurgerRight = new HamBurgerRight();
     hamBurgerIndexer = new HamBurgerIndexer();

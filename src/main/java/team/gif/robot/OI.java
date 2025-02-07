@@ -8,7 +8,8 @@ import team.gif.robot.commands.CouchForward;
 import team.gif.robot.commands.HamBurgerIndex;
 import team.gif.robot.commands.HamBurgerShoot;
 
-public class OI {
+public class
+OI {
     /*
      * Instantiate all joysticks/controllers and their buttons here
      *
