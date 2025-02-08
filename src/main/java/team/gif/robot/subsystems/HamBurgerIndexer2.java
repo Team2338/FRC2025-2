@@ -4,26 +4,30 @@
 
 package team.gif.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.spark.SparkBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.SparkLowLevel;
+import com.revrobotics.spark.config.SparkBaseConfig;
 
 public class HamBurgerIndexer2 extends SubsystemBase {
   /**
    * Creates a new ExampleSubsystem.
    */
-  public static TalonSRX HamBurgerIndex2;
+  public static SparkMax hamBurgerIndex2;
+  public static SparkMaxConfig config;
 
   public HamBurgerIndexer2() {
-    HamBurgerIndex2 = new TalonSRX(RobotMap.HAM_BURGER_NEO_INDEX);
-    HamBurgerIndex2.configFactoryDefault();
-    HamBurgerIndex2.setNeutralMode(NeutralMode.Brake);
+    hamBurgerIndex2 = new SparkMax(RobotMap.HAM_BURGER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+    hamBurgerIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
+    config
+            .idleMode(SparkBaseConfig.IdleMode.kBrake);
   }
-
-  public void turnmotor(double percentOutput) {
-    HamBurgerIndex2.set(TalonSRXControlMode.PercentOutput, percentOutput);
+  public void turnmotor(double voltage){
+    hamBurgerIndex2.setVoltage(voltage);
 
   }
 }
