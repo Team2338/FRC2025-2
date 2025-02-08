@@ -5,29 +5,29 @@
 package team.gif.robot.subsystems.drivers;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkLowLevel;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 import team.gif.robot.RobotMap;
 
+import static team.gif.robot.subsystems.HamBurger.config;
+
 public class Couch extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public static TalonSRX couch;
+  public static SparkMax couch;
   public Couch() {
-    couch = new TalonSRX(RobotMap.COUCH_NEO_TEST);
-    couch.configFactoryDefault();
-    couch.setNeutralMode(NeutralMode.Brake);
-
-
-    /** Creates a new ExampleSubsystem. */
+    couch = new SparkMax(RobotMap.COUCH_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
+    couch.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
+    config.idleMode(SparkBaseConfig.IdleMode.kBrake);
 
 
   }
-  public void turnmotor(double percentOutput) {
-    couch.set(TalonSRXControlMode.PercentOutput, percentOutput);
+  public void turnmotor(double voltage) {
+    couch.setVoltage(voltage);
   }
-
-  
 }
