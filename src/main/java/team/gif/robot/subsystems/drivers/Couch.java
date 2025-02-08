@@ -25,7 +25,6 @@ public class Couch extends SubsystemBase {
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
     config.idleMode(SparkBaseConfig.IdleMode.kBrake);
 
-
   }
   public void turnmotor(double voltage) {
     couch.setVoltage(voltage);
