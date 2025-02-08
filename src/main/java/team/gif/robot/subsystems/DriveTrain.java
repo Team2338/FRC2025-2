@@ -6,23 +6,25 @@ package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
+import com.revrobotics.spark.SparkLowLevel;
 
 public class DriveTrain extends SubsystemBase {
-  private WPI_TalonSRX leftFrontNEO;
-  private WPI_TalonSRX leftBackNEO;
-  private WPI_TalonSRX rightFrontNEO;
-  private WPI_TalonSRX rightBackNEO;
+  private SparkMax leftFrontNEO;
+  private SparkMax leftBackNEO;
+  private SparkMax rightFrontNEO;
+  private SparkMax rightBackNEO;
 
   private DifferentialDrive drive;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
-    leftFrontNEO = new WPI_TalonSRX(RobotMap.LEFT_FRONT_NEO);
-    leftBackNEO = new WPI_TalonSRX(RobotMap.LEFT_BACK_NEO);
-    rightFrontNEO = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_NEO);
-    rightBackNEO = new WPI_TalonSRX(RobotMap.RIGHT_BACK_NEO);
+    leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
+    leftBackNEO = new SparkMax(RobotMap.LEFT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
+    rightFrontNEO = new SparkMax(RobotMap.RIGHT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
+    rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
 
     leftFrontNEO.configFactoryDefault();
     leftBackNEO.configFactoryDefault();
@@ -47,6 +49,6 @@ public class DriveTrain extends SubsystemBase {
  * He loved dominos dry thin crust flour on the bottom of the pie pizza
  * he went to dominos so much he started becoming the pizza
  * and one day he woke up, welllll kinda his consciousness came back to him and he was a pizza a whole pizza but the worst part of all is he had pineapple on him
- *
+ * he eventually became the most disgusting thing on planet earth besides tomatoes and brocolli
  *
  * */
