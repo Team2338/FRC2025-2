@@ -8,7 +8,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
@@ -23,7 +23,7 @@ public class Couch extends SubsystemBase {
     couch = new SparkMax(RobotMap.COUCH_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
     couch.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
-    config.idleMode(SparkBaseConfig.IdleMode.kBrake);
+    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
 
   }
   public void turnmotor(double voltage) {
