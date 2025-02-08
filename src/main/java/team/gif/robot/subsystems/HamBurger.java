@@ -16,7 +16,6 @@ public class HamBurger extends SubsystemBase {
 
   public static SparkMax hamBurgerLeft;
   public static SparkMaxConfig config;
-
   public HamBurger() {
     hamBurgerLeft = new SparkMax(RobotMap.HAM_BURGER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
     hamBurgerLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);

@@ -23,8 +23,7 @@ public class HamBurgerIndexer2 extends SubsystemBase {
     hamBurgerIndex2 = new SparkMax(RobotMap.HAM_BURGER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
     hamBurgerIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
-    config
-            .idleMode(SparkBaseConfig.IdleMode.kBrake);
+    config.idleMode(SparkBaseConfig.IdleMode.kBrake);
   }
   public void turnmotor(double voltage){
     hamBurgerIndex2.setVoltage(voltage);

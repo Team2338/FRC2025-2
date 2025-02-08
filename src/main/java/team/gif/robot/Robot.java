@@ -53,8 +53,6 @@ public class Robot extends TimedRobot {
     hamBurgerIndexer2 = new HamBurgerIndexer2();
     oi = new OI();
 
-
-
   }
 
   /**
