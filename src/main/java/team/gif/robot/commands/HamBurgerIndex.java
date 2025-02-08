@@ -19,7 +19,7 @@ public class HamBurgerIndex extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.hamBurgerIndexer.turnmotor(-Constants.HAM_BURGER_INDEX_TALON_PERCENT);
+        Robot.hamBurgerIndexer.turnmotor(-Constants.HAM_BURGER_INDEX_NEO_PERCENT);
 
     }
 

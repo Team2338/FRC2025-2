@@ -17,7 +17,7 @@ public class HamBurgerIndexer extends SubsystemBase {
   public static TalonSRX hamBurgerIndex;
 
   public HamBurgerIndexer() {
-    hamBurgerIndex = new TalonSRX(RobotMap.HAM_BURGER_TALON_INDEX);
+    hamBurgerIndex = new TalonSRX(RobotMap.HAM_BURGER_NEO_INDEX);
     hamBurgerIndex.configFactoryDefault();
     hamBurgerIndex.setNeutralMode(NeutralMode.Brake);
   }

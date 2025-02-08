@@ -5,40 +5,39 @@
 package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class DriveTrain extends SubsystemBase {
-  private WPI_TalonSRX leftFrontTalon;
-  private WPI_TalonSRX leftBackTalon;
-  private WPI_TalonSRX rightFrontTalon;
-  private WPI_TalonSRX rightBackTalon;
+  private WPI_TalonSRX leftFrontNEO;
+  private WPI_TalonSRX leftBackNEO;
+  private WPI_TalonSRX rightFrontNEO;
+  private WPI_TalonSRX rightBackNEO;
 
   private DifferentialDrive drive;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
-    leftFrontTalon = new WPI_TalonSRX(RobotMap.LEFT_FRONT_TALON);
-    leftBackTalon = new WPI_TalonSRX(RobotMap.LEFT_BACK_TALON);
-    rightFrontTalon= new WPI_TalonSRX(RobotMap.RIGHT_FRONT_TALON);
-    rightBackTalon = new WPI_TalonSRX(RobotMap.RIGHT_BACK_TALON);
+    leftFrontNEO = new WPI_TalonSRX(RobotMap.LEFT_FRONT_NEO);
+    leftBackNEO = new WPI_TalonSRX(RobotMap.LEFT_BACK_NEO);
+    rightFrontNEO = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_NEO);
+    rightBackNEO = new WPI_TalonSRX(RobotMap.RIGHT_BACK_NEO);
 
-    leftFrontTalon.configFactoryDefault();
-    leftBackTalon.configFactoryDefault();
-    rightFrontTalon.configFactoryDefault();
-    rightBackTalon.configFactoryDefault();
+    leftFrontNEO.configFactoryDefault();
+    leftBackNEO.configFactoryDefault();
+    rightFrontNEO.configFactoryDefault();
+    rightBackNEO.configFactoryDefault();
 
-    leftFrontTalon.setNeutralMode(NeutralMode.Brake);
-    leftBackTalon.setNeutralMode(NeutralMode.Brake);
-    rightFrontTalon.setNeutralMode(NeutralMode.Brake);
-    rightBackTalon.setNeutralMode(NeutralMode.Brake);
+    leftFrontNEO.setNeutralMode(NeutralMode.Brake);
+    leftBackNEO.setNeutralMode(NeutralMode.Brake);
+    rightFrontNEO.setNeutralMode(NeutralMode.Brake);
+    rightBackNEO.setNeutralMode(NeutralMode.Brake);
 
-    leftBackTalon.follow(leftFrontTalon);
-    rightBackTalon.follow(rightFrontTalon);
+    leftBackNEO.follow(leftFrontNEO);
+    rightBackNEO.follow(rightFrontNEO);
 
-    drive = new DifferentialDrive(leftFrontTalon, rightFrontTalon);
+    drive = new DifferentialDrive(leftFrontNEO, rightFrontNEO);
   }
   public void driveTank(double leftSpeed, double rightSpeed){drive.tankDrive(leftSpeed, rightSpeed);}
   public void driveArcade(double speed, double rotation){drive.arcadeDrive(speed, rotation);}

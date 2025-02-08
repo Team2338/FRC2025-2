@@ -20,8 +20,8 @@ public class HamBurgerShoot extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.hamBurger.turnmotor(Constants.HAM_BURGER_TALON_PERCENT);
-        Robot.hamBurgerRight.turnmotor(-Constants.HAM_BURGER_TALON_PERCENT);
+        Robot.hamBurger.turnmotor(Constants.HAM_BURGER_NEO_PERCENT);
+        Robot.hamBurgerRight.turnmotor(-Constants.HAM_BURGER_NEO_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

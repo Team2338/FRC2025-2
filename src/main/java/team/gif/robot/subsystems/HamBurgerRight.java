@@ -14,7 +14,7 @@ public class HamBurgerRight extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public static TalonSRX hamBurgerRight;
   public HamBurgerRight() {
-    hamBurgerRight = new TalonSRX(RobotMap.HAM_BURGER_TALON_RIGHT);
+    hamBurgerRight = new TalonSRX(RobotMap.HAM_BURGER_NEO_RIGHT);
     hamBurgerRight.configFactoryDefault();
     hamBurgerRight.setNeutralMode(NeutralMode.Brake);
   }

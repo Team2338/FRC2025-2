@@ -19,7 +19,7 @@ public class CouchForward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.couch.turnmotor(Constants.COUCH_TALON_PERCENT);
+        Robot.couch.turnmotor(Constants.COUCH_NEO_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

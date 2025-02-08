@@ -16,7 +16,7 @@ public class Couch extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public static TalonSRX couch;
   public Couch() {
-    couch = new TalonSRX(RobotMap.COUCH_TALON_TEST);
+    couch = new TalonSRX(RobotMap.COUCH_NEO_TEST);
     couch.configFactoryDefault();
     couch.setNeutralMode(NeutralMode.Brake);
 
