@@ -11,11 +11,10 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-import static team.gif.robot.subsystems.HamBurger.config;
-
 public class Couch extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
   public static SparkMax couch;
+  public static SparkMaxConfig config;
+
   public Couch() {
     couch = new SparkMax(RobotMap.COUCH_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
