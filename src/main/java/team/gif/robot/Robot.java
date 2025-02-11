@@ -7,16 +7,13 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.Subsystem;
-import team.gif.robot.commands.HamBurgerIndex;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.HamBurger;
 import team.gif.robot.subsystems.HamBurgerIndexer;
 import team.gif.robot.subsystems.HamBurgerIndexer2;
 import team.gif.robot.subsystems.HamBurgerRight;
-import team.gif.robot.subsystems.drivers.Couch;
+import team.gif.robot.subsystems.Couch;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in

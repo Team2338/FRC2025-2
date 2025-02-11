@@ -13,18 +13,28 @@ import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkLowLevel;
 
 public class DriveTrain extends SubsystemBase {
-  private SparkMax leftFrontNEO;
+  /*private SparkMax leftFrontNEO;
   private SparkMax leftBackNEO;
   private SparkMax rightFrontNEO;
-  private SparkMax rightBackNEO;
+  private SparkMax rightBackNEO;*/ //commented out because I needed to build
+
+  private WPI_TalonSRX leftFrontNEO;
+  private WPI_TalonSRX leftBackNEO;
+  private WPI_TalonSRX rightFrontNEO;
+  private WPI_TalonSRX rightBackNEO;
 
   private DifferentialDrive drive;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
-    leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
+    /*leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
     leftBackNEO = new SparkMax(RobotMap.LEFT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
     rightFrontNEO = new SparkMax(RobotMap.RIGHT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
-    rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
+    rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);*/ //commented out because I needed to build
+
+    leftFrontNEO = new WPI_TalonSRX(RobotMap.LEFT_FRONT_NEO);
+    leftBackNEO = new WPI_TalonSRX(RobotMap.LEFT_BACK_NEO);
+    rightFrontNEO = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_NEO);
+    rightBackNEO = new WPI_TalonSRX(RobotMap.RIGHT_BACK_NEO);
 
     leftFrontNEO.configFactoryDefault();
     leftBackNEO.configFactoryDefault();
