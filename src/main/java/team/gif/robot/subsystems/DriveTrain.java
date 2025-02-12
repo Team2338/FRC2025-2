@@ -4,50 +4,48 @@
 
 package team.gif.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkLowLevel;
 
 public class DriveTrain extends SubsystemBase {
-  /*private SparkMax leftFrontNEO;
+  private SparkMax leftFrontNEO;
+  private SparkMaxConfig configLeftFront;
   private SparkMax leftBackNEO;
+  private SparkMaxConfig configLeftBack;
   private SparkMax rightFrontNEO;
-  private SparkMax rightBackNEO;*/ //commented out because I needed to build
-
-  private WPI_TalonSRX leftFrontNEO;
-  private WPI_TalonSRX leftBackNEO;
-  private WPI_TalonSRX rightFrontNEO;
-  private WPI_TalonSRX rightBackNEO;
-
+  private SparkMaxConfig configRightFront;
+  private SparkMax rightBackNEO;
+  private SparkMaxConfig configRightBack;
   private DifferentialDrive drive;
-  /** Creates a new ExampleSubsystem. */
+
   public DriveTrain() {
-    /*leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
+    leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
     leftBackNEO = new SparkMax(RobotMap.LEFT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
     rightFrontNEO = new SparkMax(RobotMap.RIGHT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
-    rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);*/ //commented out because I needed to build
+    rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
 
-    leftFrontNEO = new WPI_TalonSRX(RobotMap.LEFT_FRONT_NEO);
-    leftBackNEO = new WPI_TalonSRX(RobotMap.LEFT_BACK_NEO);
-    rightFrontNEO = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_NEO);
-    rightBackNEO = new WPI_TalonSRX(RobotMap.RIGHT_BACK_NEO);
+    configLeftFront = new SparkMaxConfig();
+    configLeftBack = new SparkMaxConfig();
+    configRightFront = new SparkMaxConfig();
+    configRightBack = new SparkMaxConfig();
 
-    leftFrontNEO.configFactoryDefault();
-    leftBackNEO.configFactoryDefault();
-    rightFrontNEO.configFactoryDefault();
-    rightBackNEO.configFactoryDefault();
+    leftFrontNEO.configure(configLeftFront, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    leftBackNEO.configure(configLeftBack, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    rightFrontNEO.configure(configRightFront, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    rightBackNEO.configure(configRightBack, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
-    leftFrontNEO.setNeutralMode(NeutralMode.Brake);
-    leftBackNEO.setNeutralMode(NeutralMode.Brake);
-    rightFrontNEO.setNeutralMode(NeutralMode.Brake);
-    rightBackNEO.setNeutralMode(NeutralMode.Brake);
+    configLeftFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configLeftBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configRightFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configRightBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
 
-    leftBackNEO.follow(leftFrontNEO);
-    rightBackNEO.follow(rightFrontNEO);
+    configLeftBack.follow(leftFrontNEO);
+    configRightBack.follow(rightFrontNEO);
 
     drive = new DifferentialDrive(leftFrontNEO, rightFrontNEO);
   }
