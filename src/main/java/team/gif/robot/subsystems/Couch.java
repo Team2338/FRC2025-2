@@ -14,6 +14,9 @@ import team.gif.robot.RobotMap;
 public class Couch extends SubsystemBase {
   public static SparkMax couch;
   public static SparkMaxConfig config;
+  //double position = couch.getEncoder().getPosition(); doesn't work
+  //double positionFactor = couch.configAccessor.encoder.getPositionConversionFactor(); might have to use this?
+
 
   public Couch() {
     couch = new SparkMax(RobotMap.COUCH_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
@@ -24,5 +27,13 @@ public class Couch extends SubsystemBase {
   }
   public void turnmotor(double voltage) {
     couch.setVoltage(voltage);
+    System.out.println(config.encoder.positionConversionFactor(4096)); //not sure about this
+  }
+
+  public double getPosition(){
+    return couch.getEncoder().getPosition();
+  }
+  public void zeroEncoder(){
+    couch.getEncoder().setPosition(0); //not sure about this either
   }
 }
