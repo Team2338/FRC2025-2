@@ -1,10 +1,12 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.CouchBackward;
 import team.gif.robot.commands.CouchForward;
+import team.gif.robot.commands.CouchZero;
 import team.gif.robot.commands.HamBurgerIndex;
 import team.gif.robot.commands.HamBurgerShoot;
 
@@ -107,5 +109,6 @@ OI {
         dDPadUp.whileTrue(new CouchBackward());
         dA.whileTrue(new HamBurgerShoot());
         dRBump.whileTrue(new HamBurgerIndex());
+        dDPadLeft.onTrue(new InstantCommand(Robot.couch::zeroEncoder).ignoringDisable(true));
     }
 }

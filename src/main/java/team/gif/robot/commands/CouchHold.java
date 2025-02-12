@@ -4,11 +4,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class CouchForward extends Command {
+public class CouchHold extends Command {
 
-    public CouchForward() {
+    public CouchHold() {
         super();
-        addRequirements(Robot.couch);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -19,18 +18,17 @@ public class CouchForward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.couch.turnmotor(Constants.COUCH_NEO_PERCENT);
+        if (Robot.couch.getPosition() >= 0);
+        Robot.couch.turnmotor(Constants.COUCH_HOLD);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return Robot.couch.getPosition()<0;
+        return false;
     }
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.couch.turnmotor(0);
-    }
+    public void end(boolean interrupted) {}
 }
