@@ -5,26 +5,29 @@
 package team.gif.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase;
+import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
+import team.gif.robot.commands.AlgaeShooterIndex2;
 
-public class HamBurgerRight extends SubsystemBase {
-
-  public static SparkMax hamBurgerRight;
+public class AlgaeShooterIndexer2 extends SubsystemBase {
+  /**
+   * Creates a new ExampleSubsystem.
+   */
+  public static SparkMax AlgaeShooterIndex2;
   public static SparkMaxConfig config;
 
-  public HamBurgerRight() {
-    hamBurgerRight = new SparkMax(RobotMap.HAM_BURGER_NEO_RIGHT, SparkLowLevel.MotorType.kBrushless);
-    hamBurgerRight.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+  public AlgaeShooterIndexer2() {
+    AlgaeShooterIndex2 = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+    AlgaeShooterIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
   public void turnmotor(double voltage){
-    hamBurgerRight.setVoltage(voltage);
+    team.gif.robot.commands.AlgaeShooterIndex2.setVoltage(voltage);
+
   }
-
-
 }

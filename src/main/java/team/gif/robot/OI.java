@@ -3,10 +3,10 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.CouchBackward;
-import team.gif.robot.commands.CouchForward;
-import team.gif.robot.commands.HamBurgerIndex;
-import team.gif.robot.commands.HamBurgerShoot;
+import team.gif.robot.commands.CoralDumperBackward;
+import team.gif.robot.commands.AlgaeShooterIndex;
+import team.gif.robot.commands.CoralDumperForward;
+import team.gif.robot.commands.AlgaeShooterShoot;
 
 public class
 OI {
@@ -103,9 +103,9 @@ OI {
          */
 
         // driver controls
-        dB.whileTrue(new CouchForward());
-        dDPadUp.whileTrue(new CouchBackward());
-        dA.whileTrue(new HamBurgerShoot());
-        dRBump.whileTrue(new HamBurgerIndex());
+        dB.whileTrue(new CoralDumperForward());
+        dDPadUp.whileTrue(new CoralDumperBackward());
+        dA.whileTrue(new AlgaeShooterShoot());
+        dRBump.whileTrue(new AlgaeShooterIndex());
     }
 }

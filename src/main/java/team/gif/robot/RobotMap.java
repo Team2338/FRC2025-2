@@ -9,10 +9,10 @@ public abstract class RobotMap {
     public static final int LEFT_BACK_NEO = 31;
     public static final int RIGHT_FRONT_NEO = 1;
     public static final int RIGHT_BACK_NEO = 10;
-    public static final int COUCH_NEO_TEST = 7;
-    public static final int HAM_BURGER_NEO_RIGHT = 4;
-    public static final int HAM_BURGER_NEO_LEFT = 6;
-    public static final int HAM_BURGER_NEO_INDEX = 33;
-    public static final int HAM_BURGER_NEO_INDEX2 = 0;
+    public static final int CORAL_DUMPER_NEO_TEST = 7;
+    public static final int ALGAE_SHOOTER_NEO_RIGHT = 4;
+    public static final int ALGAE_SHOOTER_NEO_LEFT = 6;
+    public static final int ALGAE_SHOOTER_NEO_INDEX = 33;
+    public static final int ALGAE_SHOOTER_NEO_INDEX2 = 0;
 
 }

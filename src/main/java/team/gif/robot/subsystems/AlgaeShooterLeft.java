@@ -11,18 +11,23 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
 
-public class HamBurger extends SubsystemBase {
+import static team.gif.robot.Robot.algaeShooterRight;
 
-  public static SparkMax hamBurgerLeft;
+public class AlgaeShooterLeft extends SubsystemBase {
+
+  public static SparkMax algaeShooterLeft;
   public static SparkMaxConfig config;
-  public HamBurger() {
-    hamBurgerLeft = new SparkMax(RobotMap.HAM_BURGER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    hamBurgerLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+  public AlgaeShooterLeft() {
+    algaeShooterLeft = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+    algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); // I'm not sure if we need this
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    config = new SparkMaxConfig();
   }
   public void turnmotor(double voltage){
-    hamBurgerLeft.setVoltage(voltage);
+    algaeShooterLeft.setVoltage(voltage);
   }
 
 }
+
+

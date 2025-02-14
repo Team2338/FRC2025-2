@@ -11,21 +11,21 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
 
-public class HamBurgerIndexer2 extends SubsystemBase {
-  /**
-   * Creates a new ExampleSubsystem.
-   */
-  public static SparkMax hamBurgerIndex2;
+public class AlgaeShooterRight extends SubsystemBase {
+
+  public static SparkMax algaeShooterRight;
   public static SparkMaxConfig config;
 
-  public HamBurgerIndexer2() {
-    hamBurgerIndex2 = new SparkMax(RobotMap.HAM_BURGER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    hamBurgerIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+  public AlgaeShooterRight() {
+    algaeShooterRight = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_RIGHT, SparkLowLevel.MotorType.kBrushless);
+    algaeShooterRight.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    config = new SparkMaxConfig();
   }
   public void turnmotor(double voltage){
-    hamBurgerIndex2.setVoltage(voltage);
-
+    algaeShooterRight.setVoltage(voltage);
   }
+
+
 }
