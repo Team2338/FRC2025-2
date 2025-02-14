@@ -14,7 +14,7 @@ import team.gif.robot.subsystems.AlgaeShooterLeft;
 import team.gif.robot.subsystems.AlgaeShooterIndexer;
 import team.gif.robot.subsystems.AlgaeShooterIndexer2;
 import team.gif.robot.subsystems.AlgaeShooterRight;
-import team.gif.robot.subsystems.drivers.CoralDumper;
+import team.gif.robot.subsystems.CoralDumper;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -68,7 +68,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    System.out.println(couch.getPosition());
+    System.out.println(coralDumper.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
