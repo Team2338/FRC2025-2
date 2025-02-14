@@ -24,6 +24,7 @@ public class AlgaeShooterIndexer2 extends SubsystemBase {
     AlgaeShooterIndex2 = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
     AlgaeShooterIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
+    config = new SparkMaxConfig();
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
   public void turnmotor(double voltage){

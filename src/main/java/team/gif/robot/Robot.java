@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
   public static OI oi;
 
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-
+    System.out.println(couch.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

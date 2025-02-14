@@ -1,8 +1,10 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.CouchZero;
 import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.AlgaeShooterIndex;
 import team.gif.robot.commands.CoralDumperForward;
@@ -103,6 +105,7 @@ OI {
          */
 
         // driver controls
+        dDPadLeft.onTrue(new InstantCommand(Robot.couch::zeroEncoder).ignoringDisable(true));
         dB.whileTrue(new CoralDumperForward());
         dDPadUp.whileTrue(new CoralDumperBackward());
         dA.whileTrue(new AlgaeShooterShoot());
