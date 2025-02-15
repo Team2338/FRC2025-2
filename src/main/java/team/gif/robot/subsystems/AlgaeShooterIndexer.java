@@ -13,17 +13,13 @@ import com.revrobotics.spark.SparkLowLevel;
 import team.gif.robot.commands.AlgaeShooterIndex;
 
 public class AlgaeShooterIndexer extends SubsystemBase {
-  /**
-   * Creates a new ExampleSubsystem.
-   */
   public static SparkMax algaeShooterIndex;
   public static SparkMaxConfig config;
 
   public AlgaeShooterIndexer() {
-    algaeShooterIndex = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    algaeShooterIndex.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
+    algaeShooterIndex = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_INDEX, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
+    algaeShooterIndex.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
   public void turnmotor(double voltage){

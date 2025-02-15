@@ -18,10 +18,10 @@ public class AlgaeShooterRight extends SubsystemBase {
 
   public AlgaeShooterRight() {
     algaeShooterRight = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_RIGHT, SparkLowLevel.MotorType.kBrushless);
-    algaeShooterRight.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    config.signals.primaryEncoderPositionPeriodMs(5); //i'm not sure if we need this
-    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config = new SparkMaxConfig();
+    algaeShooterRight.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+
   }
   public void turnmotor(double voltage){
     algaeShooterRight.setVoltage(voltage);

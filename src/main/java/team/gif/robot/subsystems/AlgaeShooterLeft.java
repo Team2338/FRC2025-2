@@ -14,15 +14,15 @@ import com.revrobotics.spark.SparkLowLevel;
 import static team.gif.robot.Robot.algaeShooterRight;
 
 public class AlgaeShooterLeft extends SubsystemBase {
-
   public static SparkMax algaeShooterLeft;
   public static SparkMaxConfig config;
+
   public AlgaeShooterLeft() {
     algaeShooterLeft = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    config.signals.primaryEncoderPositionPeriodMs(5); // I'm not sure if we need this
-    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config = new SparkMaxConfig();
+    algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+
   }
   public void turnmotor(double voltage){
     algaeShooterLeft.setVoltage(voltage);
