@@ -52,11 +52,4 @@ public class DriveTrain extends SubsystemBase {
   public void driveTank(double leftSpeed, double rightSpeed){drive.tankDrive(leftSpeed, rightSpeed);}
   public void driveArcade(double speed, double rotation){drive.arcadeDrive(speed, rotation);}
 }
-/** I have created this comment, so I can look like i am doing something important with a bunch of typing when i actually and not lets see hoe long this goes anyone can add to it would you like to start with a story?
- * Once upon a time there was a guy named John, and he liked pizza, he only ate pizza, all types of pizza.
- * He loved dominos dry thin crust flour on the bottom of the pie pizza
- * he went to dominos so much he started becoming the pizza
- * and one day he woke up, welllll kinda his consciousness came back to him and he was a pizza a whole pizza but the worst part of all is he had pineapple on him
- * he eventually became the most disgusting thing on planet earth besides tomatoes and brocolli
- *
- * */
+
