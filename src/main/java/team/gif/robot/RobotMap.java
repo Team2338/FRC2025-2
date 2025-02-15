@@ -12,7 +12,7 @@ public abstract class RobotMap {
     public static final int ALGAE_SHOOTER_NEO_RIGHT = 99;
     public static final int ALGAE_SHOOTER_NEO_LEFT = 98;
     public static final int ALGAE_SHOOTER_NEO_INDEX = 97;
-    public static final int CORAL_DUMPER_NEO_TEST = 96;
+    public static final int CORAL_DUMPER_NEO_TEST = 0;
     public static final int ALGAE_SHOOTER_NEO_INDEX2 = 95;
 
 }
