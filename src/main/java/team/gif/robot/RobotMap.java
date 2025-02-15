@@ -7,12 +7,12 @@ public abstract class RobotMap {
     public static final int TEST_CONTROLLER_ID = 2;
     public static final int LEFT_FRONT_NEO = 50;
     public static final int LEFT_BACK_NEO = 16;
-    public static final int RIGHT_FRONT_NEO = 11;
-    public static final int RIGHT_BACK_NEO = 33;
-    public static final int CORAL_DUMPER_NEO_TEST = 0;
     public static final int ALGAE_SHOOTER_NEO_RIGHT = 0;
     public static final int ALGAE_SHOOTER_NEO_LEFT = 0;
     public static final int ALGAE_SHOOTER_NEO_INDEX = 0;
+    public static final int CORAL_DUMPER_NEO_TEST = 0;
+    public static final int RIGHT_BACK_NEO = 33;
+    public static final int RIGHT_FRONT_NEO = 11;
     public static final int ALGAE_SHOOTER_NEO_INDEX2 = 0;
 
 }
