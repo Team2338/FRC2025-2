@@ -16,5 +16,6 @@ public final class Constants {
     public static final double ALGAE_SHOOTER_NEO_PERCENT = .7;
     public static final double CORAL_NEO_PERCENT = .5;
     public static final double ALGAE_SHOOTER_INDEX_NEO_PERCENT = .7;
+    public static final double CORAL_DUMPER_HOLD = .2;
 }
 
