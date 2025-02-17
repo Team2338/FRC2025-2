@@ -39,10 +39,10 @@ public class DriveTrain extends SubsystemBase {
     rightFrontNEO.configure(configRightFront, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     rightBackNEO.configure(configRightBack, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
-    configLeftFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    configLeftBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    configRightFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    configRightBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configLeftFront.idleMode(SparkMaxConfig.IdleMode.kCoast);
+    configLeftBack.idleMode(SparkMaxConfig.IdleMode.kCoast);
+    configRightFront.idleMode(SparkMaxConfig.IdleMode.kCoast);
+    configRightBack.idleMode(SparkMaxConfig.IdleMode.kCoast);
 
     configLeftBack.follow(leftFrontNEO);
     configRightBack.follow(rightFrontNEO);
