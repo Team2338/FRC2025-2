@@ -17,7 +17,7 @@ public class AlgaeShooterIndexer extends SubsystemBase {
   public static SparkMaxConfig config;
 
   public AlgaeShooterIndexer() {
-    algaeShooterIndex = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_INDEX, SparkLowLevel.MotorType.kBrushless);
+   // algaeShooterIndex = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_INDEX, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
     algaeShooterIndex.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);

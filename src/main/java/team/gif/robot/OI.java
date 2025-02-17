@@ -105,9 +105,9 @@ OI {
 
         // driver controls
         dB.whileTrue(new CoralDumperForward());
-        dDPadUp.whileTrue(new CoralDumperBackward());
-        dA.whileTrue(new AlgaeShooterShoot());
-        dRBump.whileTrue(new AlgaeShooterIndex());
-        dDPadLeft.onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder).ignoringDisable(true));
+        dA.whileTrue(new CoralDumperBackward());
+      //  dA.whileTrue(new AlgaeShooterShoot());
+       // dRBump.whileTrue(new AlgaeShooterIndex());
+       // dDPadLeft.onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder).ignoringDisable(true));
     }
 }

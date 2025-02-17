@@ -18,7 +18,7 @@ public class AlgaeShooterLeft extends SubsystemBase {
   public static SparkMaxConfig config;
 
   public AlgaeShooterLeft() {
-    algaeShooterLeft = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+   // algaeShooterLeft = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
     algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);

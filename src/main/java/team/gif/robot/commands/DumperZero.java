@@ -15,17 +15,17 @@ public class DumperZero extends Command {
     public void initialize() {}
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
-    @Override
-    public void execute() { Robot.coralDumper.zeroEncoder();
+    //@Override
+   // public void execute() { Robot.coralDumper.zeroEncoder();
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
+   // @Override
+   // public boolean isFinished() {
+        //return false;
+
 
     // Called when the command ends or is interrupted.
-    @Override
-    public void end(boolean interrupted) {}
-}
+   // @Override
+   // public void end(boolean interrupted) {}
+

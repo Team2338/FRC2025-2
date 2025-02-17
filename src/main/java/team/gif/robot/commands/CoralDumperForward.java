@@ -10,7 +10,7 @@ public class CoralDumperForward extends Command {
 
     public CoralDumperForward() {
         super();
-        addRequirements(coralDumper);
+        addRequirements(Robot.coralDumper);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -21,7 +21,7 @@ public class CoralDumperForward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);
+        Robot.coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

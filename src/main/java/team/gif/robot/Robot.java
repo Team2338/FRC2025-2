@@ -46,10 +46,10 @@ public class Robot extends TimedRobot {
     coralDumper = new CoralDumper();
     //driveTrain.setDefaultCommand(new TankDrive());
     driveTrain.setDefaultCommand(new ArcadeDrive());
-    algaeShooter = new AlgaeShooterLeft();
-    algaeShooterRight = new AlgaeShooterRight();
-    algaeShooterIndexer = new AlgaeShooterIndexer();
-    algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+  //  algaeShooter = new AlgaeShooterLeft();
+  //  algaeShooterRight = new AlgaeShooterRight();
+  //  algaeShooterIndexer = new AlgaeShooterIndexer();
+  //  algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     oi = new OI();
 
   }
@@ -68,7 +68,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    System.out.println(coralDumper.getPosition());
+   // System.out.println(coralDumper.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

@@ -18,8 +18,8 @@ public class DumperHold extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if (Robot.coralDumper.getPosition() >= 0);
-        Robot.coralDumper.turnmotor(Constants.CORAL_DUMPER_HOLD);
+       // if (Robot.coralDumper.getPosition() >= 0);
+     //   Robot.coralDumper.turnmotor(Constants.CORAL_DUMPER_HOLD);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
