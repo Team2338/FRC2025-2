@@ -7,7 +7,6 @@ package team.gif.robot.subsystems;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
@@ -25,7 +24,7 @@ public class CoralDumper extends SubsystemBase {
 
 
 
-      public void turnmotor(double voltage) {
+      public void setVoltage(double voltage) {
           coralDumper.setVoltage(voltage);
 
           //  System.out.println(config.encoder.positionConversionFactor(4096)); //not sure about this
