@@ -1,11 +1,10 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.CoralDumperBackward;
-import team.gif.robot.commands.AlgaeShooterIndex;
+import team.gif.robot.commands.AlgaeShooterIndex1;
 import team.gif.robot.commands.CoralDumperForward;
 import team.gif.robot.commands.AlgaeShooterShoot;
 
@@ -104,9 +103,9 @@ OI {
          */
 
         // driver controls
-        dB.whileTrue(new CoralDumperForward());
         dDPadUp.whileTrue(new CoralDumperBackward());
+        dDPadDown.whileTrue(new CoralDumperForward());
         dA.whileTrue(new AlgaeShooterShoot());
-        dRBump.whileTrue(new AlgaeShooterIndex());
+        dRBump.whileTrue(new AlgaeShooterIndex1());
     }
 }

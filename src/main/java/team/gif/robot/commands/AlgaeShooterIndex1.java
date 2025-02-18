@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class AlgaeShooterIndex extends Command {
+public class AlgaeShooterIndex1 extends Command {
 
-    public AlgaeShooterIndex() {
+    public AlgaeShooterIndex1() {
         super();
         addRequirements(Robot.algaeShooterIndexer);
         //addRequirements(Robot.climber); // uncomment

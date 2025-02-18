@@ -19,7 +19,7 @@ public class CoralDumperBackward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);
+        Robot.coralDumper.turnmotor(- Constants.CORAL_NEO_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

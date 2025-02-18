@@ -10,20 +10,19 @@ import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
-import team.gif.robot.commands.AlgaeShooterIndex;
 
 public class AlgaeShooterIndexer extends SubsystemBase {
-  public static SparkMax algaeShooterIndex;
+  public static SparkMax algaeShooterIndex1;
   public static SparkMaxConfig config;
 
   public AlgaeShooterIndexer() {
-    algaeShooterIndex = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_INDEX, SparkLowLevel.MotorType.kBrushless);
+    algaeShooterIndex1 = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_INDEX1, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
-    algaeShooterIndex.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    algaeShooterIndex1.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
   public void turnmotor(double voltage){
-    algaeShooterIndex.setVoltage(voltage);
+    algaeShooterIndex1.setVoltage(voltage);
   }
 
 }
