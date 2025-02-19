@@ -10,7 +10,6 @@ CoralDumperBackward extends Command {
     public CoralDumperBackward() {
         super();
         addRequirements(Robot.coralDumper);
-        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -20,6 +19,7 @@ CoralDumperBackward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
+        Robot.coralDumper.setPositionBackward(/*position value*/); //probably wrong
         Robot.coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);
     }
 

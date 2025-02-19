@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class DumperHold extends Command {
+public class DumperFirstPosition extends Command {
 
-    public DumperHold() {
+    public DumperFirstPosition() {
         super();
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.coralDumper);
     }
 
     // Called when the command is initially scheduled.
@@ -18,8 +18,8 @@ public class DumperHold extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-       // if (Robot.coralDumper.getPosition() >= 0);
-     //   Robot.coralDumper.turnmotor(Constants.CORAL_DUMPER_HOLD);
+        if (Robot.coralDumper.getPosition() == 0);
+        Robot.coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
