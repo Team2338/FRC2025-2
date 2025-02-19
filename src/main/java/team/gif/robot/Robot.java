@@ -46,10 +46,10 @@ public class Robot extends TimedRobot {
     coralDumper = new CoralDumper();
     //driveTrain.setDefaultCommand(new TankDrive());
     driveTrain.setDefaultCommand(new ArcadeDrive());
-  //  algaeShooter = new AlgaeShooterLeft();
-  //  algaeShooterRight = new AlgaeShooterRight();
-  //  algaeShooterIndexer = new AlgaeShooterIndexer();
-  //  algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    algaeShooter = new AlgaeShooterLeft();
+    algaeShooterRight = new AlgaeShooterRight();
+    algaeShooterIndexer = new AlgaeShooterIndexer();
+    algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     oi = new OI();
 
   }

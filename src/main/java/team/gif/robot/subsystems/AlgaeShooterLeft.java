@@ -5,21 +5,22 @@
 package team.gif.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
-import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
 
 import static team.gif.robot.Robot.algaeShooterRight;
 
 public class AlgaeShooterLeft extends SubsystemBase {
-  public static SparkMax algaeShooterLeft;
-  public static SparkMaxConfig config;
+  public static SparkFlex algaeShooterLeft;
+  public static SparkFlexConfig config;
 
   public AlgaeShooterLeft() {
-    algaeShooterLeft = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    config = new SparkMaxConfig();
+    algaeShooterLeft = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+    config = new SparkFlexConfig();
     algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
 
