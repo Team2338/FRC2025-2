@@ -5,6 +5,8 @@
 package team.gif.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkMax;
@@ -13,14 +15,14 @@ import com.revrobotics.spark.SparkLowLevel;
 
 public class AlgaeShooterRight extends SubsystemBase {
 
-  public static SparkMax algaeShooterRight;
-  public static SparkMaxConfig config;
+  public static SparkFlex algaeShooterRight;
+  public static SparkFlexConfig config;
 
   public AlgaeShooterRight() {
-    algaeShooterRight = new SparkMax(RobotMap.ALGAE_SHOOTER_NEO_RIGHT, SparkLowLevel.MotorType.kBrushless);
-    config = new SparkMaxConfig();
+    algaeShooterRight = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_RIGHT, SparkLowLevel.MotorType.kBrushless);
+    config = new SparkFlexConfig();
     algaeShooterRight.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    config.idleMode(SparkFlexConfig.IdleMode.kBrake);
 
   }
   public void turnmotor(double voltage){
