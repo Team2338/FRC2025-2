@@ -24,6 +24,8 @@ public class AlgaeShooterIndex2 extends Command {
     @Override
     public void execute() {
         Robot.algaeShooterRight.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+
 
     }
 

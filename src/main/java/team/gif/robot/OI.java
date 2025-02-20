@@ -3,6 +3,9 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.AlgaeShooterIn;
+import team.gif.robot.commands.AlgaeShooterIndex2;
+import team.gif.robot.commands.AlgaeShooterIndexerIn;
 import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.AlgaeShooterIndex1;
 import team.gif.robot.commands.CoralDumperForward;
@@ -107,5 +110,8 @@ OI {
         dDPadDown.whileTrue(new CoralDumperForward());
         dA.whileTrue(new AlgaeShooterShoot());
         dRBump.whileTrue(new AlgaeShooterIndex1());
+        dRBump.whileTrue(new AlgaeShooterIndex2());
+        dLBump.whileTrue(new AlgaeShooterIndexerIn());
+        dB.whileTrue(new AlgaeShooterIn());
     }
 }
