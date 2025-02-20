@@ -12,7 +12,8 @@ public class AlgaeShooterIndexerIn extends Command {
 
 
     super();
-    addRequirements(Robot.AlgaeShooterIndex2);
+    addRequirements(Robot.algaeShooterIndexer2);
+    addRequirements(Robot.algaeShooterIndexer);
     //addRequirements(Robot.climber); // uncomment
 }
 
@@ -27,8 +28,8 @@ public void initialize() {}
 // Called every time the scheduler runs (~20ms) while the command is scheduled
 @Override
 public void execute() {
-    Robot.algaeShooterIndexer2.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
-    Robot.algaeShooterIndexer.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+    Robot.algaeShooterIndexer2.turnmotor(Constants.ALGAE_SHOOTER_IN);
+    Robot.algaeShooterIndexer.turnmotor(-Constants.ALGAE_SHOOTER_IN);
 
 
 }
@@ -43,6 +44,7 @@ public boolean isFinished() {
 @Override
 public void end(boolean interrupted) {
     Robot.algaeShooterIndexer2.turnmotor(0);
+    Robot.algaeShooterIndexer.turnmotor(0);
 
 }
 }

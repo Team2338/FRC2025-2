@@ -19,8 +19,8 @@ public class AlgaeShooterIndex1 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.algaeShooterIndexer.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        //Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
 
 
     }

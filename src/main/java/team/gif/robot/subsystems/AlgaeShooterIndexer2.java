@@ -22,6 +22,7 @@ public class AlgaeShooterIndexer2 extends SubsystemBase {
     config = new SparkMaxConfig();
     AlgaeShooterIndex2.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    config.follow(62, true);
   }
   public void turnmotor(double voltage){
     AlgaeShooterIndex2.setVoltage(voltage);
