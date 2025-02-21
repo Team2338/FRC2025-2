@@ -8,7 +8,7 @@ public class AlgaeShooterShoot extends Command {
 private int runs;
     public AlgaeShooterShoot() {
         super();
-        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot);
+        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer);
         //addRequirements(Robot.climber); // uncomment
     }
 
