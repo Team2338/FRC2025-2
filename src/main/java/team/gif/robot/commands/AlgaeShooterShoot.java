@@ -20,6 +20,7 @@ public class AlgaeShooterShoot extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
+        //this shoots
         Robot.algaeShooter.turnmotor(Constants.ALGAE_SHOOTER_IN);
         Robot.algaeShooterRight.turnmotor(-Constants.ALGAE_SHOOTER_IN);
     }
