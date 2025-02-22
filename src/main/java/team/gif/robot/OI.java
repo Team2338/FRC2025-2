@@ -110,9 +110,6 @@ OI {
         dDPadUp.whileTrue(new CoralDumperBackward());
         dDPadDown.whileTrue(new CoralDumperForward());
         dA.whileTrue(new AlgaeShooterShoot());
-        dRBump.whileTrue(new AlgaeShooterIndex1());
-        dRBump.whileTrue(new AlgaeShooterIndex2());
-        dLBump.whileTrue(new AlgaeShooterIndexerIn());
         dB.whileTrue(new bothIN());
     }
 }
