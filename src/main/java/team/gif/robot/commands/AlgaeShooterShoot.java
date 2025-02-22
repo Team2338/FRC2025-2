@@ -8,7 +8,7 @@ public class AlgaeShooterShoot extends Command {
 private int runs;
     public AlgaeShooterShoot() {
         super();
-        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer);
+        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -26,7 +26,8 @@ private int runs;
         Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_PERCENT);
         Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_PERCENT);
         if(runs>100){
-            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);}
+            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+            Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);}
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -41,6 +42,7 @@ private int runs;
         Robot.algaeShooter.turnmotor(0);
         Robot.algaeShooterRight.turnmotor(0);
         Robot.algaeShooterIndexer.turnmotor(0);
+        Robot.algaeShooterIndexer2.turnmotor(0);
 
     }
 }
