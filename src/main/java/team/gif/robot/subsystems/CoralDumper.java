@@ -23,16 +23,7 @@ public class CoralDumper extends SubsystemBase {
     config.idleMode(SparkBaseConfig.IdleMode.kBrake);
   }
 
-      public void CoralDumper() {
-        coralDumper = new SparkMax(RobotMap.CORAL_DUMPER_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
-        config = new SparkMaxConfig();
-        coralDumper.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-        config.idleMode(SparkMaxConfig.IdleMode.kBrake);
-
-      }
-
       public void turnmotor(double voltage) {
-        coralDumper.setVoltage(voltage);
         coralDumper.setVoltage(voltage);
         System.out.println(config.encoder.positionConversionFactor(4096)); //not sure about this
       }
