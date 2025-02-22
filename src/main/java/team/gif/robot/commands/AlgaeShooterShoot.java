@@ -25,7 +25,7 @@ private int runs;
         runs++;
         Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_PERCENT);
         Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_PERCENT);
-        if(runs>100){
+        if(runs>66){
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);}
     }

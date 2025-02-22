@@ -10,6 +10,7 @@ import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.AlgaeShooterIndex1;
 import team.gif.robot.commands.CoralDumperForward;
 import team.gif.robot.commands.AlgaeShooterShoot;
+import team.gif.robot.commands.bothIN;
 
 public class
 OI {
@@ -112,6 +113,6 @@ OI {
         dRBump.whileTrue(new AlgaeShooterIndex1());
         dRBump.whileTrue(new AlgaeShooterIndex2());
         dLBump.whileTrue(new AlgaeShooterIndexerIn());
-        dB.whileTrue(new AlgaeShooterIn());
+        dB.whileTrue(new bothIN());
     }
 }
