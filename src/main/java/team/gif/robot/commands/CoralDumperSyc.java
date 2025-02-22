@@ -24,15 +24,16 @@ private int timer;
     @Override
     public void execute() {
         timer+=1;
-        if(timer<60){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-        if(timer>=60){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
+        if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
+        if(timer>=25){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
 
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return  false;
+        if(timer>50){return true;}
+        else{return false;}
     }
 
     // Called when the command ends or is interrupted.
