@@ -11,6 +11,7 @@ import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.AlgaeShooterIndex1;
 import team.gif.robot.commands.CoralDumperForward;
 import team.gif.robot.commands.AlgaeShooterShoot;
+import team.gif.robot.commands.CoralDumperSyc;
 import team.gif.robot.commands.bothIN;
 
 public class
@@ -113,5 +114,6 @@ OI {
         dA.whileTrue(new AlgaeShooterShoot());
         dB.whileTrue(new bothIN());
         dX.whileTrue(new AlgaeShooterShootFarther());
+        dY.whileTrue(new CoralDumperSyc());
     }
 }
