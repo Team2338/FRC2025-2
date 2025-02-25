@@ -5,14 +5,14 @@ public abstract class RobotMap {
     public static final int DRIVER_CONTROLLER_ID = 0;
     public static final int AUX_CONTROLLER_ID = 1;
     public static final int TEST_CONTROLLER_ID = 2;
-    public static final int LEFT_FRONT_TALON =15;
-    public static final int LEFT_BACK_TALON = 31;
-    public static final int RIGHT_FRONT_TALON = 1;
-    public static final int RIGHT_BACK_TALON = 10;
-    public static final int COUCH_TALON_TEST = 7;
-    public static final int HAM_BURGER_TALON_RIGHT = 4;
-    public static final int HAM_BURGER_TALON_LEFT = 6;
-    public static final int HAM_BURGER_TALON_INDEX = 33;
-    public static final int HAM_BURGER_TALON_INDEX2 = 0;
+    public static final int LEFT_FRONT_NEO = 50;
+    public static final int LEFT_BACK_NEO = 16;
+    public static final int RIGHT_BACK_NEO = 33;
+    public static final int RIGHT_FRONT_NEO = 11;
+    public static final int ALGAE_SHOOTER_NEO_RIGHT = 60;
+    public static final int ALGAE_SHOOTER_NEO_LEFT = 61;
+    public static final int ALGAE_SHOOTER_NEO_INDEX1 = 62;
+    public static final int CORAL_DUMPER_NEO_TEST = 30;
+    public static final int ALGAE_SHOOTER_NEO_INDEX2 = 59;
 
 }

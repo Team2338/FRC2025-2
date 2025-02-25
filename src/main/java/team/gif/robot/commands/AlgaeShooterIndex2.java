@@ -4,12 +4,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class CouchForward extends Command {
+public class AlgaeShooterIndex2 extends Command {
 
-    public CouchForward() {
+    public AlgaeShooterIndex2() {
         super();
-        addRequirements(Robot.couch);
+        addRequirements(Robot.algaeShooterIndexer2);
         //addRequirements(Robot.climber); // uncomment
+    }
+
+    public static void setVoltage(double voltage) {
+
     }
 
     // Called when the command is initially scheduled.
@@ -19,7 +23,10 @@ public class CouchForward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.couch.turnmotor(Constants.COUCH_TALON_PERCENT);
+        Robot.algaeShooterIndexer2.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+
+
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -31,6 +38,7 @@ public class CouchForward extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.couch.turnmotor(0);
+        Robot.algaeShooterIndexer2.turnmotor(0);
+
     }
 }

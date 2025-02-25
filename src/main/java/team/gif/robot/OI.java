@@ -3,10 +3,16 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.CouchBackward;
-import team.gif.robot.commands.CouchForward;
-import team.gif.robot.commands.HamBurgerIndex;
-import team.gif.robot.commands.HamBurgerShoot;
+import team.gif.robot.commands.AlgaeShooterIn;
+import team.gif.robot.commands.AlgaeShooterIndex2;
+import team.gif.robot.commands.AlgaeShooterIndexerIn;
+import team.gif.robot.commands.AlgaeShooterShootFarther;
+import team.gif.robot.commands.CoralDumperBackward;
+import team.gif.robot.commands.AlgaeShooterIndex1;
+import team.gif.robot.commands.CoralDumperForward;
+import team.gif.robot.commands.AlgaeShooterShoot;
+import team.gif.robot.commands.CoralDumperSyc;
+import team.gif.robot.commands.bothIN;
 
 public class
 OI {
@@ -103,9 +109,11 @@ OI {
          */
 
         // driver controls
-        dB.whileTrue(new CouchForward());
-        dDPadUp.whileTrue(new CouchBackward());
-        dA.whileTrue(new HamBurgerShoot());
-        dRBump.whileTrue(new HamBurgerIndex());
+        dLBump.whileTrue(new CoralDumperBackward());
+        dDPadDown.whileTrue(new CoralDumperForward());
+        dA.whileTrue(new AlgaeShooterShoot());
+        dB.whileTrue(new bothIN());
+        dX.whileTrue(new AlgaeShooterShootFarther());
+        dY.onTrue(new CoralDumperSyc());
     }
 }

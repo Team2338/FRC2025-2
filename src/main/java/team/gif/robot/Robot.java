@@ -8,15 +8,13 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import team.gif.robot.commands.HamBurgerIndex;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
-import team.gif.robot.subsystems.HamBurger;
-import team.gif.robot.subsystems.HamBurgerIndexer;
-import team.gif.robot.subsystems.HamBurgerIndexer2;
-import team.gif.robot.subsystems.HamBurgerRight;
-import team.gif.robot.subsystems.drivers.Couch;
+import team.gif.robot.subsystems.AlgaeShooterLeft;
+import team.gif.robot.subsystems.AlgaeShooterIndexer;
+import team.gif.robot.subsystems.AlgaeShooterIndexer2;
+import team.gif.robot.subsystems.AlgaeShooterRight;
+import team.gif.robot.subsystems.CoralDumper;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -24,16 +22,17 @@ import team.gif.robot.subsystems.drivers.Couch;
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
-    private Command autonomousCommand;
-
+  public static Subsystem AlgaeShooterIndex2;
+  private Command autonomousCommand;
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
-  public static Couch couch;
-  public static HamBurger hamBurger;
-  public static HamBurgerRight hamBurgerRight;
-  public static HamBurgerIndexer hamBurgerIndexer;
-  public static HamBurgerIndexer2 hamBurgerIndexer2;
+  public static CoralDumper coralDumper;
+  public static AlgaeShooterLeft algaeShooter;
+  public static AlgaeShooterRight algaeShooterRight;
+  public static AlgaeShooterIndexer algaeShooterIndexer;
+  public static AlgaeShooterIndexer2 algaeShooterIndexer2;
   public static OI oi;
+
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -44,16 +43,14 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
-    couch = new Couch();
+    coralDumper = new CoralDumper();
     //driveTrain.setDefaultCommand(new TankDrive());
     driveTrain.setDefaultCommand(new ArcadeDrive());
-    hamBurger = new HamBurger();
-    hamBurgerRight = new HamBurgerRight();
-    hamBurgerIndexer = new HamBurgerIndexer();
-    hamBurgerIndexer2 = new HamBurgerIndexer2();
+    algaeShooter = new AlgaeShooterLeft();
+    algaeShooterRight = new AlgaeShooterRight();
+    algaeShooterIndexer = new AlgaeShooterIndexer();
+    algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     oi = new OI();
-
-
 
   }
 
@@ -71,7 +68,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-
+    System.out.println(coralDumper.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class HamBurgerIndex2 extends Command {
+public class AlgaeShooterIndex1 extends Command {
 
-    public HamBurgerIndex2() {
+    public AlgaeShooterIndex1() {
         super();
-        addRequirements(Robot.hamBurgerIndexer2);
+        addRequirements(Robot.algaeShooterIndexer);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -19,7 +19,9 @@ public class HamBurgerIndex2 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.hamBurgerIndexer2.turnmotor(-Constants.HAM_BURGER_INDEX_TALON_PERCENT);
+        Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        //Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+
 
     }
 
@@ -32,7 +34,7 @@ public class HamBurgerIndex2 extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.hamBurgerIndexer2.turnmotor(0);
+        Robot.algaeShooterIndexer.turnmotor(0);
 
     }
 }

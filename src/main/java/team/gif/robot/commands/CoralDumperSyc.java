@@ -4,35 +4,42 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class HamBurgerIndex extends Command {
+import static team.gif.robot.Robot.coralDumper;
 
-    public HamBurgerIndex() {
+public class CoralDumperSyc extends Command {
+private int timer;
+    public CoralDumperSyc() {
         super();
-        addRequirements(Robot.hamBurgerIndexer);
+        addRequirements(coralDumper);
         //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+        timer=0;
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.hamBurgerIndexer.turnmotor(-Constants.HAM_BURGER_INDEX_TALON_PERCENT);
+        timer+=1;
+        if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
+        if(timer>=25){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
 
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return false;
+        if(timer>50){return true;}
+        else{return false;}
     }
 
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.hamBurgerIndexer.turnmotor(0);
+        Robot.coralDumper.turnmotor(0);
 
     }
 }
