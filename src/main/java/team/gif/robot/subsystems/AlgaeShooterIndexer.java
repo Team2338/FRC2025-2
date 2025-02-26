@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package team.gif.robot.subsystems;
-
+/**
 import com.revrobotics.spark.SparkBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
@@ -26,3 +26,4 @@ public class AlgaeShooterIndexer extends SubsystemBase {
   }
 
 }
+ */

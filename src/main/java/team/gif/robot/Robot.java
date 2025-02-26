@@ -4,17 +4,20 @@
 
 package team.gif.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import team.gif.robot.commands.drivetrain.ArcadeDrive;
+/**import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.AlgaeShooterLeft;
 import team.gif.robot.subsystems.AlgaeShooterIndexer;
 import team.gif.robot.subsystems.AlgaeShooterIndexer2;
 import team.gif.robot.subsystems.AlgaeShooterRight;
-import team.gif.robot.subsystems.CoralDumper;
+import team.gif.robot.subsystems.CoralDumper;*/
+import team.gif.robot.subsystems.BABTestSpark;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -25,12 +28,15 @@ public class Robot extends TimedRobot {
   public static Subsystem AlgaeShooterIndex2;
   private Command autonomousCommand;
   private final RobotContainer robotContainer;
-  public static DriveTrain driveTrain;
-  public static CoralDumper coralDumper;
-  public static AlgaeShooterLeft algaeShooter;
-  public static AlgaeShooterRight algaeShooterRight;
-  public static AlgaeShooterIndexer algaeShooterIndexer;
-  public static AlgaeShooterIndexer2 algaeShooterIndexer2;
+  //public static DriveTrain driveTrain;
+  //public static CoralDumper coralDumper;
+  //public static AlgaeShooterLeft algaeShooter;
+  //public static AlgaeShooterRight algaeShooterRight;
+  //public static AlgaeShooterIndexer algaeShooterIndexer;
+  //public static AlgaeShooterIndexer2 algaeShooterIndexer2;
+  public static Pigeon pigeon;
+  public static UI ui;
+  public static BABTestSpark babTestSpark;
   public static OI oi;
 
 
@@ -42,14 +48,17 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
-    driveTrain = new DriveTrain();
-    coralDumper = new CoralDumper();
+    //driveTrain = new DriveTrain();
+    //coralDumper = new CoralDumper();
     //driveTrain.setDefaultCommand(new TankDrive());
-    driveTrain.setDefaultCommand(new ArcadeDrive());
-    algaeShooter = new AlgaeShooterLeft();
-    algaeShooterRight = new AlgaeShooterRight();
-    algaeShooterIndexer = new AlgaeShooterIndexer();
-    algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    //driveTrain.setDefaultCommand(new ArcadeDrive());
+    //algaeShooter = new AlgaeShooterLeft();
+    //algaeShooterRight = new AlgaeShooterRight();
+    //algaeShooterIndexer = new AlgaeShooterIndexer();
+    //algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON_ID));
+    ui = new UI();
+    babTestSpark = new BABTestSpark();
     oi = new OI();
 
   }
@@ -68,7 +77,8 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    System.out.println(coralDumper.getPosition());
+    //System.out.println(coralDumper.getPosition());
+    System.out.println("Pigeon Heading" + pigeon.getCompassHeading());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
