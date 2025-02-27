@@ -12,16 +12,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class BABTestSpark extends SubsystemBase {
-  public static SparkMax sparkMax;
+  public static SparkMax neoMotor;
   public static SparkMaxConfig sparkMaxConfig;
 
   public BABTestSpark() {
-    sparkMax = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushless);
+    neoMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushless);
     sparkMaxConfig = new SparkMaxConfig();
-    sparkMax.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+    neoMotor.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     sparkMaxConfig.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
   public void turnMotor(double voltage){
-    sparkMax.setVoltage(voltage);
+    neoMotor.setVoltage(voltage);
   }
 }

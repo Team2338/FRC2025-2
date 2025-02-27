@@ -18,9 +18,9 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import java.util.Map;
 
 public class UI {
-
+    ShuffleboardTab shuffleboardTab;
     public UI() {
-        ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
-
+        shuffleboardTab = Shuffleboard.getTab("FRC 2025");
+        //Robot.pigeon.addToShuffleboard("FRC 2025", "Gyro");
     }
 }
