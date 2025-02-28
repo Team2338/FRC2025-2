@@ -18,7 +18,7 @@ import team.gif.robot.subsystems.AlgaeShooterRight;
 import team.gif.robot.subsystems.CoralDumper;
 import team.gif.robot.subsystems.BABTestSpark;
 import team.gif.robot.subsystems.BABTestTalon;
-//import team.gif.robot.subsystems.drivers.Pigeon;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
   //public static AlgaeShooterRight algaeShooterRight;
   //public static AlgaeShooterIndexer algaeShooterIndexer;
   //public static AlgaeShooterIndexer2 algaeShooterIndexer2;
-  //public static Pigeon pigeon;
+  public static Pigeon pigeon;
   public static UI ui;
   public static BABTestSpark babTestSpark;
   public static BABTestTalon babTestTalon;
@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
     //algaeShooterIndexer = new AlgaeShooterIndexer();
     //algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     //pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON_ID));
-    //pigeon = new Pigeon(RobotMap.PIGEON_ID);
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
     ui = new UI();
     babTestSpark = new BABTestSpark();
     babTestTalon = new BABTestTalon();
@@ -82,9 +82,9 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     //System.out.println(coralDumper.getPosition());
-    //System.out.println("Pigeon Heading" + pigeon.getCompassHeading());
+    System.out.println("Pigeon Heading" + pigeon.getCompassHeading());
     System.out.println("Debug");
-    //System.out.println(pigeon.getCompassHeading());
+    System.out.println(pigeon.getCompassHeading());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

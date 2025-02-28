@@ -19,7 +19,7 @@ public class BABTestTalon extends SubsystemBase {
     cimMotor.setNeutralMode(NeutralMode.Brake);
   }
 
-  public static void setPercent(Double percentOutput){
+  public void setPercent(Double percentOutput){
     cimMotor.set(TalonSRXControlMode.PercentOutput, percentOutput);
   }
 
