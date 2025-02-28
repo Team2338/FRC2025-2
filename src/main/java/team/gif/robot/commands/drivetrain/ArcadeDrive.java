@@ -35,9 +35,4 @@ public class ArcadeDrive extends Command {
     //public void end(boolean interrupted) {
         //Robot.driveTrain.driveArcade(0,0);
     }
-<<<<<<< Updated upstream
-}
-*/
-=======
 //}
->>>>>>> Stashed changes

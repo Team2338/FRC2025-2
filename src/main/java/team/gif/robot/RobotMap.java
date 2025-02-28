@@ -15,10 +15,6 @@ public abstract class RobotMap {
     public static final int ALGAE_SHOOTER_NEO_LEFT = 61;
     public static final int ALGAE_SHOOTER_NEO_INDEX1 = 62;
     public static final int CORAL_DUMPER_NEO_TEST = 30;
-<<<<<<< Updated upstream
-    public static final int ALGAE_SHOOTER_NEO_INDEX2 = 59;*/
-    //public static final int PIGEON_ID = 5;
-=======
     public static final int ALGAE_SHOOTER_NEO_INDEX2 = 59;
     public static final int PIGEON_ID = 5;
 >>>>>>> Stashed changes

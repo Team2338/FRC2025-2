@@ -34,9 +34,4 @@ public class TankDrive extends Command {
    // public void end(boolean interrupted) {
         //Robot.driveTrain.driveTank(0,0);
     }
-<<<<<<< Updated upstream
-}
-*/
-=======
 //}
->>>>>>> Stashed changes
