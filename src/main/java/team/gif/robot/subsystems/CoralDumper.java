@@ -1,7 +1,7 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-/**
+
 package team.gif.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase;
@@ -17,7 +17,7 @@ public class CoralDumper extends SubsystemBase {
   public static SparkMaxConfig config;
 
   public CoralDumper() {
-    coralDumper = new SparkMax(RobotMap.CORAL_DUMPER_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
+    //coralDumper = new SparkMax(RobotMap.CORAL_DUMPER_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
     coralDumper.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkBaseConfig.IdleMode.kBrake);
@@ -36,4 +36,3 @@ public class CoralDumper extends SubsystemBase {
         coralDumper.getEncoder().setPosition(0); //not sure about this either
       }
     }
- */

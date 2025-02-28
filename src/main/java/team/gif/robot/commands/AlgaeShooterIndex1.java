@@ -1,5 +1,5 @@
 package team.gif.robot.commands;
-/**
+
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
@@ -8,7 +8,7 @@ public class AlgaeShooterIndex1 extends Command {
 
     public AlgaeShooterIndex1() {
         super();
-        addRequirements(Robot.algaeShooterIndexer);
+        //addRequirements(Robot.algaeShooterIndexer);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -19,7 +19,7 @@ public class AlgaeShooterIndex1 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
+        //Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
         //Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
 
 
@@ -34,8 +34,7 @@ public class AlgaeShooterIndex1 extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.algaeShooterIndexer.turnmotor(0);
+        //Robot.algaeShooterIndexer.turnmotor(0);
 
     }
 }
-*/

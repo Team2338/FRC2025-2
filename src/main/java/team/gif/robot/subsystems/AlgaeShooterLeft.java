@@ -1,7 +1,7 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-/**
+
 package team.gif.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase;
@@ -13,14 +13,14 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
 
-import static team.gif.robot.Robot.algaeShooterRight;
+//import static team.gif.robot.Robot.algaeShooterRight;
 
 public class AlgaeShooterLeft extends SubsystemBase {
   public static SparkFlex algaeShooterLeft;
   public static SparkFlexConfig config;
 
   public AlgaeShooterLeft() {
-    algaeShooterLeft = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+    //algaeShooterLeft = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
     config = new SparkFlexConfig();
     algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkFlexConfig.IdleMode.kBrake);
@@ -32,5 +32,3 @@ public class AlgaeShooterLeft extends SubsystemBase {
 
 }
 
-
-*/

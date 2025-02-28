@@ -7,7 +7,7 @@ public class TankDrive extends Command {
 
     public TankDrive() {
         super();
-        addRequirements(Robot.driveTrain);
+       // addRequirements(Robot.driveTrain);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -20,7 +20,7 @@ public class TankDrive extends Command {
         double rightPos = Robot.oi.driver.getRightY();
         double leftPos = -Robot.oi.driver.getLeftY();
 
-        Robot.driveTrain.driveTank(leftPos,rightPos);
+       // Robot.driveTrain.driveTank(leftPos,rightPos);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,9 +30,13 @@ public class TankDrive extends Command {
     }
 
     // Called when the command ends or is interrupted.
-    @Override
-    public void end(boolean interrupted) {
-        Robot.driveTrain.driveTank(0,0);
+    //@Override
+   // public void end(boolean interrupted) {
+        //Robot.driveTrain.driveTank(0,0);
     }
+<<<<<<< Updated upstream
 }
 */
+=======
+//}
+>>>>>>> Stashed changes

@@ -1,16 +1,16 @@
 package team.gif.robot.commands;
-/**
+
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-import static team.gif.robot.Robot.coralDumper;
+//import static team.gif.robot.Robot.coralDumper;
 
 public class CoralDumperSyc extends Command {
 private int timer;
     public CoralDumperSyc() {
         super();
-        addRequirements(coralDumper);
+       // addRequirements(coralDumper);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -24,8 +24,8 @@ private int timer;
     @Override
     public void execute() {
         timer+=1;
-        if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-        if(timer>=25){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
+       // if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
+       // if(timer>=25){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
 
     }
 
@@ -39,8 +39,7 @@ private int timer;
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.coralDumper.turnmotor(0);
+     //   Robot.coralDumper.turnmotor(0);
 
     }
 }
-*/
