@@ -117,6 +117,6 @@ OI {
         dB.whileTrue(new bothIN());
         dX.whileTrue(new AlgaeShooterShootFarther());
         dY.onTrue(new CoralDumperSyc());*/
-        dA.whileTrue(new BABTalonRun());
+        dLBump.whileTrue(new BABTalonRun());
     }
 }
