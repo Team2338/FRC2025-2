@@ -3,7 +3,9 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.BABSparkMaxHold;
 import team.gif.robot.commands.BABSparkMaxRun;
+import team.gif.robot.commands.BABSparkMaxZero;
 import team.gif.robot.commands.BABTalonRun;
 
 /**import team.gif.robot.commands.AlgaeShooterIn;
@@ -120,5 +122,7 @@ OI {
         dY.onTrue(new CoralDumperSyc());*/
         dB.whileTrue(new BABTalonRun());
         dA.whileTrue(new BABSparkMaxRun());
+        dX.whileTrue(new BABSparkMaxZero());
+        dY.whileTrue(new BABSparkMaxHold());
     }
 }
