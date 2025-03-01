@@ -30,6 +30,6 @@ public class BABSparkMaxRun extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.babTestSpark.turnMotor(0);
+        Robot.babTestSpark.turnMotor(0.0);
     }
 }

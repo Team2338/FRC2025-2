@@ -3,6 +3,7 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.BABSparkMaxRun;
 import team.gif.robot.commands.BABTalonRun;
 
 /**import team.gif.robot.commands.AlgaeShooterIn;
@@ -117,6 +118,7 @@ OI {
         dB.whileTrue(new bothIN());
         dX.whileTrue(new AlgaeShooterShootFarther());
         dY.onTrue(new CoralDumperSyc());*/
-        dLBump.whileTrue(new BABTalonRun());
+        dB.whileTrue(new BABTalonRun());
+        dA.whileTrue(new BABSparkMaxRun());
     }
 }
