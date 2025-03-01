@@ -60,10 +60,10 @@ public class Robot extends TimedRobot {
     //algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     //pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON_ID));
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
-    ui = new UI();
     babTestSpark = new BABTestSpark();
     babTestTalon = new BABTestTalon();
     oi = new OI();
+    ui = new UI();
 
   }
 

@@ -20,11 +20,11 @@ public class BABTestSpark extends SubsystemBase {
     neoMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushless);
     sparkMaxConfig = new SparkMaxConfig();
     sparkMaxConfig.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    sparkMaxConfig.encoder.positionConversionFactor(100); //gear ratio
+    sparkMaxConfig.encoder.positionConversionFactor(1); //gear ratio
     sparkMaxConfig.signals.primaryEncoderPositionAlwaysOn(true);
     sparkMaxConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.1,0,0); //values are p, i, d, have to be tuned
+            .pid(0.275,0.005,0); //values are p, i, d, have to be tuned
     neoMotor.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
   }
@@ -33,15 +33,19 @@ public class BABTestSpark extends SubsystemBase {
   }
 
   public void setPosition(){
-    neoMotor.getClosedLoopController().setReference(90, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it
+    neoMotor.getClosedLoopController().setReference(2, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it
   }
 
   public void zeroEncoder(){
     neoMotor.getEncoder().setPosition(0);
   }
 
-  public void getPosition(){
-    neoMotor.getEncoder();
+  public void resetEncoder(){
+    neoMotor.getClosedLoopController().setReference(0, SparkBase.ControlType.kPosition);
+  }
+
+  public double getPosition(){
+    return neoMotor.getEncoder().getPosition();
   }
 
 

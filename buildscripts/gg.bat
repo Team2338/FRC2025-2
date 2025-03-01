@@ -1,1 +1,1 @@
-.\gradlew deploy
+./gradlew deploy
