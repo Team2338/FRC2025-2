@@ -24,7 +24,8 @@ public class BABTestSpark extends SubsystemBase {
     sparkMaxConfig.signals.primaryEncoderPositionAlwaysOn(true);
     sparkMaxConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.275,0.005,0); //values are p, i, d, have to be tuned
+            //p WAS 275
+            .pid(0.5,0.005,0); //values are p, i, d, have to be tuned
     neoMotor.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
   }
@@ -33,7 +34,7 @@ public class BABTestSpark extends SubsystemBase {
   }
 
   public void setPosition(){
-    neoMotor.getClosedLoopController().setReference(2, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it
+    neoMotor.getClosedLoopController().setReference(.5, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it. raul its in rotaions i found out.
   }
 
   public void zeroEncoder(){
