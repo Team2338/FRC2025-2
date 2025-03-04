@@ -34,7 +34,7 @@ public class BABTestSpark extends SubsystemBase {
   }
 
   public void setPosition(){
-    neoMotor.getClosedLoopController().setReference(.5, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it. raul its in rotaions i found out.
+    neoMotor.getClosedLoopController().setReference(3, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it. raul its in rotaions i found out.
   }
 
   public void zeroEncoder(){
