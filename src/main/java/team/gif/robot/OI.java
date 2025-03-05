@@ -9,6 +9,7 @@ import team.gif.robot.commands.BABSparkMaxReset;
 import team.gif.robot.commands.BABSparkMaxRun;
 import team.gif.robot.commands.BABSparkMaxZero;
 import team.gif.robot.commands.BABTalonRun;
+import team.gif.robot.commands.BABTalonRunReverse;
 
 /**import team.gif.robot.commands.AlgaeShooterIn;
 import team.gif.robot.commands.AlgaeShooterIndex2;
@@ -122,7 +123,8 @@ OI {
         dB.whileTrue(new bothIN());
         dX.whileTrue(new AlgaeShooterShootFarther());
         dY.onTrue(new CoralDumperSyc());*/
-        dB.whileTrue(new BABTalonRun());
+        dLBump.whileTrue(new BABTalonRun());
+        dRBump.whileTrue(new BABTalonRunReverse());
         dA.whileTrue(new BABSparkMaxRun());
         dX.onTrue(new InstantCommand(Robot.babTestSpark::zeroEncoder));
         dY.onTrue(new BABSparkMaxReset());

@@ -19,7 +19,7 @@ public final class Constants {
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT = 8;
     public static final double BAB_TEST_NEO_PERCENT = 1;
-    public static final double BAB_TEST_TALON_PERCENT = .5;
+    public static final double BAB_TEST_TALON_PERCENT = .1;
 
 }
 
