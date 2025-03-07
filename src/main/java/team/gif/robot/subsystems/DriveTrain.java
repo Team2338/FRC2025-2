@@ -44,8 +44,8 @@ public class DriveTrain extends SubsystemBase {
     configRightFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
     configRightBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
 
-    configLeftBack.follow(leftFrontNEO);
-    configRightBack.follow(rightFrontNEO);
+    configLeftBack.follow(RobotMap.LEFT_FRONT_NEO);
+    configRightBack.follow(RobotMap.RIGHT_FRONT_NEO);
 
     drive = new DifferentialDrive(leftFrontNEO, rightFrontNEO);
 
