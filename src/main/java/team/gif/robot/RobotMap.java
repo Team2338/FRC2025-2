@@ -17,6 +17,6 @@ public abstract class RobotMap {
     public static final int CORAL_DUMPER_NEO_TEST = 30;
     public static final int ALGAE_SHOOTER_NEO_INDEX2 = 59;
     public static final int PIGEON_ID = 8;
-    public static final int TEST_SPARKMAX_ID = 1;
+    public static final int TEST_SPARKMAX_ID = 13;
     public static final int TEST_TALON_ID = 3;
 }
