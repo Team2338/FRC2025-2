@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
   public static AlgaeShooterRight algaeShooterRight;
   public static AlgaeShooterIndexer algaeShooterIndexer;
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
+  public static UI ui;
   public static OI oi;
 
 
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
     arm = new Arm();
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    ui = new UI();
     oi = new OI();
 
   }

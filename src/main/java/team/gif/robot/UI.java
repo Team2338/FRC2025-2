@@ -21,6 +21,6 @@ public class UI {
 
     public UI() {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
-
+        shuffleboardTab.addDouble("encoder", Robot.coralDumper::getPosition);
     }
 }
