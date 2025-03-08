@@ -20,7 +20,7 @@ public class ArcadeDrive extends Command {
     @Override
     public void execute() {
         double speed = Robot.oi.driver.getRightX();
-        double rotation = -Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
+        double rotation = Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
         Robot.driveTrain.driveArcade(speed*.8,rotation*.8); //two joysticks - left controls speed and right controls rotations
     }
 

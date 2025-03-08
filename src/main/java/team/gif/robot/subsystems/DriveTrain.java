@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 import com.revrobotics.spark.SparkLowLevel;
 
+import static team.gif.robot.RobotMap.LEFT_FRONT_NEO;
+
 public class DriveTrain extends SubsystemBase {
   private SparkMax leftFrontNEO;
   private SparkMaxConfig configLeftFront;
@@ -24,7 +26,7 @@ public class DriveTrain extends SubsystemBase {
   private DifferentialDrive drive;
 
   public DriveTrain() {
-    leftFrontNEO = new SparkMax(RobotMap.LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
+    leftFrontNEO = new SparkMax(LEFT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
     leftBackNEO = new SparkMax(RobotMap.LEFT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
     rightFrontNEO = new SparkMax(RobotMap.RIGHT_FRONT_NEO, SparkLowLevel.MotorType.kBrushless);
     rightBackNEO = new SparkMax(RobotMap.RIGHT_BACK_NEO, SparkLowLevel.MotorType.kBrushless);
@@ -34,18 +36,18 @@ public class DriveTrain extends SubsystemBase {
     configRightFront = new SparkMaxConfig();
     configRightBack = new SparkMaxConfig();
 
-    leftFrontNEO.configure(configLeftFront, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    leftBackNEO.configure(configLeftBack, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    rightFrontNEO.configure(configRightFront, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    rightBackNEO.configure(configRightBack, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-
     configLeftFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    configLeftBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configLeftBack.idleMode(SparkMaxConfig.IdleMode.kBrake).follow(LEFT_FRONT_NEO);
     configRightFront.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    configRightBack.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    configRightBack.idleMode(SparkMaxConfig.IdleMode.kBrake).follow(RobotMap.RIGHT_FRONT_NEO);
 
-    configLeftBack.follow(RobotMap.LEFT_FRONT_NEO);
-    configRightBack.follow(RobotMap.RIGHT_FRONT_NEO);
+    leftFrontNEO.configure(configLeftFront, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+    leftBackNEO.configure(configLeftBack, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+    rightFrontNEO.configure(configRightFront, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+    rightBackNEO.configure(configRightBack, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+
+    //configLeftBack.follow(RobotMap.LEFT_FRONT_NEO);
+    //configRightBack.follow(RobotMap.RIGHT_FRONT_NEO);
 
     drive = new DifferentialDrive(leftFrontNEO, rightFrontNEO);
 

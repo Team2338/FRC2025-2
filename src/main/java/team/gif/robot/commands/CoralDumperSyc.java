@@ -25,14 +25,14 @@ private int timer;
     public void execute() {
         timer+=1;
         if(timer<40){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-        if(timer>=40){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
+        if(timer>=40){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT*0.8);}
 
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if(timer>40){return true;}
+        if(timer>90){return true;}
         else{return false;}
     }
 

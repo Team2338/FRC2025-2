@@ -112,11 +112,11 @@ OI {
 
         // driver controls
         dLBump.whileTrue(new CoralDumperBackward());
-        dDPadDown.whileTrue(new CoralDumperForward());
+        dRBump.whileTrue(new CoralDumperForward());
         dA.whileTrue(new AlgaeShooterShoot());
         dB.whileTrue(new bothIN());
         dX.whileTrue(new AlgaeShooterShootFarther());
         dY.onTrue(new CoralDumperSyc());
-        dRBump.whileTrue(new ArmUp());
+        //dRBump.whileTrue(new ArmUp());
     }
 }
