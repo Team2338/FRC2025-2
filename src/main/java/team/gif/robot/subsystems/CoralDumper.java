@@ -4,6 +4,7 @@
 
 package team.gif.robot.subsystems;
 
+import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.ClosedLoopConfig;
@@ -23,7 +24,7 @@ public class CoralDumper extends SubsystemBase {
     config.signals.primaryEncoderPositionAlwaysOn(true);
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.1,0,0); //values are p, i, d, have to be tuned
+            .pid(0.5,0,0); //values are p, i, d, have to be tuned
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
 
@@ -34,6 +35,14 @@ public class CoralDumper extends SubsystemBase {
 
       public double getPosition() {
         return coralDumper.getEncoder().getPosition();
+      }
+
+      public void setCollectPosition(){
+      coralDumper.getClosedLoopController().setReference(2, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
+      }
+
+      public void setDrivePosition(){
+      coralDumper.getClosedLoopController().setReference(0, SparkBase.ControlType.kPosition);
       }
 
     }
