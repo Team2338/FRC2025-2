@@ -25,7 +25,7 @@ public class BABTestSpark extends SubsystemBase {
     sparkMaxConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
             //p WAS 275
-            .pid(0.5,0.005,0); //values are p, i, d, have to be tuned
+            .pid(0.5,0,0); //values are p, i, d, have to be tuned
     neoMotor.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
   }
