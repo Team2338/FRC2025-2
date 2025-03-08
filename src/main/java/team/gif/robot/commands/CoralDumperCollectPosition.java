@@ -13,6 +13,7 @@ public class CoralDumperCollectPosition extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+        Robot.coralDumper.setVelocityForward();
         Robot.coralDumper.setCollectPosition();
     }
 

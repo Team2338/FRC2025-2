@@ -1,20 +1,23 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class CoralDumperDrivePosition extends Command {
+import static team.gif.robot.Robot.coralDumper;
 
-    public CoralDumperDrivePosition() {
+public class CoralDumperAutoCollect extends Command {
+private int timer;
+    public CoralDumperAutoCollect() {
         super();
-        addRequirements(Robot.coralDumper);
+        addRequirements(coralDumper);
+        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.coralDumper.setVelocityBackward();
-        Robot.coralDumper.setDrivePosition();
+        coralDumper.setCollectPosition();
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
@@ -29,5 +32,7 @@ public class CoralDumperDrivePosition extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        coralDumper.setDrivePosition();
+    }
 }
