@@ -115,19 +115,23 @@ OI {
          */
 
         // driver controls
+
+        dX.whileTrue(new CoralDumperAutoCollect());
+        dY.onTrue(new CoralDumperSyc());
         dLBump.whileTrue(new CoralDumperBackward());
         dRBump.whileTrue(new CoralDumperForward());
-        aA.whileTrue(new AlgaeShooterShoot());
-        aB.whileTrue(new bothIN());
-        aX.whileTrue(new AlgaeShooterShootFarther());
-        dY.onTrue(new CoralDumperSyc());
-        aLTrigger.whileTrue(new ArmDown());
-        aRTrigger.whileTrue(new ArmUp());
         dDPadUp.onTrue(new CoralDumperCollectPosition());
         dDPadDown.onTrue(new CoralDumperDrivePosition());
-        dX.whileTrue(new CoralDumperAutoCollect());
+
+        // aux controls
+        aA.whileTrue(new AlgaeShooterShoot());
+        aB.whileTrue(new bothIN());
         aX.whileTrue(new CoralDumperAutoCollect());
+        aY.whileTrue(new AlgaeShooterShootFarther());
         aLBump.whileTrue(new CoralDumperBackward());
         aRBump.whileTrue(new CoralDumperForward());
+        aLTrigger.whileTrue(new ArmDown());
+        aRTrigger.whileTrue(new ArmUp());
+
     }
 }
