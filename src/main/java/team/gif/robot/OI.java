@@ -7,6 +7,7 @@ import team.gif.robot.commands.AlgaeShooterIn;
 import team.gif.robot.commands.AlgaeShooterIndex2;
 import team.gif.robot.commands.AlgaeShooterIndexerIn;
 import team.gif.robot.commands.AlgaeShooterShootFarther;
+import team.gif.robot.commands.ArmDown;
 import team.gif.robot.commands.ArmUp;
 import team.gif.robot.commands.CoralDumperAutoCollect;
 import team.gif.robot.commands.CoralDumperBackward;
@@ -114,15 +115,23 @@ OI {
          */
 
         // driver controls
+
+        dX.whileTrue(new CoralDumperAutoCollect());
+        dY.onTrue(new CoralDumperSyc());
         dLBump.whileTrue(new CoralDumperBackward());
         dRBump.whileTrue(new CoralDumperForward());
-        dA.whileTrue(new AlgaeShooterShoot());
-        dB.whileTrue(new bothIN());
-       // dX.whileTrue(new AlgaeShooterShootFarther());
-        dY.onTrue(new CoralDumperSyc());
-        dRTrigger.whileTrue(new ArmUp());
         dDPadUp.onTrue(new CoralDumperCollectPosition());
         dDPadDown.onTrue(new CoralDumperDrivePosition());
-        dX.whileTrue(new CoralDumperAutoCollect());
+
+        // aux controls
+        aA.whileTrue(new AlgaeShooterShoot());
+        aB.whileTrue(new bothIN());
+        aX.whileTrue(new CoralDumperAutoCollect());
+        aY.whileTrue(new AlgaeShooterShootFarther());
+        aLBump.whileTrue(new CoralDumperBackward());
+        aRBump.whileTrue(new CoralDumperForward());
+        aLTrigger.whileTrue(new ArmDown());
+        aRTrigger.whileTrue(new ArmUp());
+
     }
 }
