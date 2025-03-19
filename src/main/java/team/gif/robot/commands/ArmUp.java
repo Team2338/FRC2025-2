@@ -1,16 +1,16 @@
-package team.gif.robot.commands.drivetrain;
+package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ArcadeDrive extends Command {
+public class ArmUp extends Command {
 
-    public ArcadeDrive() {
+    public ArmUp() {
         super();
-        addRequirements(Robot.driveTrain);
+        addRequirements(Robot.arm);
+        //addRequirements(Robot.climber); // uncomment
     }
-
-
 
     // Called when the command is initially scheduled.
     @Override
@@ -19,9 +19,9 @@ public class ArcadeDrive extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double speed = Robot.oi.driver.getRightX();
-        double rotation = Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
-        Robot.driveTrain.driveArcade(speed*.8,rotation*.8); //two joysticks - left controls speed and right controls rotations
+        Robot.arm.setPercent(Constants.ARM_MOVE_PERCENT);
+
+
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -33,6 +33,7 @@ public class ArcadeDrive extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.driveTrain.driveArcade(0,0);
+        Robot.arm.setPercent(0.0);
+
     }
 }

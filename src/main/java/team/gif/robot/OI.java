@@ -7,14 +7,19 @@ import team.gif.robot.commands.AlgaeShooterIn;
 import team.gif.robot.commands.AlgaeShooterIndex2;
 import team.gif.robot.commands.AlgaeShooterIndexerIn;
 import team.gif.robot.commands.AlgaeShooterShootFarther;
+import team.gif.robot.commands.ArmUp;
+import team.gif.robot.commands.CoralDumperAutoCollect;
 import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.AlgaeShooterIndex1;
+import team.gif.robot.commands.CoralDumperCollectPosition;
+import team.gif.robot.commands.CoralDumperDrivePosition;
 import team.gif.robot.commands.CoralDumperForward;
 import team.gif.robot.commands.AlgaeShooterShoot;
 import team.gif.robot.commands.CoralDumperSyc;
 import team.gif.robot.commands.bothIN;
 
 public class
+
 OI {
     /*
      * Instantiate all joysticks/controllers and their buttons here
@@ -110,10 +115,14 @@ OI {
 
         // driver controls
         dLBump.whileTrue(new CoralDumperBackward());
-        dDPadDown.whileTrue(new CoralDumperForward());
+        dRBump.whileTrue(new CoralDumperForward());
         dA.whileTrue(new AlgaeShooterShoot());
         dB.whileTrue(new bothIN());
-        dX.whileTrue(new AlgaeShooterShootFarther());
+       // dX.whileTrue(new AlgaeShooterShootFarther());
         dY.onTrue(new CoralDumperSyc());
+        dRTrigger.whileTrue(new ArmUp());
+        dDPadUp.onTrue(new CoralDumperCollectPosition());
+        dDPadDown.onTrue(new CoralDumperDrivePosition());
+        dX.whileTrue(new CoralDumperAutoCollect());
     }
 }

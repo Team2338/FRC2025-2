@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.AlgaeShooterLeft;
 import team.gif.robot.subsystems.AlgaeShooterIndexer;
@@ -27,10 +28,12 @@ public class Robot extends TimedRobot {
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
   public static CoralDumper coralDumper;
+  public static Arm arm;
   public static AlgaeShooterLeft algaeShooter;
   public static AlgaeShooterRight algaeShooterRight;
   public static AlgaeShooterIndexer algaeShooterIndexer;
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
+  public static UI ui;
   public static OI oi;
 
 
@@ -48,8 +51,10 @@ public class Robot extends TimedRobot {
     driveTrain.setDefaultCommand(new ArcadeDrive());
     algaeShooter = new AlgaeShooterLeft();
     algaeShooterRight = new AlgaeShooterRight();
+    arm = new Arm();
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    ui = new UI();
     oi = new OI();
 
   }
