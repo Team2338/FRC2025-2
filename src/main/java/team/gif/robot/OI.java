@@ -127,11 +127,12 @@ OI {
         aA.whileTrue(new AlgaeShooterShoot());
         aB.whileTrue(new bothIN());
         aX.whileTrue(new CoralDumperAutoCollect());
-        aY.whileTrue(new AlgaeShooterShootFarther());
+        aY.onTrue(new CoralDumperSyc());
         aLBump.whileTrue(new CoralDumperBackward());
         aRBump.whileTrue(new CoralDumperForward());
         aLTrigger.whileTrue(new ArmDown());
         aRTrigger.whileTrue(new ArmUp());
+        aDPadUp.whileTrue(new AlgaeShooterShootFarther());
 
     }
 }
