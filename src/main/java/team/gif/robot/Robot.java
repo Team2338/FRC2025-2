@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import team.gif.robot.commands.DriveForwardAuto;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
@@ -54,6 +55,7 @@ public class Robot extends TimedRobot {
     arm = new Arm();
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    autonomousCommand = new DriveForwardAuto();
     ui = new UI();
     oi = new OI();
 
