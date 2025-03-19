@@ -26,7 +26,7 @@ public class DriveForwardAuto extends Command {
             time += 1;
             Robot.driveTrain.driveArcade(.5,0);
         }
-        if(time > 100){
+        if(time > 50){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
