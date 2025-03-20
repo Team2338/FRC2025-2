@@ -26,18 +26,18 @@ public class DriveForwardAuto extends Command {
             time += 1;
             Robot.driveTrain.driveArcade(.5,0);
         }
-        if(time > 50){
+        if(time > 5){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
-            if(timer<25){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-            if(timer>=25){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
+            if(timer<60){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
+            if(timer>=60){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
         }
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if(timer>50){return true;}
+        if(timer>110){return true;}
         else{return false;}
     }
 
