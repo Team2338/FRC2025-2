@@ -132,6 +132,7 @@ OI {
         aRBump.whileTrue(new CoralDumperForward());
         aLTrigger.whileTrue(new ArmDown());
         aRTrigger.whileTrue(new ArmUp());
+        aDPadDown.onTrue(new CoralDumperSyc());
 
     }
 }
