@@ -16,7 +16,7 @@ public TalonSRX arm;
     arm = new TalonSRX(RobotMap.ARM_ID);
     arm.configFactoryDefault();
     arm.setNeutralMode(NeutralMode.Brake);
-
+    
   }
 
   public void setPercent(double percentOutput){

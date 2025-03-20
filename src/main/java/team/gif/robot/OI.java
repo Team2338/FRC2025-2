@@ -130,8 +130,8 @@ OI {
         aY.whileTrue(new AlgaeShooterShootFarther());
         aLBump.whileTrue(new CoralDumperBackward());
         aRBump.whileTrue(new CoralDumperForward());
-        aLTrigger.whileTrue(new ArmDown());
-        aRTrigger.whileTrue(new ArmUp());
+        dLTrigger.onTrue(new ArmUp());
+        dRTrigger.onTrue(new ArmDown());
         aDPadDown.onTrue(new CoralDumperSyc());
 
     }
