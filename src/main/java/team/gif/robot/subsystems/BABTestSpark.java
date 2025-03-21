@@ -4,7 +4,6 @@
 
 package team.gif.robot.subsystems;
 
-import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.ClosedLoopConfig;
@@ -17,24 +16,26 @@ public class BABTestSpark extends SubsystemBase {
   public static SparkMaxConfig sparkMaxConfig;
 
   public BABTestSpark() {
-    neoMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushless);
+    neoMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushed);
     sparkMaxConfig = new SparkMaxConfig();
     sparkMaxConfig.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    sparkMaxConfig.encoder.positionConversionFactor(1); //gear ratio
+    sparkMaxConfig.encoder.positionConversionFactor(1);
     sparkMaxConfig.signals.primaryEncoderPositionAlwaysOn(true);
     sparkMaxConfig.closedLoop
-            .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            //p WAS 275
-            .pid(0.5,0,0); //values are p, i, d, have to be tuned
-    neoMotor.configure(sparkMaxConfig, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+            .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kAlternateOrExternalEncoder)
+            .pid(0.3,0,0)
+            .velocityFF(1.0)
+            .outputRange(-1,1); //values are p, i, d, have to be tuned
+    neoMotor.configure(sparkMaxConfig, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
   }
   public void turnMotor(double voltage){
     neoMotor.setVoltage(voltage);
   }
 
+  //in rotations
   public void setPosition(){
-    neoMotor.getClosedLoopController().setReference(.5, SparkBase.ControlType.kPosition); //I dont think this is in degrees, find out how to convert it. raul its in rotaions i found out.
+    neoMotor.getClosedLoopController().setReference(0.5, SparkMax.ControlType.kPosition);
   }
 
   public void zeroEncoder(){
@@ -42,7 +43,7 @@ public class BABTestSpark extends SubsystemBase {
   }
 
   public void resetEncoder(){
-    neoMotor.getClosedLoopController().setReference(0, SparkBase.ControlType.kPosition);
+    neoMotor.getClosedLoopController().setReference(0, SparkMax.ControlType.kPosition);
   }
 
   public double getPosition(){
