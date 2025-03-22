@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.BABSparkMaxHold;
 import team.gif.robot.commands.BABSparkMaxReset;
 import team.gif.robot.commands.BABSparkMaxRun;
+import team.gif.robot.commands.BABSparkMaxSetVelocity;
 import team.gif.robot.commands.BABSparkMaxZero;
 import team.gif.robot.commands.BABTalonRun;
 import team.gif.robot.commands.BABTalonRunReverse;
@@ -126,9 +127,10 @@ OI {
         dLBump.whileTrue(new BABTalonRun());
         dRBump.whileTrue(new BABTalonRunReverse());
         dA.whileTrue(new BABSparkMaxRun());
-        dX.onTrue(new InstantCommand(Robot.babTestSpark::zeroEncoder));
+        //dX.onTrue(new InstantCommand(Robot.babTestSpark::zeroEncoder));
         dY.onTrue(new BABSparkMaxReset());
-        dDPadUp.onTrue(new BABSparkMaxHold());
+        dB.onTrue(new BABSparkMaxHold());
+        dDPadLeft.onTrue(new BABSparkMaxSetVelocity());
     }
 
 }

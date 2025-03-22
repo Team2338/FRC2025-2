@@ -21,8 +21,9 @@ public class UI {
     ShuffleboardTab shuffleboardTab;
     public UI() {
         shuffleboardTab = Shuffleboard.getTab("FRC 2025");
-        shuffleboardTab.addDouble("spark encoder", Robot.babTestSpark::getPosition);
-        shuffleboardTab.addDouble("talon encoder", Robot.babTestTalon::getPosition);
+        shuffleboardTab.addDouble("TB Encoder", Robot.babTestSpark::getPosition);
+        //shuffleboardTab.addDouble("TB Velocity", Robot.babTestSpark::getVelocity);
+        shuffleboardTab.addDouble("Talon Encoder", Robot.babTestTalon::getPosition);
         //Robot.pigeon.addToShuffleboard("FRC 2025", "Gyro");
     }
 }

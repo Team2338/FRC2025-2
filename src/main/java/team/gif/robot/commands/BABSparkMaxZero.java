@@ -14,7 +14,7 @@ public class BABSparkMaxZero extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.babTestSpark.zeroEncoder();
+        //Robot.babTestSpark.zeroEncoder();
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled

@@ -18,7 +18,7 @@ public class BABSparkMaxRun extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.babTestSpark.turnMotor(Constants.BAB_TEST_SPARKMAX_PERCENT);
+//        Robot.babTestSpark.turnMotor(Constants.BAB_TEST_SPARKMAX_PERCENT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,6 +30,6 @@ public class BABSparkMaxRun extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.babTestSpark.turnMotor(0.0);
+//        Robot.babTestSpark.turnMotor(0.0);
     }
 }
