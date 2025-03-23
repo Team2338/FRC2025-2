@@ -26,88 +26,33 @@ import static team.gif.robot.subsystems.BABTestTalon.cimMotor;
 public class BABTestSpark extends SubsystemBase {
   public static SparkMax cimMotor;
   public static SparkMaxConfig sparkMaxConfig;
-  public static DutyCycleEncoder absoluteEncoder;
   //    public static SparkClosedLoopController closedLoopController;
 //  public static RelativeEncoder encoder; //Issue here
 //  public static AlternateEncoderConfig encoderConfig;
-  public double startPosition = 0.0;
-  public boolean rotating;
-  public static PIDController pidController;
 
   public BABTestSpark() {
     cimMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushed);
 //    closedLoopController = cimMotor.getClosedLoopController();
 //    encoder = cimMotor.getAlternateEncoder(); //Issue here
-    absoluteEncoder = new DutyCycleEncoder(0);
-    pidController = new PIDController(1.0,0.0,0.0);
-    pidController.enableContinuousInput(0.0, 1.0);
-    pidController.setTolerance(0.01);
-    rotating = false;
-  }
-
-  public double getPosition(){
-    startPosition = absoluteEncoder.get();
-    return startPosition;
-  }
-
-  public void setPosition(){
-    double currentPosition = 0;
-    double targetPosition = (startPosition + 0.5) % 1.0;
-
-    pidController.reset();
-    pidController.setSetpoint(targetPosition);
-    rotating = true;
-
-    while (!pidController.atSetpoint()) {
-      currentPosition = absoluteEncoder.get();
-      double output = pidController.calculate(currentPosition);
-      cimMotor.set(output);
-    }
-    rotating = false;
-
-
-  }
-
-  public void atPosition(){
-      cimMotor.set(0);
-      System.out.println("Half turn complete");
-      }
-
-    /*double error = Math.abs(currentPosition-targetPosition);
-    error = Math.min(error, 1.0 - error);
-
-    if(error < 0.01){
-      cimMotor.set(0);
-      rotating = false;
-      System.out.println("Half turn complete.");
-    } else{
-      cimMotor.set(0.3); */}
-
-
-
-
-
-
-
-
-
-/**
 
     sparkMaxConfig = new SparkMaxConfig();
 
     sparkMaxConfig.idleMode(SparkMaxConfig.IdleMode.kBrake);
 
+  /**
      * Will have to adjust the values because we aren't using the
      * integrated neo motor encoder.
+   */
 
-  sparkMaxConfig.encoder
+    sparkMaxConfig.encoder
             .positionConversionFactor(1)
             .velocityConversionFactor(1);
-    /**
-     * Should be making the encoder outputs postive
-     * We might not need this
-     */
-    //sparkMaxConfig.signals.primaryEncoderPositionAlwaysOn(true);
+  /**
+   * Should be making the encoder outputs postive
+   * We might not need this
+   */
+
+    sparkMaxConfig.signals.primaryEncoderPositionAlwaysOn(true);
 
     /**
      * Configure the closed loop controller.
@@ -115,16 +60,17 @@ public class BABTestSpark extends SubsystemBase {
      * previously it was kAbsoluteEncoder, but I changed it to
      * kPrimaryEncoder.
      */
+
     /**
      * Default closedloop slot of 0
-
+     */
     sparkMaxConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kAbsoluteEncoder) //Issue here
             .pid(0.3, 0.0, 0.0)
             .outputRange(-1, 1)
             /**
              * PID for velocity control, in closedloop slot 1
-
+             */
             .pid(0.1, 0.0, 0.0, ClosedLoopSlot.kSlot1)
              //Is the reciprocal of velocity?
             .velocityFF(1.0 / 1000, ClosedLoopSlot.kSlot1)
@@ -161,4 +107,3 @@ public class BABTestSpark extends SubsystemBase {
    return cimMotor.getEncoder().getVelocity();
   }
 }
-*/
