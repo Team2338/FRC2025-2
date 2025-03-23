@@ -11,33 +11,34 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.AlternateEncoderConfig;
 import com.revrobotics.spark.config.ClosedLoopConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-import java.sql.SQLOutput;
 
-import static team.gif.robot.subsystems.BABTestTalon.cimMotor;
 
 public class BABTestSpark extends SubsystemBase {
   public static SparkMax cimMotor;
   public static SparkMaxConfig sparkMaxConfig;
-  //    public static SparkClosedLoopController closedLoopController;
-//  public static RelativeEncoder encoder; //Issue here
-//  public static AlternateEncoderConfig encoderConfig;
+  public static SparkClosedLoopController closedLoopController;
+  public static ClosedLoopConfig closedLoopConfig;
+  public static RelativeEncoder encoder; //Issue here
 
   public BABTestSpark() {
     cimMotor = new SparkMax(RobotMap.TEST_SPARKMAX_ID, SparkLowLevel.MotorType.kBrushed);
-//    closedLoopController = cimMotor.getClosedLoopController();
-//    encoder = cimMotor.getAlternateEncoder(); //Issue here
+    closedLoopController = cimMotor.getClosedLoopController();
+    closedLoopConfig = new ClosedLoopConfig();
+    encoder = cimMotor.getEncoder(); //Issue here
 
     sparkMaxConfig = new SparkMaxConfig();
 
     sparkMaxConfig.idleMode(SparkMaxConfig.IdleMode.kBrake);
+
+    closedLoopConfig.feedbackSensor(ClosedLoopConfig.FeedbackSensor.kNoSensor); //issue here
+
+    encoder.setPosition(0);
 
   /**
      * Will have to adjust the values because we aren't using the
@@ -65,7 +66,7 @@ public class BABTestSpark extends SubsystemBase {
      * Default closedloop slot of 0
      */
     sparkMaxConfig.closedLoop
-            .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kAbsoluteEncoder) //Issue here
+            .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kNoSensor) //Issue here
             .pid(0.3, 0.0, 0.0)
             .outputRange(-1, 1)
             /**
@@ -85,25 +86,25 @@ public class BABTestSpark extends SubsystemBase {
 
   //in rotations
   public void setPosition() {
-    cimMotor.getClosedLoopController().setReference(0.5, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.5, SparkMax.ControlType.kDutyCycle, ClosedLoopSlot.kSlot0);
   }
 
   public void zeroEncoder() {
-   cimMotor.getEncoder().setPosition(0);
+   encoder.setPosition(0);
   }
 
   public void resetEncoder() {
-    cimMotor.getClosedLoopController().setReference(0, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0, SparkMax.ControlType.kDutyCycle, ClosedLoopSlot.kSlot0);
   }
 
   public double getPosition() {
-    return cimMotor.getEncoder().getPosition();
+    return encoder.getPosition();
   }
 
   public void setVelocity() {
-    cimMotor.getClosedLoopController().setReference(1, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
+    closedLoopController.setReference(1, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
   }
   public double getVelocity() {
-   return cimMotor.getEncoder().getVelocity();
+   return encoder.getVelocity();
   }
 }

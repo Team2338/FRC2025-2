@@ -13,13 +13,14 @@ public class BABSparkMaxHold extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+        Robot.babTestSpark.setPosition();
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute(){
         //if(Robot.babTestSpark.getPosition(); >= 0){Robot.babTestSpark.setPosition();}
-        Robot.babTestSpark.setPosition();
+        //Robot.babTestSpark.setPosition();
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

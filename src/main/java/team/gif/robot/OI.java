@@ -127,7 +127,7 @@ OI {
         dLBump.whileTrue(new BABTalonRun());
         dRBump.whileTrue(new BABTalonRunReverse());
         dA.whileTrue(new BABSparkMaxRun());
-        //dX.onTrue(new InstantCommand(Robot.babTestSpark::zeroEncoder));
+        dX.onTrue(new InstantCommand(Robot.babTestSpark::zeroEncoder));
         dY.onTrue(new BABSparkMaxReset());
         dB.onTrue(new BABSparkMaxHold());
         dDPadLeft.onTrue(new BABSparkMaxSetVelocity());
