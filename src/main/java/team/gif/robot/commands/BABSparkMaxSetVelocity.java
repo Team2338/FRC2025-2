@@ -13,12 +13,13 @@ public class BABSparkMaxSetVelocity extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.babTestSpark.setVelocity();
+        Robot.babTestSpark.setTargetRPM(2000);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
+        //Robot.babTestSpark.setVelocity(2000);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

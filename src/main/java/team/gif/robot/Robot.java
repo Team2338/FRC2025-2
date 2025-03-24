@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     //System.out.println(coralDumper.getPosition());
-    System.out.println("Pigeon Heading: " + pigeon.getCompassHeading());
+    //System.out.println("Pigeon Heading: " + pigeon.getCompassHeading());
     //System.out.println(Robot.babTestSpark.getPosition());
   }
 
