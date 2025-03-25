@@ -13,7 +13,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-//TODO: Make code consistent with Arm code
+//TODO: Make code consistent with Arm code, make a couple things constants
 
 public class CoralDumper extends SubsystemBase {
   public static SparkMax coralDumper;

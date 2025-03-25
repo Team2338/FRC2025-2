@@ -12,16 +12,18 @@ import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.ClosedLoopConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-//TODO: Fix velocity control, use armfeedforward
+//TODO: Fix velocity control, armfeedforward, make a couple things constants
 
 public class Arm extends SubsystemBase {
   public static SparkMax armMotor;
   public static SparkMaxConfig config;
   public static RelativeEncoder armEncoder;
   public static SparkClosedLoopController closedLoopController;
+  public static ArmFeedforward feedforward;
 
   public Arm() {
     armMotor = new SparkMax(RobotMap.ARM_ID, SparkLowLevel.MotorType.kBrushed);
@@ -29,8 +31,8 @@ public class Arm extends SubsystemBase {
     closedLoopController = armMotor.getClosedLoopController();
     armEncoder = armMotor.getEncoder();
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
-
     armEncoder.setPosition(0);
+    feedforward = new ArmFeedforward(feedforward.getKs(), feedforward.getKg(), feedforward.getKa(), feedforward.getKv());
 
     config.encoder
             .countsPerRevolution(8192)
@@ -41,13 +43,13 @@ public class Arm extends SubsystemBase {
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
             .pid(2.25,0.0,0.0)
             .iMaxAccum(0.1)
+            .velocityFF(feedforward.calculate(armEncoder.getPosition(), armEncoder.getVelocity())) //probably dont need this here
             .outputRange(-2, 2)
             /**
              * PID for velocity control, in closedloop slot 1
              */
             .pid(0.1,0.0,0.0, ClosedLoopSlot.kSlot1)
-            //12v is max applied voltage, 5310 rpm is the free speed of a cim motor
-            .velocityFF(12.0 / 5310, ClosedLoopSlot.kSlot1)
+            .velocityFF(feedforward.calculate(armEncoder.getPosition(), armEncoder.getVelocity()))
             .outputRange(-1, 1, ClosedLoopSlot.kSlot1);
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
   }
