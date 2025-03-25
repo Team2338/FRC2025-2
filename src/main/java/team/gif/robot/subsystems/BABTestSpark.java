@@ -59,8 +59,8 @@ public class BABTestSpark extends SubsystemBase {
      */
     sparkMaxConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder) //Issue here
-            .p(0.250)
-            .i(0.0005)
+            .p(2.25)
+            .i(0.00)
             .d(0.0)
             .iMaxAccum(0.1)
             .outputRange(-1, 1)
@@ -82,7 +82,7 @@ public class BABTestSpark extends SubsystemBase {
 
   //1 is about half a rotation
   public void setPosition() {
-    closedLoopController.setReference(1, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(2, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void zeroEncoder() {
