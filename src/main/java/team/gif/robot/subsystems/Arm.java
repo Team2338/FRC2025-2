@@ -5,22 +5,26 @@
 package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.spark.SparkLowLevel;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Arm extends SubsystemBase {
-public TalonSRX arm;
+public SparkMax armMotor;
+public SparkMaxConfig config;
   public Arm() {
-    arm = new TalonSRX(RobotMap.ARM_ID);
-    arm.configFactoryDefault();
-    arm.setNeutralMode(NeutralMode.Brake);
+    armMotor = new SparkMax(RobotMap.ARM_ID, SparkLowLevel.MotorType.kBrushed);
+    config = new SparkMaxConfig();
+    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
   }
 
-  public void setPercent(double percentOutput){
-    arm.set(TalonSRXControlMode.PercentOutput, percentOutput);
+  public void setVoltage(double voltage){
+    armMotor.setVoltage(voltage);
   }
 
 }

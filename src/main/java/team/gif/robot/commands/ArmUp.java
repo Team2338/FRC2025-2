@@ -9,7 +9,6 @@ public class ArmUp extends Command {
     public ArmUp() {
         super();
         addRequirements(Robot.arm);
-        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -19,9 +18,7 @@ public class ArmUp extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.arm.setPercent(Constants.ARM_MOVE_PERCENT);
-
-
+        Robot.arm.setVoltage(Constants.ARM_MOVE_VOLTAGE);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -33,7 +30,7 @@ public class ArmUp extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.arm.setPercent(0.0);
+        Robot.arm.setVoltage(0.0);
 
     }
 }

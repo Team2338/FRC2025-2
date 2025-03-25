@@ -18,6 +18,6 @@ public final class Constants {
     public static final double ALGAE_SHOOTER_INDEX_NEO_PERCENT = 6;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT = 8;
-    public static final double ARM_MOVE_PERCENT = .5;
+    public static final double ARM_MOVE_VOLTAGE = .5;
 }
 
