@@ -1,13 +1,17 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.AlgaeShooterIn;
 import team.gif.robot.commands.AlgaeShooterIndex2;
 import team.gif.robot.commands.AlgaeShooterIndexerIn;
 import team.gif.robot.commands.AlgaeShooterShootFarther;
+import team.gif.robot.commands.ArmCollectPosition;
 import team.gif.robot.commands.ArmDown;
+import team.gif.robot.commands.ArmDrivePosition;
+import team.gif.robot.commands.ArmDriveResetZero;
 import team.gif.robot.commands.ArmUp;
 import team.gif.robot.commands.CoralDumperAutoCollect;
 import team.gif.robot.commands.CoralDumperBackward;
@@ -115,7 +119,6 @@ OI {
          */
 
         // driver controls
-
         dX.whileTrue(new CoralDumperAutoCollect());
         dY.onTrue(new CoralDumperSyc());
         dLBump.whileTrue(new CoralDumperBackward());
@@ -133,6 +136,10 @@ OI {
         aLTrigger.whileTrue(new ArmDown());
         aRTrigger.whileTrue(new ArmUp());
         aDPadUp.whileTrue(new AlgaeShooterShootFarther());
+        aDPadLeft.onTrue(new ArmCollectPosition());
+        aDPadRight.onTrue(new ArmDrivePosition());
+        aDPadDown.onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+        //TODO: Might need to overhaul aux and driver controls because we're gonna need more for other arm positions (ie: shooting positions)
 
     }
 }
