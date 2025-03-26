@@ -8,7 +8,7 @@ public class AlgaeShooterShoot extends Command {
 private int runs;
     public AlgaeShooterShoot() {
         super();
-        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2);
+        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2,Robot.arm);
         //addRequirements(Robot.climber); // uncomment
     }
 
@@ -16,6 +16,7 @@ private int runs;
     @Override
     public void initialize() {
         runs=0;
+        Robot.arm.closeShootPosition();
     }
 
 

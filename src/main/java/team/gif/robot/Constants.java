@@ -13,11 +13,12 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final double ALGAE_SHOOTER_NEO_PERCENT = 6;
+    public static final double ALGAE_SHOOTER_NEO_PERCENT = 5;
     public static final double CORAL_NEO_PERCENT = .9;
     public static final double ALGAE_SHOOTER_INDEX_NEO_PERCENT = 6;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT = 8;
     public static final double ARM_MOVE_VOLTAGE = 2;
+    //TODO: Make names more accurate
 }
 
