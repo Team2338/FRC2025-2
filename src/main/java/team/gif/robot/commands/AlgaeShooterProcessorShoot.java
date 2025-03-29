@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class AlgaeShooterShoot extends Command {
+public class AlgaeShooterProcessorShoot extends Command {
 private int runs;
-    public AlgaeShooterShoot() {
+    public AlgaeShooterProcessorShoot() {
         super();
         addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2,Robot.arm);
     }
@@ -15,7 +15,7 @@ private int runs;
     @Override
     public void initialize() {
         runs=0;
-        Robot.arm.closeShootPosition();
+        Robot.arm.processorShootPosition();
     }
 
 
@@ -23,8 +23,8 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
+        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
+        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
         if(runs>66){
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}

@@ -65,7 +65,7 @@ public class Arm extends SubsystemBase {
     closedLoopController.setReference(1.10, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
-  public void shootPosition(){
+  public void farShootPosition(){
     closedLoopController.setReference(0.25, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 

@@ -8,14 +8,14 @@ public class AlgaeShooterShootFarther extends Command {
 private int runs;
     public AlgaeShooterShootFarther() {
         super();
-        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2);
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2,Robot.arm);
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
         runs=0;
+        Robot.arm.farShootPosition();
     }
 
 
@@ -23,11 +23,11 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT);
+        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
+        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
         if(runs>66){
-            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT);
-            Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_FAR_RANGE_NEO_PERCENT);}
+            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
+            Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
