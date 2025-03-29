@@ -1,28 +1,25 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.coral.positions;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ArmUp extends Command {
+public class CoralDumperCollectPosition extends Command {
 
-    public ArmUp() {
+    public CoralDumperCollectPosition() {
         super();
-        addRequirements(Robot.arm);
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.coralDumper);
     }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+        Robot.coralDumper.setVelocityForward();
+        Robot.coralDumper.setCollectPosition();
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-        Robot.arm.setPercent(Constants.ARM_MOVE_PERCENT);
-
-
-    }
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
@@ -32,8 +29,5 @@ public class ArmUp extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.arm.setPercent(0.0);
-
-    }
+    public void end(boolean interrupted) {}
 }
