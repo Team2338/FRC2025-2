@@ -121,9 +121,10 @@ OI {
         aY.onTrue(new CoralDumperAutoDump());
         aLBump.whileTrue(new AlgaeShooterShoot());
         aRBump.whileTrue(new AlgaeShooterShootFarther());
-        if (aStart.getAsBoolean() && aBack.getAsBoolean()){
+        aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+       /* if (aStart.getAsBoolean() && aBack.getAsBoolean()){
             new InstantCommand(Robot.arm::zeroEncoder);
-        }
+        } */
         //Manual arm control is left joystick's y-axis
         //Manual couch control is right joystick's y-axis
     }
