@@ -35,7 +35,7 @@ public class CoralDumper extends SubsystemBase {
 
 
   }
-      public void turnmotor(double voltage) {
+      public void setVoltage(double voltage) {
         coralDumper.setVoltage(voltage);
       }
 
