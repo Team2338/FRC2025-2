@@ -17,7 +17,9 @@ public class DriveForwardAuto extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {time = 0;
-        timer = 0;}
+        timer = 0;
+        System.out.println("Auto started");
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
@@ -45,6 +47,7 @@ public class DriveForwardAuto extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.coralDumper.turnmotor(0);
+        System.out.println("Auto ended");
 
     }
 }
