@@ -13,6 +13,8 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
+//TODO: Make code consistent with Arm code, make a couple things constants
+
 public class CoralDumper extends SubsystemBase {
   public static SparkMax coralDumper;
   public static SparkMaxConfig config;
@@ -26,14 +28,14 @@ public class CoralDumper extends SubsystemBase {
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
             .pid(0.3,0,0) //values are p, i, d, have to be tuned
-            .pid( 0.1, 0, 0)
+            .pid( 0.1, 0, 0, ClosedLoopSlot.kSlot1)
             .velocityFF(1.0/5767, ClosedLoopSlot.kSlot1);
 
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
 
   }
-      public void turnmotor(double voltage) {
+      public void setVoltage(double voltage) {
         coralDumper.setVoltage(voltage);
       }
 
@@ -56,6 +58,7 @@ public class CoralDumper extends SubsystemBase {
       public void setVelocityForward(){
       coralDumper.getClosedLoopController().setReference(0.5, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
       }
+
       public void setVelocityBackward(){
       coralDumper.getClosedLoopController().setReference(0.2, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
     }

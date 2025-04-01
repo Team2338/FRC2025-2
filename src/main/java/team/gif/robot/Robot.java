@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import team.gif.robot.commands.ArmJoystickManual;
+import team.gif.robot.commands.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
@@ -47,11 +49,13 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     driveTrain = new DriveTrain();
     coralDumper = new CoralDumper();
+    coralDumper.setDefaultCommand(new CouchJoystickManual());
     //driveTrain.setDefaultCommand(new TankDrive());
     driveTrain.setDefaultCommand(new ArcadeDrive());
     algaeShooter = new AlgaeShooterLeft();
     algaeShooterRight = new AlgaeShooterRight();
     arm = new Arm();
+    arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     ui = new UI();
@@ -73,7 +77,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    System.out.println(coralDumper.getPosition());
+    //System.out.println(coralDumper.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

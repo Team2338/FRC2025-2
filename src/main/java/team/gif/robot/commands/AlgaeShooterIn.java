@@ -23,8 +23,8 @@ public class AlgaeShooterIn extends Command {
         // Called every time the scheduler runs (~20ms) while the command is scheduled
         @Override
         public void execute() {
-        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_INDEX_NEO_PERCENT);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_PERCENT);
+        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
+        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
     }
 
         // Return true when the command should end, false if it should continue. Runs every ~20ms.
