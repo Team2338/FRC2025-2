@@ -8,16 +8,17 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.subsystems.Arm;
+import team.gif.robot.subsystems.Algae.Arm;
 import team.gif.robot.subsystems.DriveTrain;
-import team.gif.robot.subsystems.AlgaeShooterLeft;
-import team.gif.robot.subsystems.AlgaeShooterIndexer;
-import team.gif.robot.subsystems.AlgaeShooterIndexer2;
-import team.gif.robot.subsystems.AlgaeShooterRight;
-import team.gif.robot.subsystems.CoralDumper;
+import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterLeft;
+import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer;
+import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer2;
+import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterRight;
+import team.gif.robot.subsystems.coral.CoralDumper;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -60,6 +61,7 @@ public class Robot extends TimedRobot {
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     ui = new UI();
     oi = new OI();
+    autonomousCommand = new DriveForwardAuto();
 
   }
 
@@ -93,9 +95,10 @@ public class Robot extends TimedRobot {
     autonomousCommand = robotContainer.getAutonomousCommand();
 
     // schedule the autonomous command (example)
-    if (autonomousCommand != null) {
-      autonomousCommand.schedule();
-    }
+
+      System.out.println("auto init");
+      new DriveForwardAuto().schedule();
+
   }
 
   /** This function is called periodically during autonomous. */

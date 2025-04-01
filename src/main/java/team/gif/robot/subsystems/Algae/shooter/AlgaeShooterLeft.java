@@ -2,18 +2,14 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package team.gif.robot.subsystems;
+package team.gif.robot.subsystems.Algae.shooter;
 
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel;
-
-import static team.gif.robot.Robot.algaeShooterRight;
 
 public class AlgaeShooterLeft extends SubsystemBase {
   public static SparkFlex algaeShooterLeft;
