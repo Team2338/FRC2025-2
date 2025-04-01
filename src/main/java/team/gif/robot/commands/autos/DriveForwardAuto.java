@@ -31,8 +31,8 @@ public class DriveForwardAuto extends Command {
         if(time > 50){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
-            if(timer<60){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-            if(timer>=60){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
+            if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
+            if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
         }
     }
 
@@ -46,7 +46,7 @@ public class DriveForwardAuto extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.coralDumper.turnmotor(0);
+        Robot.coralDumper.setVoltage(0);
         System.out.println("Auto ended");
 
     }

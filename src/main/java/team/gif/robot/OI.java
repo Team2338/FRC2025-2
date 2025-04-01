@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.ArmCollectPosition;
+import team.gif.robot.commands.ArmDrivePosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
 import team.gif.robot.commands.algae.arm.ArmDown;
 import team.gif.robot.commands.algae.arm.ArmUp;
@@ -15,13 +17,6 @@ import team.gif.robot.commands.coral.positions.CoralDumperDrivePosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
-import team.gif.robot.commands.bothIN;
-import team.gif.robot.commands.AlgaeShooterShoot;
-import team.gif.robot.commands.CoralDumperForward;
-import team.gif.robot.commands.CoralDumperAutoDump;
-import team.gif.robot.commands.CoralDumperBackward;
-import team.gif.robot.commands.CoralDumperCollect;
-import team.gif.robot.commands.AlgaeShooterShootFarther;
 import team.gif.robot.commands.AlgaeShooterProcessorShoot;
 
 public class
@@ -120,27 +115,24 @@ OI {
          */
 
         // driver controls
-        dX.whileTrue(new CoralDumperCollect());
-        dY.onTrue(new CoralDumperAutoDump());
-        dLBump.whileTrue(new CoralDumperForward());
-        dRBump.whileTrue(new CoralDumperBackward());
-
-        dX.whileTrue(new CoralDumperAutoCollect());
-        dY.onTrue(new CoralDumperSyc());
-        dLBump.whileTrue(new CoralDumperBackward());
-        dRBump.whileTrue(new CoralDumperForward());
-        dDPadUp.onTrue(new CoralDumperCollectPosition());
-        dDPadDown.onTrue(new CoralDumperDrivePosition());
+        dLBump.whileTrue(new CoralDumperSycCollect());
+        dRBump.onTrue(new CoralDumperSycDump());
+        dLTrigger.whileTrue(new CoralDumperForward());
+        dRTrigger.whileTrue(new CoralDumperBackward());
+        dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
 
         // aux controls
-        aA.whileTrue(new AlgaeShooterShoot());
-        aB.whileTrue(new bothIN());
-        aX.whileTrue(new CoralDumperAutoCollect());
+        aA.whileTrue(new bothIN());
+        aB.whileTrue(new AlgaeShooterProcessorShoot());
+        aX.whileTrue(new AlgaeShooterShoot());
         aY.whileTrue(new AlgaeShooterShootFarther());
-        aLBump.whileTrue(new CoralDumperBackward());
-        aRBump.whileTrue(new CoralDumperForward());
-        aLTrigger.whileTrue(new ArmDown());
-        aRTrigger.whileTrue(new ArmUp());
+        aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+        aDPadUp.onTrue(new ArmDrivePosition());
+        aDPadDown.onTrue(new ArmCollectPosition());
+        aLBump.whileTrue(new CoralDumperSycCollect());
+        aRBump.onTrue(new CoralDumperSycDump());
+        //left joystick is manual arm
+        //right joystick is manual couch
 
     }
 }

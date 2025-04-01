@@ -6,15 +6,9 @@ import team.gif.robot.Robot;
 
 import static team.gif.robot.Robot.coralDumper;
 
-<<<<<<<< HEAD:src/main/java/team/gif/robot/commands/CoralDumperAutoDump.java
-public class CoralDumperAutoDump extends Command {
-private int timer;
-    public CoralDumperAutoDump() {
-========
 public class CoralDumperSycDump extends Command {
 private int timer;
     public CoralDumperSycDump() {
->>>>>>>> RD_Autos.2:src/main/java/team/gif/robot/commands/coral/syced/CoralDumperSycDump.java
         super();
         addRequirements(coralDumper);
         //addRequirements(Robot.climber); // uncomment
@@ -30,13 +24,8 @@ private int timer;
     @Override
     public void execute() {
         timer+=1;
-<<<<<<<< HEAD:src/main/java/team/gif/robot/commands/CoralDumperAutoDump.java
         if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
         if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
-========
-        if(timer<65){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
-        if(timer>=65){coralDumper.turnmotor(-Constants.CORAL_NEO_PERCENT);}
->>>>>>>> RD_Autos.2:src/main/java/team/gif/robot/commands/coral/syced/CoralDumperSycDump.java
 
     }
 

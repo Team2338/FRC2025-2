@@ -26,9 +26,10 @@ public class ArcadeDrive extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.driveTrain.driveArcade(slewRateLimiter.calculate(speed*.8), rotation*.8); //two joysticks - left controls speed and right controls rotations
         double rotation = Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
         double speed = Robot.oi.driver.getRightX();
+        Robot.driveTrain.driveArcade(speed*.8, slewRateLimiter.calculate(rotation*.8)); //two joysticks - left controls speed and right controls rotations
+
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

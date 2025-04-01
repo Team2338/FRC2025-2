@@ -4,15 +4,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 import static team.gif.robot.Robot.coralDumper;
 
-<<<<<<<< HEAD:src/main/java/team/gif/robot/commands/CoralDumperCollect.java
-public class CoralDumperCollect extends Command {
-private int timer;
-    public CoralDumperCollect() {
-========
+
 public class CoralDumperSycCollect extends Command {
 private int timer;
     public CoralDumperSycCollect() {
->>>>>>>> RD_Autos.2:src/main/java/team/gif/robot/commands/coral/syced/CoralDumperSycCollect.java
         super();
         addRequirements(coralDumper);
         //addRequirements(Robot.climber); // uncomment
