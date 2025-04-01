@@ -6,6 +6,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.AlgaeShooterProcessorShoot;
 import team.gif.robot.commands.AlgaeShooterShootFarther;
+import team.gif.robot.commands.ArmCollectPosition;
+import team.gif.robot.commands.ArmDrivePosition;
+import team.gif.robot.commands.ArmDriveResetZero;
 import team.gif.robot.commands.CoralDumperBackward;
 import team.gif.robot.commands.CoralDumperCollect;
 import team.gif.robot.commands.AlgaeShooterShoot;
@@ -113,14 +116,18 @@ OI {
         dY.onTrue(new CoralDumperAutoDump());
         dLBump.whileTrue(new CoralDumperForward());
         dRBump.whileTrue(new CoralDumperBackward());
+        dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+
 
         // aux controls
         aA.whileTrue(new bothIN());
         aB.whileTrue(new AlgaeShooterProcessorShoot());
         aX.whileTrue(new CoralDumperCollect());
         aY.onTrue(new CoralDumperAutoDump());
-        aLBump.whileTrue(new AlgaeShooterShoot());
-        aRBump.whileTrue(new AlgaeShooterShootFarther());
+        aLTrigger.whileTrue(new AlgaeShooterShoot());
+        aRTrigger.whileTrue(new AlgaeShooterShootFarther());
+        aLBump.onTrue(new ArmCollectPosition());
+        aRBump.onTrue(new ArmDrivePosition());
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
        /* if (aStart.getAsBoolean() && aBack.getAsBoolean()){
             new InstantCommand(Robot.arm::zeroEncoder);
