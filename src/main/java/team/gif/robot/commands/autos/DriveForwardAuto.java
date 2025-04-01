@@ -24,11 +24,11 @@ public class DriveForwardAuto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 50){
+        if(time <= 100){
             time += 1;
-            Robot.driveTrain.driveArcade(0,.5);
+            Robot.driveTrain.driveArcade(0,-.5);
         }
-        if(time > 50){
+        if(time > 100){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<60){coralDumper.turnmotor(Constants.CORAL_NEO_PERCENT);}
