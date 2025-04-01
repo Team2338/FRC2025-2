@@ -26,7 +26,7 @@ public class DriveForwardAuto extends Command {
     public void execute() {
         if(time <= 50){
             time += 1;
-            Robot.driveTrain.driveArcade(0,.5);
+            Robot.driveTrain.driveArcade(0,-.5);
         }
         if(time > 50){
             Robot.driveTrain.driveArcade(0,0);
