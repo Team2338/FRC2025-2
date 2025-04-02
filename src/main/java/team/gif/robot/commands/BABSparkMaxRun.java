@@ -3,6 +3,7 @@ package team.gif.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
+import team.gif.robot.subsystems.AlgaeLimitSwitch;
 
 public class BABSparkMaxRun extends Command {
 
@@ -24,7 +25,10 @@ public class BABSparkMaxRun extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return false;
+        if(Robot.limitSwitch.getState())
+            return true;
+        else;
+            return false;
     }
 
     // Called when the command ends or is interrupted.

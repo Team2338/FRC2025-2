@@ -19,4 +19,5 @@ public abstract class RobotMap {
     public static final int PIGEON_ID = 8;
     public static final int TEST_SPARKMAX_ID = 13;
     public static final int TEST_TALON_ID = 3;
+    public static final int ALGAE_LIMIT_SWITCH_ID = 1;
 }

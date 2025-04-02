@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.subsystems.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.AlgaeShooterLeft;
 import team.gif.robot.subsystems.AlgaeShooterIndexer;
@@ -40,7 +41,7 @@ public class Robot extends TimedRobot {
   public static BABTestSpark babTestSpark;
   public static BABTestTalon babTestTalon;
   public static OI oi;
-
+  public static AlgaeLimitSwitch limitSwitch;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -62,6 +63,7 @@ public class Robot extends TimedRobot {
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
     babTestSpark = new BABTestSpark();
     babTestTalon = new BABTestTalon();
+    limitSwitch = new AlgaeLimitSwitch();
     oi = new OI();
     ui = new UI();
 

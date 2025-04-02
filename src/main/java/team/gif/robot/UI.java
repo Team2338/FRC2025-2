@@ -22,6 +22,7 @@ public class UI {
         shuffleboardTab.addDouble("TB Velocity", Robot.babTestSpark::getRPM);
         shuffleboardTab.addDouble("Talon Encoder", Robot.babTestTalon::getPosition);
         shuffleboardTab.addDouble("Pigeon Heading", Robot.pigeon::getCompassHeading);
+        shuffleboardTab.addBoolean("LimitSwitch", Robot.limitSwitch::getState);
         //Robot.pigeon.addToShuffleboard("FRC 2025", "Gyro");
     }
 }
