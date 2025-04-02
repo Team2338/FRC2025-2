@@ -12,6 +12,7 @@ import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.subsystems.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterLeft;
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
   public static AlgaeShooterRight algaeShooterRight;
   public static AlgaeShooterIndexer algaeShooterIndexer;
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
+  public static AlgaeLimitSwitch algaeLimitSwitch;
   public static UI ui;
   public static OI oi;
 
@@ -59,6 +61,7 @@ public class Robot extends TimedRobot {
     arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    algaeLimitSwitch = new AlgaeLimitSwitch();
     ui = new UI();
     oi = new OI();
     autonomousCommand = new DriveForwardAuto();

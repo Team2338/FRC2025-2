@@ -25,6 +25,7 @@ public class UI {
         shuffleboardTab.addDouble("Couch Velocity", Robot.coralDumper::getVelocity);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
+        shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
     }
 
 }
