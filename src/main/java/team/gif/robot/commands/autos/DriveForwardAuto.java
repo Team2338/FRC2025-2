@@ -18,7 +18,9 @@ public class DriveForwardAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
+        Robot.arm.closeShootPosition();
         System.out.println("Auto started");
+
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
