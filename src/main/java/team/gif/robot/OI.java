@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.ArmCollectPosition;
 import team.gif.robot.commands.ArmDrivePosition;
+import team.gif.robot.commands.ArmZeroPosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
 import team.gif.robot.commands.algae.arm.ArmDown;
 import team.gif.robot.commands.algae.arm.ArmUp;
@@ -115,6 +116,7 @@ OI {
          */
 
         // driver controls
+        dX.onTrue(new ArmZeroPosition());
         dLBump.whileTrue(new CoralDumperSycCollect());
         dRBump.onTrue(new CoralDumperSycDump());
         dLTrigger.whileTrue(new CoralDumperForward());

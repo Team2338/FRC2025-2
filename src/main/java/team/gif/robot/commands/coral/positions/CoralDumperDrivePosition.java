@@ -13,7 +13,7 @@ public class CoralDumperDrivePosition extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.coralDumper.setVelocityBackward();
+        //Robot.coralDumper.setVelocityBackward();
         Robot.coralDumper.setDrivePosition();
     }
 

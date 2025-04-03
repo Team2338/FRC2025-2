@@ -25,6 +25,8 @@ public class UI {
         shuffleboardTab.addDouble("Couch Velocity", Robot.coralDumper::getVelocity);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
+        shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
+        shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
     }
 
 }

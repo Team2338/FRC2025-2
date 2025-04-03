@@ -27,16 +27,15 @@ public class CoralDumper extends SubsystemBase {
     config.signals.primaryEncoderPositionAlwaysOn(true);
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.1,0,0) //values are p, i, d, have to be tuned
+            .pid(0.075,0,0) //values are p, i, d, have to be tuned
             .pid( 0.1, 0, 0, ClosedLoopSlot.kSlot1)
             .velocityFF(1.0/5767, ClosedLoopSlot.kSlot1);
 
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
     //coralDumper.getEncoder().setPosition(0);
-
-
   }
+
       public void setVoltage(double voltage) {
         coralDumper.setVoltage(voltage);
       }
@@ -50,7 +49,7 @@ public class CoralDumper extends SubsystemBase {
                 ;
     }
       public void setCollectPosition(){
-      coralDumper.getClosedLoopController().setReference(0.92, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
+      coralDumper.getClosedLoopController().setReference(2.00, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
       }
 
       public void setDrivePosition(){

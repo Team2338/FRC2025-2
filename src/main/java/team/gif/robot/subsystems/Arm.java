@@ -6,6 +6,7 @@ package team.gif.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
+import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
@@ -74,11 +75,15 @@ public class Arm extends SubsystemBase {
   }
 
   public void processorShootPosition(){
-    closedLoopController.setReference(0.86, SparkMax.ControlType.kPosition);
+    closedLoopController.setReference(0.80, SparkMax.ControlType.kPosition);
   }
 
   public void drivePosition() {
-    closedLoopController.setReference(0, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.114, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+  }
+
+  public void zeroPosition(){
+    closedLoopController.setReference(0, SparkBase.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void zeroEncoder() {

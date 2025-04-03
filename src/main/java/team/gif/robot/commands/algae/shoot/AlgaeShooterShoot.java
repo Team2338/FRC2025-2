@@ -5,7 +5,7 @@ import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
 public class AlgaeShooterShoot extends Command {
-private int runs;
+
     public AlgaeShooterShoot() {
         super();
         addRequirements(Robot.algaeShooter,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2,Robot.arm);
@@ -14,18 +14,23 @@ private int runs;
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        runs=0;
         Robot.arm.closeShootPosition();
+        Robot.algaeShooterRight.setCloseShootRPM();
+        Robot.algaeShooter.setCloseShootRPM();
+        System.out.println("New Try");
     }
 
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        runs++;
-        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
-        if(runs>66){
+        Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
+        Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
+        if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM)){
+            System.out.println("Left RPM:");
+            System.out.println(Robot.algaeShooter.getRPM());
+            System.out.println("Right RPM:");
+            System.out.println(Robot.algaeShooterRight.getRPM());
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
@@ -39,8 +44,8 @@ private int runs;
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.algaeShooter.turnmotor(0);
-        Robot.algaeShooterRight.turnmotor(0);
+        Robot.algaeShooter.setVoltage(0);
+        Robot.algaeShooterRight.setVoltage(0);
         Robot.algaeShooterIndexer.turnmotor(0);
         Robot.algaeShooterIndexer2.turnmotor(0);
 

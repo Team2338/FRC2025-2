@@ -16,16 +16,17 @@ private int runs;
     public void initialize() {
         runs=0;
         Robot.arm.processorShootPosition();
+        Robot.algaeShooterRight.setProcessorShootRPM();
+        Robot.algaeShooter.setProcessorShootRPM();
     }
 
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        runs++;
-        Robot.algaeShooter.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
-        Robot.algaeShooterRight.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
-        if(runs>66){
+        Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
+        Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR);
+        if((Robot.algaeShooter.getRPM()>=Constants.PROCESSOR_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>=Constants.PROCESSOR_SHOOT_RPM)){
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
@@ -39,8 +40,8 @@ private int runs;
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.algaeShooter.turnmotor(0);
-        Robot.algaeShooterRight.turnmotor(0);
+        Robot.algaeShooter.setVoltage(0);
+        Robot.algaeShooterRight.setVoltage(0);
         Robot.algaeShooterIndexer.turnmotor(0);
         Robot.algaeShooterIndexer2.turnmotor(0);
 

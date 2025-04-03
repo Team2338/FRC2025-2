@@ -20,7 +20,7 @@ public class ArcadeDrive extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        slewRateLimiter = new SlewRateLimiter(0.5);
+        slewRateLimiter = new SlewRateLimiter(1.1);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
