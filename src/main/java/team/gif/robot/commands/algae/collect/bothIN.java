@@ -32,7 +32,10 @@ public class bothIN extends Command {
         // Return true when the command should end, false if it should continue. Runs every ~20ms.
         @Override
         public boolean isFinished() {
-        return false;
+            if(Robot.algaeLimitSwitch.getState())
+                return true;
+            else;
+                return false;
     }
 
         // Called when the command ends or is interrupted.

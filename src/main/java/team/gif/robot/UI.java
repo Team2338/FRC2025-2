@@ -27,6 +27,7 @@ public class UI {
         shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
+        shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
     }
 
 }
