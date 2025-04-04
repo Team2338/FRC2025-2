@@ -17,7 +17,6 @@ public class AlgaeShooterShoot extends Command {
         Robot.arm.closeShootPosition();
         Robot.algaeShooterRight.setCloseShootRPM();
         Robot.algaeShooter.setCloseShootRPM();
-        System.out.println("New Try");
     }
 
 
@@ -27,10 +26,6 @@ public class AlgaeShooterShoot extends Command {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
         if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM)){
-            System.out.println("Left RPM:");
-            System.out.println(Robot.algaeShooter.getRPM());
-            System.out.println("Right RPM:");
-            System.out.println(Robot.algaeShooterRight.getRPM());
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
