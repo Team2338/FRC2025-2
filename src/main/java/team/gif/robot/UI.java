@@ -28,6 +28,7 @@ public class UI {
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
         shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
+        shuffleboardTab.addDouble( "Pigeon", Robot.pigeon::getCompassHeading);
     }
 
 }

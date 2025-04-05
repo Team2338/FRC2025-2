@@ -20,6 +20,7 @@ import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer;
 import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer2;
 import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterRight;
 import team.gif.robot.subsystems.coral.CoralDumper;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static CoralDumper coralDumper;
   public static Arm arm;
+  public static Pigeon pigeon;
   public static AlgaeShooterLeft algaeShooter;
   public static AlgaeShooterRight algaeShooterRight;
   public static AlgaeShooterIndexer algaeShooterIndexer;
@@ -57,14 +59,15 @@ public class Robot extends TimedRobot {
     driveTrain.setDefaultCommand(new ArcadeDrive());
     algaeShooter = new AlgaeShooterLeft();
     algaeShooterRight = new AlgaeShooterRight();
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
     arm = new Arm();
     arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
+    autonomousCommand = new DriveForwardAuto();
     algaeLimitSwitch = new AlgaeLimitSwitch();
     ui = new UI();
     oi = new OI();
-    autonomousCommand = new DriveForwardAuto();
 
   }
 
