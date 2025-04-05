@@ -26,6 +26,7 @@ public class UI {
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
         shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
+        shuffleboardTab.addDouble( "Pigeon", Robot.pigeon::getCompassHeading);
     }
 
 }

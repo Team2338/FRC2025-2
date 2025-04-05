@@ -78,7 +78,7 @@ public class Arm extends SubsystemBase {
   }
 
   public void drivePosition() {
-    closedLoopController.setReference(0, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.114, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void zeroEncoder() {
