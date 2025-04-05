@@ -66,7 +66,7 @@ public class AndOutWay1pcAuto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return Robot.pigeon.get360Heading() >= (0) && Robot.pigeon.get360Heading() < (0.5);
+        return Robot.pigeon.get360Heading() > (359.5) || Robot.pigeon.get360Heading() < (0.5);
     }
     // Called when the command ends or is interrupted.
     @Override
