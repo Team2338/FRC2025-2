@@ -33,5 +33,6 @@ private int timer;
     @Override
     public void end(boolean interrupted) {
         coralDumper.setDrivePosition();
+        System.out.println("Going back to drive position");
     }
 }

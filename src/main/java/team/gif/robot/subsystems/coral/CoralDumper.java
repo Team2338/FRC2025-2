@@ -13,8 +13,6 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-//TODO: Make code consistent with Arm code, make a couple things constants
-
 public class CoralDumper extends SubsystemBase {
   public static SparkMax coralDumper;
   public static SparkMaxConfig config;
@@ -23,13 +21,11 @@ public class CoralDumper extends SubsystemBase {
     coralDumper = new SparkMax(RobotMap.CORAL_DUMPER_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    config.encoder.positionConversionFactor(1).positionConversionFactor(1); //gear ratio
+    //config.encoder.positionConversionFactor(1).positionConversionFactor(1); //gear ratio
     config.signals.primaryEncoderPositionAlwaysOn(true);
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.075,0,0) //values are p, i, d, have to be tuned
-            .pid( 0.1, 0, 0, ClosedLoopSlot.kSlot1)
-            .velocityFF(1.0/5767, ClosedLoopSlot.kSlot1);
+            .pid(0.075,0,0); //values are p, i, d, have to be tuned
 
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
@@ -44,23 +40,14 @@ public class CoralDumper extends SubsystemBase {
         return coralDumper.getEncoder().getPosition();
       }
 
-      public double getVelocity() {
-        return coralDumper.getEncoder().getVelocity()
-                ;
-    }
       public void setCollectPosition(){
-      coralDumper.getClosedLoopController().setReference(2.00, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
+      config.closedLoopRampRate(1.0); //Take 0.8 seconds to go from 0 to full power, smoothing out
+      coralDumper.getClosedLoopController().setReference(2.04, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
       }
 
       public void setDrivePosition(){
-      coralDumper.getClosedLoopController().setReference(0, SparkBase.ControlType.kPosition);
+      config.closedLoopRampRate(0.2);
+      coralDumper.getClosedLoopController().setReference(0.54, SparkMax.ControlType.kPosition);
       }
 
-      public void setVelocityForward(){
-      coralDumper.getClosedLoopController().setReference(0.5, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
-      }
-
-      public void setVelocityBackward(){
-      coralDumper.getClosedLoopController().setReference(0.2, SparkBase.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
-    }
 }

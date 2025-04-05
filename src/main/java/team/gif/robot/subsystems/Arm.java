@@ -15,7 +15,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-//TODO: Fix velocity control, use armfeedforward?
+//TODO: Fix PID (use armfeedforward?), add tolrancy values
 
 public class Arm extends SubsystemBase {
   public static SparkMax armMotor;

@@ -18,7 +18,11 @@ public class ArmJoystickManual extends Command {
     @Override
     public void execute() {
         double voltage = Robot.oi.aux.getLeftY();
-        Robot.arm.setVoltage(voltage);
+        if(Robot.arm.getPosition()>=.600){
+            Robot.arm.setVoltage(voltage*6);
+        }
+        else
+            Robot.arm.setVoltage(voltage*4);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
