@@ -4,8 +4,10 @@
 
 package team.gif.robot.subsystems.coral;
 
-import com.revrobotics.spark.ClosedLoopSlot;
+import com.revrobotics.AbsoluteEncoder;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.ClosedLoopConfig;
@@ -16,19 +18,24 @@ import team.gif.robot.RobotMap;
 public class CoralDumper extends SubsystemBase {
   public static SparkMax coralDumper;
   public static SparkMaxConfig config;
+  public static RelativeEncoder coralDumperEncoder;
+  public static SparkClosedLoopController closedLoopController;
+
 
   public CoralDumper() {
     coralDumper = new SparkMax(RobotMap.CORAL_DUMPER_NEO_TEST, SparkLowLevel.MotorType.kBrushless);
     config = new SparkMaxConfig();
+    closedLoopController = coralDumper.getClosedLoopController();
+    coralDumperEncoder = coralDumper.getEncoder();
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
-    //config.encoder.positionConversionFactor(1).positionConversionFactor(1); //gear ratio
-    config.signals.primaryEncoderPositionAlwaysOn(true);
+    config.signals
+            .primaryEncoderPositionAlwaysOn(true);
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.075,0,0); //values are p, i, d, have to be tuned
-
+            .pid(0.12,0,0) //increase p?
+            .iMaxAccum(0.1)
+            .outputRange(-1,1);
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
-
     //coralDumper.getEncoder().setPosition(0);
   }
 
@@ -37,17 +44,19 @@ public class CoralDumper extends SubsystemBase {
       }
 
       public double getPosition() {
-        return coralDumper.getEncoder().getPosition();
+        return coralDumperEncoder.getPosition();
       }
 
       public void setCollectPosition(){
-      config.closedLoopRampRate(1.0); //Take 0.8 seconds to go from 0 to full power, smoothing out
-      coralDumper.getClosedLoopController().setReference(2.04, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
+      //config.closedLoopRampRate(2.0); //Take 0.8 seconds to go from 0 to full power, smoothing out
+      //coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kNoPersistParameters);
+      closedLoopController.setReference(2.0, SparkMax.ControlType.kPosition); //In rotations (thank u rowan for figuring it out)
       }
 
       public void setDrivePosition(){
-      config.closedLoopRampRate(0.2);
-      coralDumper.getClosedLoopController().setReference(0.54, SparkMax.ControlType.kPosition);
+      //config.closedLoopRampRate(1.2);
+      //coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kNoPersistParameters);
+      closedLoopController.setReference(0.88, SparkMax.ControlType.kPosition);
       }
 
 }

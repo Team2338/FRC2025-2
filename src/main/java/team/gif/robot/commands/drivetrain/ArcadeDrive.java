@@ -29,7 +29,7 @@ public class ArcadeDrive extends Command {
         double rotation = Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
         double speed = Robot.oi.driver.getRightX();
         Robot.driveTrain.driveArcade(speed*.8, slewRateLimiter.calculate(rotation*.8)); //two joysticks - left controls speed and right controls rotations
-
+        //TODO: Add a boost button
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

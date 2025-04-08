@@ -28,11 +28,7 @@ public class Arm extends SubsystemBase {
     config = new SparkMaxConfig();
     closedLoopController = armMotor.getClosedLoopController();
     armEncoder = armMotor.getEncoder();
-    config.idleMode(SparkMaxConfig.IdleMode.kBrake
-    );
-
-    //armEncoder.setPosition(0);
-
+    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config.encoder
             .countsPerRevolution(8192)
             .inverted(true);
@@ -51,6 +47,7 @@ public class Arm extends SubsystemBase {
             .velocityFF(12.0 / 5310, ClosedLoopSlot.kSlot1)
             .outputRange(-1, 1, ClosedLoopSlot.kSlot1);
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+    //armEncoder.setPosition(0);
   }
 
   public void setVoltage(double voltage) {

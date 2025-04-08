@@ -2,6 +2,7 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.ArmCollectPosition;
@@ -19,6 +20,8 @@ import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
 import team.gif.robot.commands.AlgaeShooterProcessorShoot;
+
+import static team.gif.robot.Robot.coralDumper;
 
 public class
 
