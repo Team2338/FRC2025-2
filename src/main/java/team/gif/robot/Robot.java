@@ -67,7 +67,7 @@ public class Robot extends TimedRobot {
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     algaeLimitSwitch = new AlgaeLimitSwitch();
-    autonomousCommand = new auto2PC();
+    //autonomousCommand = new auto2PC();
     ui = new UI();
     oi = new OI();
     autonomousCommand = new AutosGroup();
