@@ -12,6 +12,7 @@ import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
+import team.gif.robot.commands.autos.auto2PC;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.subsystems.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.Arm;
@@ -66,6 +67,7 @@ public class Robot extends TimedRobot {
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     algaeLimitSwitch = new AlgaeLimitSwitch();
+    autonomousCommand = new auto2PC();
     ui = new UI();
     oi = new OI();
     autonomousCommand = new AutosGroup();

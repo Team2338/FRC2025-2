@@ -18,7 +18,7 @@ public class AndOutWay1pcAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
-        Robot.arm.drivePosition();
+        Robot.arm.farShootPosition();
         System.out.println("Auto started");
 
     }
@@ -30,15 +30,16 @@ public class AndOutWay1pcAuto extends Command {
             time += 1;
             Robot.driveTrain.driveArcade(0,-.5);
         }
-        if(time > 100){
+        if(time == 101){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
             if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
         }
         if(timer==111){
+            time+=1;
             Robot.coralDumper.setVoltage(0);
-            double gain= .04;
+            double gain= .01;
             double error=180-Robot.pigeon.get180Heading();
             double rotation= gain * error;
             Robot.driveTrain.driveArcade(rotation,0);

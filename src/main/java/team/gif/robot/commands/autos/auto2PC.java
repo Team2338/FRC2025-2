@@ -32,19 +32,20 @@ public class auto2PC extends Command {
             time += 1;
             Robot.driveTrain.driveArcade(0,-.5);
         }
-        if(time > 100){
+        if(time == 101){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
             if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
         }
         if(timer==111){
+            time+=1;
             Robot.coralDumper.setVoltage(0);
             double gain= .04;
             double error=180-Robot.pigeon.get180Heading();
             double rotation= gain * error;
             Robot.driveTrain.driveArcade(rotation,0);
-            if( Robot.pigeon.get360Heading() > (90 * 0.98) && Robot.pigeon.get360Heading() < (90 * 1.02)){
+            if( Robot.pigeon.getCompassHeading() > (90 * 0.98) && Robot.pigeon.getCompassHeading() < (90 * 1.02)){
                 Robot.driveTrain.driveArcade(0,0);
                 timer+=1;
             }
@@ -59,7 +60,7 @@ public class auto2PC extends Command {
             double error=180-Robot.pigeon.get180Heading();
             double rotation= gain * error;
             Robot.driveTrain.driveArcade(-rotation,0);
-            if(Robot.pigeon.get360Heading() > (359.5) || Robot.pigeon.get360Heading() < (0.5)){
+            if(Robot.pigeon.getCompassHeading() > (359.5) || Robot.pigeon.getCompassHeading() < (0.5)){
                 timer+=1;
                 Robot.driveTrain.driveArcade(0,0);
             }
@@ -74,7 +75,7 @@ public class auto2PC extends Command {
             double error=180-Robot.pigeon.get180Heading();
             double rotation= gain * error;
             Robot.driveTrain.driveArcade(rotation,0);
-            if(Robot.pigeon.get360Heading() > (54.5) && Robot.pigeon.get360Heading() < (55.5)){
+            if(Robot.pigeon.getCompassHeading() > (54.5) && Robot.pigeon.getCompassHeading() < (55.5)){
                 timer+=1;
                 Robot.driveTrain.driveArcade(0,0);
                 coralDumper.setCollectPosition();
@@ -97,7 +98,7 @@ public class auto2PC extends Command {
             double error=180-Robot.pigeon.get180Heading();
             double rotation= gain * error;
             Robot.driveTrain.driveArcade(-rotation,0);
-            if(Robot.pigeon.get360Heading() > (179.5) && Robot.pigeon.get360Heading() < (180.5)){
+            if(Robot.pigeon.getCompassHeading() > (179.5) && Robot.pigeon.getCompassHeading() < (180.5)){
                 timer+=1;
                 Robot.driveTrain.driveArcade(0,0);
         }
