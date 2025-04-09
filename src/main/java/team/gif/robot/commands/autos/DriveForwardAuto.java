@@ -49,7 +49,5 @@ public class DriveForwardAuto extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.coralDumper.setVoltage(0);
-        System.out.println("Auto ended");
-
     }
 }
