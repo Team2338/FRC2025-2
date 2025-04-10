@@ -14,18 +14,18 @@ private int runs;
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.arm.farShootPosition();
+        //Robot.arm.farShootPosition();
+        Robot.arm.setArmPosition(Constants.ARM_FAR_SHOOT_POSITION_IN_RADIANS);
         Robot.algaeShooterRight.setFarShootRPM();
         Robot.algaeShooter.setFarShootRPM();
     }
-
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
-        if((Robot.algaeShooter.getRPM()>Constants.FAR_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.FAR_SHOOT_RPM)&&(0.220<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.310)){
+        if((Robot.algaeShooter.getRPM()>Constants.FAR_SHOOT_RPM) && (Robot.algaeShooterRight.getRPM()>Constants.FAR_SHOOT_RPM) && (Robot.arm.atSetpoint(Constants.ARM_FAR_SHOOT_POSITION_IN_RADIANS))){   //(0.220<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.310))
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
