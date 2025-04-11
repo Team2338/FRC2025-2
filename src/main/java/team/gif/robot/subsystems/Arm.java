@@ -73,7 +73,7 @@ public class Arm extends SubsystemBase {
     //configure pid control (defaults to closedloopslot 0)
     armMotorConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(2.25,0.0,0.0)
+            .pid(0.2,0.0,0.0)
             .iMaxAccum(0.1)
             .outputRange(-2, 2);
 

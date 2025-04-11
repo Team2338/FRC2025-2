@@ -15,7 +15,7 @@ public class ArcadeDrive extends Command {
         turnFilter = new SlewRateLimiter(Constants.ARCADE_DRIVE_MAX_TURN_UNITS_PER_SECOND);
         addRequirements(Robot.driveTrain);
     }
-    
+
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
@@ -28,7 +28,7 @@ public class ArcadeDrive extends Command {
         double speed = Robot.oi.driver.getRightX();
 
         rotation = speedFilter.calculate(rotation) * .8;
-        speed = turnFilter.calculate(speed) * .8;
+        speed = speed * .8;
 
         Robot.driveTrain.driveArcade(speed, rotation); //two joysticks - left controls speed and right controls rotations
         //TODO: Add a boost button

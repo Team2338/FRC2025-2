@@ -26,7 +26,7 @@ public class AlgaeShooterShoot extends Command {
     public void execute() {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
-        if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM) && (Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM) && (Robot.arm.atSetpoint(Constants.ARM_CLOSE_SHOOT_POSITION_IN_RADIANS))){  //(0.120<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.200))
+        if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM) && (Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM) && (Robot.arm.atSetpoint(Constants.ARM_CLOSE_SHOOT_POSITION_IN_RADIANS))){//(0.120<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.200))
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }
