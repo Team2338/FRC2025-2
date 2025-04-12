@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import team.gif.robot.commands.ArmCollectPosition;
 import team.gif.robot.commands.ArmDrivePosition;
 import team.gif.robot.commands.ArmZeroPosition;
+import team.gif.robot.commands.Boost;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
 import team.gif.robot.commands.algae.arm.ArmDown;
 import team.gif.robot.commands.algae.arm.ArmUp;
@@ -126,6 +127,7 @@ OI {
         dLTrigger.whileTrue(new CoralDumperForward());
         dRTrigger.whileTrue(new CoralDumperBackward());
         dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+        dB.whileTrue(new Boost());
 
         // aux controls
         aA.whileTrue(new bothIN());

@@ -12,7 +12,7 @@ import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.subsystems.AlgaeLimitSwitch;
+import team.gif.robot.subsystems.Algae.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterLeft;

@@ -23,6 +23,7 @@ public final class Constants {
     public static final double CLOSE_SHOOT_RPM = 2400;
     public static final double FAR_SHOOT_RPM = 4600;
     public static final double PROCESSOR_SHOOT_RPM = 1100;
+    public static final double BOOST = 2;
     public static final double ARM_KG = 2.7839; //gravity (volts)
     public static final double ARM_KS = 0.81011; //how many volts is required to overcome to motor's static friction
     public static final double ARM_KV = 7.4686; //volts * seconds / radians
