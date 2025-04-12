@@ -27,8 +27,8 @@ public class UI {
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
         Robot.pigeon.addToShuffleboard("FRC 2025", "Pigeon Heading");
-        Robot.algaeLimitSwitch.addtoShuffleboard("FRC 2025", "Limit Switch");
-        //shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState).withWidget(BuiltInWidgets.kBooleanBox);
+        //Robot.algaeLimitSwitch.addtoShuffleboard("FRC 2025", "Limit Switch");
+        shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState).withWidget(BuiltInWidgets.kBooleanBox);
         //shuffleboardTab.addDouble( "Pigeon", Robot.pigeon::getCompassHeading).withWidget(BuiltInWidgets.kGyro);
     }
 

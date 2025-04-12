@@ -22,15 +22,14 @@ public class AlgaeLimitSwitch extends SubsystemBase {
         return LimitSwitch.get();
     }
 
+    /**
     public void addtoShuffleboard(String tabName, String widgetTitle){
     ShuffleboardTab tab = Shuffleboard.getTab(tabName); //gets a reference to the shuffleboard tab
         tab.add(widgetTitle, (x) -> {
         x.setSmartDashboardType("Boolean Box");
         x.addBooleanProperty("Value", this::getState, null);
-    });
-}
-
-
+    });*/
+    
 }
 
 
