@@ -13,7 +13,7 @@ import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.subsystems.AlgaeLimitSwitch;
+import team.gif.robot.subsystems.Algae.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterLeft;
@@ -69,6 +69,7 @@ public class Robot extends TimedRobot {
     algaeLimitSwitch = new AlgaeLimitSwitch();
     ui = new UI();
     oi = new OI();
+    pigeon.addToShuffleboard("FRC 2025", "Pigeon Heading");
 
   }
 
@@ -127,7 +128,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     double matchtime = DriverStation.getMatchTime();
-    oi.setRumble(matchtime<=5);
+    oi.setRumble(matchtime<=5 && matchtime>0);
   }
 
   @Override
