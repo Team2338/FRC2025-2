@@ -13,13 +13,15 @@ public class Boost extends Command {
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+        Constants.BOOST = 1;
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.driveTrain.driveArcade( 0, Constants.BOOST);
-        Robot.driveTrain.driveArcade( 0, -Constants.BOOST);
+        Constants.BOOST = 1.2;
+
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,5 +32,7 @@ public class Boost extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Constants.BOOST = 1;
+    }
 }
