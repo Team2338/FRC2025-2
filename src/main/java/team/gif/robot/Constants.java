@@ -35,7 +35,7 @@ public final class Constants {
     public static final double ARM_PROCESSOR_SHOOT_POSITION_IN_RADIANS = 5.648;
     public static final double ARM_GROUND_COLLECT_POSITION_IN_RADIANS = 6.232;
     public static final double ARM_ERROR_TOLERANCE = 0.15;
-    public static final double ARCADE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND = 1.5;
+    public static final double ARCADE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND = 2;
     public static final double ARCADE_DRIVE_MAX_TURN_UNITS_PER_SECOND = 2;
 
     //TODO: Make names more accurate

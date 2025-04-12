@@ -19,6 +19,7 @@ public class Boost extends Command {
     @Override
     public void execute() {
         Robot.driveTrain.driveArcade( 0, Constants.BOOST);
+        Robot.driveTrain.driveArcade( 0, -Constants.BOOST);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
