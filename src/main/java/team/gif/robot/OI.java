@@ -1,8 +1,8 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
@@ -10,19 +10,13 @@ import team.gif.robot.commands.ArmCollectPosition;
 import team.gif.robot.commands.ArmDrivePosition;
 import team.gif.robot.commands.ArmZeroPosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
-import team.gif.robot.commands.algae.arm.ArmDown;
-import team.gif.robot.commands.algae.arm.ArmUp;
 import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
 import team.gif.robot.commands.coral.manual.CoralDumperBackward;
-import team.gif.robot.commands.coral.positions.CoralDumperCollectPosition;
 import team.gif.robot.commands.coral.manual.CoralDumperForward;
-import team.gif.robot.commands.coral.positions.CoralDumperDrivePosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
 import team.gif.robot.commands.AlgaeShooterProcessorShoot;
-
-import static team.gif.robot.Robot.coralDumper;
 
 public class
 
@@ -145,6 +139,10 @@ OI {
         tB.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
         tX.whileTrue(Robot.arm.sysIdDynamic(SysIdRoutine.Direction.kForward));
         tY.whileTrue(Robot.arm.sysIdDynamic(SysIdRoutine.Direction.kReverse));
-
+    }
+    //rumble
+    public void setRumble(boolean rumbleOn){
+        driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, rumbleOn ? 1:0);
+        aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, rumbleOn ? 1:0);
     }
 }
