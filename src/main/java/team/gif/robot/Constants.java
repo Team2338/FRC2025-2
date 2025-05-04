@@ -20,9 +20,9 @@ public final class Constants {
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 6;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ARM_MOVE_VOLTAGE = 2;
-    public static final double CLOSE_SHOOT_RPM = 2800;
-    public static final double FAR_SHOOT_RPM = 3300;
-    public static final double PROCESSOR_SHOOT_RPM = 1100;
+    public static final double CLOSE_SHOOT_RPM = 2700;
+    public static final double FAR_SHOOT_RPM = 3200;
+    public static final double PROCESSOR_SHOOT_RPM = 1000;
     //TODO: Make names more accurate
 }
 
