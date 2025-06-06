@@ -8,5 +8,6 @@ public class AutosGroup extends SequentialCommandGroup {
                 new DriveForwardAuto(),
                 new turnRight90auto()
         );
+        System.out.println("turn finished ");
     }
 }

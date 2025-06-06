@@ -41,8 +41,7 @@ public class DriveForwardAuto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if(timer>110){return true;}
-        else{return false;}
+        return timer>110;
     }
 
     // Called when the command ends or is interrupted.

@@ -8,6 +8,7 @@ package team.gif.robot;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import team.gif.robot.commands.printA;
 
 
 /**
@@ -27,7 +28,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return new PathPlannerAuto("Auto 1");
+    return new printA();
 
     // An example command will be run in autonomous
   }

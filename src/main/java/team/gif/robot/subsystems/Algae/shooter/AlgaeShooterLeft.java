@@ -16,14 +16,14 @@ public class AlgaeShooterLeft extends SubsystemBase {
   public static SparkFlexConfig config;
 
   public AlgaeShooterLeft() {
-    algaeShooterLeft = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
-    config = new SparkFlexConfig();
-    algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
-    config.idleMode(SparkFlexConfig.IdleMode.kBrake);
+//    algaeShooterLeft = new SparkFlex(RobotMap.ALGAE_SHOOTER_NEO_LEFT, SparkLowLevel.MotorType.kBrushless);
+//    config = new SparkFlexConfig();
+//    algaeShooterLeft.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
+//    config.idleMode(SparkFlexConfig.IdleMode.kBrake);
 
   }
   public void turnmotor(double voltage){
-    algaeShooterLeft.setVoltage(voltage);
+//    algaeShooterLeft.setVoltage(voltage);
   }
 
 }
