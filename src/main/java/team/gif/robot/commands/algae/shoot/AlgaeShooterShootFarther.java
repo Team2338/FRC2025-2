@@ -25,9 +25,9 @@ private int runs;
     public void execute() {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_FAR);
-        if((Robot.algaeShooter.getRPM()>Constants.FAR_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.FAR_SHOOT_RPM)&&(0.220<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.310)){
-            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
-            Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
+        if((Robot.algaeShooter.getRPM()>Constants.FAR_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.FAR_SHOOT_RPM)&&(0.220<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.320)){
+            Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR);
+            Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR);}
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
