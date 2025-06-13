@@ -26,9 +26,6 @@ import team.gif.robot.Constants;
 import team.gif.robot.RobotMap;
 
 
-import java.util.logging.Logger;
-
-
 public class Arm extends SubsystemBase {
   //declare motor, encoder, pid control, etc
   public static SparkMax armMotor;
@@ -73,9 +70,16 @@ public class Arm extends SubsystemBase {
     //configure pid control (defaults to closedloopslot 0)
     armMotorConfig.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(0.2,0.0,0.0)
+            .pid(Constants.ARM_KP,Constants.ARM_KI,Constants.ARM_KD)
             .iMaxAccum(0.1)
-            .outputRange(-2, 2);
+            .outputRange(-12, 12);
+
+    //apply soft limits to prevent arm from crashing into mechanisms/ground
+    armMotorConfig.softLimit
+            .reverseSoftLimit(Constants.REVERSE_SOFT_LIMIT_IN_RADIANS)
+            .reverseSoftLimitEnabled(true)
+            .forwardSoftLimit(Constants.FORWARD_SOFT_LIMIT_IN_RADIANS)
+            .forwardSoftLimitEnabled(true);
 
     //apply configurations
     armMotor.configure(armMotorConfig, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
@@ -100,8 +104,9 @@ public class Arm extends SubsystemBase {
   }
 
   public void setArmPosition(double setpoint){
-    double feedforward = armFeedforward.calculate(setpoint, armEncoder.getVelocity());
-    closedLoopController.setReference(setpoint, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0, feedforward);
+    double ffVolts = armFeedforward.calculate(setpoint, armEncoder.getVelocity());
+    ffVolts = Math.max(-12, Math.min(12, ffVolts)); //clamp output to -12 or +12 volts
+    closedLoopController.setReference(setpoint, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0, ffVolts);
   }
 
   public void zeroEncoder() {
@@ -109,7 +114,7 @@ public class Arm extends SubsystemBase {
   }
 
   public boolean atSetpoint(double setpoint){
-    return Math.abs(getPosition() - setpoint) < Constants.ARM_ERROR_TOLERANCE;
+    return Math.abs(getPosition() - setpoint) <= Constants.ARM_ERROR_TOLERANCE;
   }
 
   private SysIdRoutine getArmSysIdRoutine() {

@@ -7,12 +7,10 @@ import team.gif.robot.Robot;
 
 public class ArcadeDrive extends Command {
     private SlewRateLimiter speedFilter;
-    private SlewRateLimiter turnFilter;
 
 
     public ArcadeDrive() {
         speedFilter = new SlewRateLimiter(Constants.ARCADE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND);
-        turnFilter = new SlewRateLimiter(Constants.ARCADE_DRIVE_MAX_TURN_UNITS_PER_SECOND);
         addRequirements(Robot.driveTrain);
     }
 
@@ -31,7 +29,6 @@ public class ArcadeDrive extends Command {
         speed = speed * .8;
 
         Robot.driveTrain.driveArcade(speed, rotation); //two joysticks - left controls speed and right controls rotations
-        //TODO: Add a boost button
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

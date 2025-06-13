@@ -20,23 +20,25 @@ public final class Constants {
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 6;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ARM_MOVE_VOLTAGE = 2;
-    public static final double CLOSE_SHOOT_RPM = 2400;
+    public static final double CLOSE_SHOOT_RPM = 2300;
     public static final double FAR_SHOOT_RPM = 4600;
     public static final double PROCESSOR_SHOOT_RPM = 1100;
-    public static final double ARM_KG = 2.7839; //gravity (volts)
-    public static final double ARM_KS = 0.81011; //how many volts is required to overcome to motor's static friction
-    public static final double ARM_KV = 7.4686; //volts * seconds / radians
-    public static final double ARM_KA = 0.54454; //volts * seconds^2 / radians
+    public static final double ARM_KP = 0.1; //increase until target is reach and doesn't oscillate
+    public static final double ARM_KI = 0.000;
+    public static final double ARM_KD = 0.01; //tune up if arm overshoots
+    public static final double ARM_KG = 1.1703; //gravity (volts)
+    public static final double ARM_KS = 1.2515; //how many volts is required to overcome to motor's static friction
+    public static final double ARM_KV = 6.1823; //volts * seconds / radians
+    public static final double ARM_KA = 3.9019; //volts * seconds^2 / radians
     public static final double ARM_ZERO_POSITION_IN_RADIANS = 0;
     public static final double ARM_DRIVE_POSITION_IN_RADIANS = 0.474;
     public static final double ARM_CLOSE_SHOOT_POSITION_IN_RADIANS = 0.850;
     public static final double ARM_FAR_SHOOT_POSITION_IN_RADIANS = 1.412;
     public static final double ARM_PROCESSOR_SHOOT_POSITION_IN_RADIANS = 5.648;
     public static final double ARM_GROUND_COLLECT_POSITION_IN_RADIANS = 6.232;
-    public static final double ARM_ERROR_TOLERANCE = 0.15;
+    public static final double REVERSE_SOFT_LIMIT_IN_RADIANS = -0.001; //0.669
+    public static final double FORWARD_SOFT_LIMIT_IN_RADIANS = 7.047;
+    public static final double ARM_ERROR_TOLERANCE = 0.1; //increased tolerance (0.25)
     public static final double ARCADE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND = 1.5;
-    public static final double ARCADE_DRIVE_MAX_TURN_UNITS_PER_SECOND = 2;
-
-    //TODO: Make names more accurate
 }
 

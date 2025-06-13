@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
   public static CoralDumper coralDumper;
   public static Arm arm;
   public static Pigeon pigeon;
-  public static AlgaeShooterLeft algaeShooter;
+  public static AlgaeShooterLeft algaeShooterLeft;
   public static AlgaeShooterRight algaeShooterRight;
   public static AlgaeShooterIndexer algaeShooterIndexer;
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
     coralDumper.setDefaultCommand(new CouchJoystickManual());
     //driveTrain.setDefaultCommand(new TankDrive());
     driveTrain.setDefaultCommand(new ArcadeDrive());
-    algaeShooter = new AlgaeShooterLeft();
+    algaeShooterLeft = new AlgaeShooterLeft();
     algaeShooterRight = new AlgaeShooterRight();
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
     arm = new Arm();

@@ -15,8 +15,6 @@ import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
-import java.util.Map;
-
 public class UI {
 
     public UI() {
@@ -24,12 +22,12 @@ public class UI {
         shuffleboardTab.addDouble("Couch Encoder", Robot.coralDumper::getPosition);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
-        shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
+        shuffleboardTab.addDouble("Left RPM", Robot.algaeShooterLeft::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
-        Robot.pigeon.addToShuffleboard("FRC 2025", "Pigeon Heading");
-        //Robot.algaeLimitSwitch.addtoShuffleboard("FRC 2025", "Limit Switch");
-        shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState).withWidget(BuiltInWidgets.kBooleanBox);
+        //Robot.pigeon.addToShuffleboard("FRC 2025", "Pigeon Heading");
         //shuffleboardTab.addDouble( "Pigeon", Robot.pigeon::getCompassHeading).withWidget(BuiltInWidgets.kGyro);
+        //shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState).withWidget(BuiltInWidgets.kBooleanBox);
+        //Robot.algaeLimitSwitch.addtoShuffleboard("FRC 2025", "Limit Switch");
     }
 
 }
