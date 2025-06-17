@@ -36,7 +36,7 @@ public class Arm extends SubsystemBase {
             .primaryEncoderPositionAlwaysOn(true);
     config.closedLoop
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
-            .pid(2.25,0.0,0.0)
+            .pid(2.5,0.0,0.0)
             .iMaxAccum(0.1)
             .outputRange(-2, 2)
             /**
@@ -60,15 +60,15 @@ public class Arm extends SubsystemBase {
 
   //In rotations
   public void collectPosition() {
-    closedLoopController.setReference(1.10, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.97, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void farShootPosition(){
-    closedLoopController.setReference(0.25, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.20, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void closeShootPosition(){
-    closedLoopController.setReference(0.15, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.12, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void processorShootPosition(){

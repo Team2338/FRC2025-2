@@ -13,16 +13,16 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 11;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 9;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 12;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 9.7;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR = 2;
     public static final double CORAL_NEO_PERCENT = .9;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 7;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR = 10;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 8.8;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR = 12;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ARM_MOVE_VOLTAGE = 2;
-    public static final double CLOSE_SHOOT_RPM = 2700;
-    public static final double FAR_SHOOT_RPM = 3200;
+    public static final double CLOSE_SHOOT_RPM = 4000;
+    public static final double FAR_SHOOT_RPM = 5300;
     public static final double PROCESSOR_SHOOT_RPM = 1000;
     //TODO: Make names more accurate
 }

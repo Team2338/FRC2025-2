@@ -15,7 +15,8 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-public class CoralDumper extends SubsystemBase {
+public class
+CoralDumper extends SubsystemBase {
   public static SparkMax coralDumper;
   public static SparkMaxConfig config;
   public static RelativeEncoder coralDumperEncoder;
@@ -36,7 +37,7 @@ public class CoralDumper extends SubsystemBase {
             .iMaxAccum(0.1)
             .outputRange(-1,1);
     coralDumper.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
-    //coralDumper.getEncoder().setPosition(0);
+    coralDumper.getEncoder().setPosition(0);
   }
 
       public void setVoltage(double voltage) {

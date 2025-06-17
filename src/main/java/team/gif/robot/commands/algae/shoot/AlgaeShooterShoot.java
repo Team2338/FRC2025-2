@@ -21,6 +21,7 @@ public class AlgaeShooterShoot extends Command {
 
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
+    //TODO: Adjust RPM requirements and adjust position requirements (for all shoot types)
     @Override
     public void execute() {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
