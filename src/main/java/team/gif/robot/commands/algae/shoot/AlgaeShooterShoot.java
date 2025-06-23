@@ -21,12 +21,12 @@ public class AlgaeShooterShoot extends Command {
 
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
-    //TODO: Adjust RPM requirements and adjust position requirements (for all shoot types)
+    //TODO: Adjust RPM requirements and adjust position requirements (for all shoot types), add tolerancy??
     @Override
     public void execute() {
         Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
-        if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM&&(0.08<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.200))){
+        if((Robot.algaeShooter.getRPM()>Constants.CLOSE_SHOOT_RPM)&&(Robot.algaeShooterRight.getRPM()>Constants.CLOSE_SHOOT_RPM&&(0.08<=Robot.arm.getPosition()&&Robot.arm.getPosition()<=0.145))){
             Robot.algaeShooterIndexer.turnmotor(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
             Robot.algaeShooterIndexer2.turnmotor(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);}
     }

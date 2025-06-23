@@ -21,9 +21,14 @@ public class ArmDrivePosition extends Command {
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
+    //TODO: Use Constants
     @Override
     public boolean isFinished() {
-        return false;
+        if (Math.abs(Robot.arm.getPosition() - 0.114) <= .02) {
+            return true;
+        }
+        else
+            return false;
     }
 
     // Called when the command ends or is interrupted.

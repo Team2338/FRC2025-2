@@ -22,13 +22,20 @@ public class UI {
     public UI() {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
         shuffleboardTab.addDouble("Couch Encoder", Robot.coralDumper::getPosition);
-        //shuffleboardTab.addDouble("Couch Velocity", Robot.coralDumper::getVelocity);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
-        shuffleboardTab.addDouble("Arm Velocity", Robot.arm::getRPM);
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
         shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
-        shuffleboardTab.addDouble( "Pigeon", Robot.pigeon::getCompassHeading);
+        shuffleboardTab.addDouble("Pigeon", Robot.pigeon::getCompassHeading);
+        //TODO: Fix these
+        /**shuffleboardTab
+                .add("Limit Switch", Robot.algaeLimitSwitch.getState())
+                .withWidget(BuiltInWidgets.kBooleanBox)
+                .getEntry();
+        shuffleboardTab
+                .add( "Pigeon", Robot.pigeon.getCompassHeading())
+                .withWidget(BuiltInWidgets.kGyro)
+                .getEntry();**/
     }
 
 }

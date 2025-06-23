@@ -21,9 +21,14 @@ public class ArmZeroPosition extends Command {
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
+    //TODO: Add constants
     @Override
     public boolean isFinished() {
-        return false;
+        if (Math.abs(Robot.arm.getPosition() - 0) <= .015) {
+            return true;
+        }
+        else
+            return false;
     }
 
     // Called when the command ends or is interrupted.

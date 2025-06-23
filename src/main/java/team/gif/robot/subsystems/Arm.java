@@ -6,7 +6,6 @@ package team.gif.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
-import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
@@ -15,7 +14,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-//TODO: Fix PID (use armfeedforward?), add tolrancy values
+//TODO: Move some stuff over to constants
 
 public class Arm extends SubsystemBase {
   public static SparkMax armMotor;
@@ -38,14 +37,7 @@ public class Arm extends SubsystemBase {
             .feedbackSensor(ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder)
             .pid(2.5,0.0,0.0)
             .iMaxAccum(0.1)
-            .outputRange(-2, 2)
-            /**
-             * PID for velocity control, in closedloop slot 1
-             */
-            .pid(0.1,0.0,0.0, ClosedLoopSlot.kSlot1)
-            //12v is max applied voltage, 5310 rpm is the free speed of a cim motor
-            .velocityFF(12.0 / 5310, ClosedLoopSlot.kSlot1)
-            .outputRange(-1, 1, ClosedLoopSlot.kSlot1);
+            .outputRange(-2, 2);
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
     //armEncoder.setPosition(0);
   }
@@ -60,11 +52,11 @@ public class Arm extends SubsystemBase {
 
   //In rotations
   public void collectPosition() {
-    closedLoopController.setReference(0.97, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(1.10, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void farShootPosition(){
-    closedLoopController.setReference(0.20, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0.195, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void closeShootPosition(){
@@ -72,7 +64,7 @@ public class Arm extends SubsystemBase {
   }
 
   public void processorShootPosition(){
-    closedLoopController.setReference(0.80, SparkMax.ControlType.kPosition);
+    closedLoopController.setReference(0.835, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void drivePosition() {
@@ -80,19 +72,11 @@ public class Arm extends SubsystemBase {
   }
 
   public void zeroPosition(){
-    closedLoopController.setReference(0, SparkBase.ControlType.kPosition, ClosedLoopSlot.kSlot0);
+    closedLoopController.setReference(0, SparkMax.ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public void zeroEncoder() {
     armEncoder.setPosition(0);
-  }
-
-  public void setTargetRPM(double targetRPM) {
-    closedLoopController.setReference(targetRPM, SparkMax.ControlType.kVelocity, ClosedLoopSlot.kSlot1);
-  }
-
-  public double getRPM() {
-    return armEncoder.getVelocity();
   }
 
 }
