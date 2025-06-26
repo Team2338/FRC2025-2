@@ -25,17 +25,12 @@ public class UI {
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
-        shuffleboardTab.addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState);
-        shuffleboardTab.addDouble("Pigeon", Robot.pigeon::getCompassHeading);
-        //TODO: Fix these
-        /**shuffleboardTab
-                .add("Limit Switch", Robot.algaeLimitSwitch.getState())
-                .withWidget(BuiltInWidgets.kBooleanBox)
-                .getEntry();
         shuffleboardTab
-                .add( "Pigeon", Robot.pigeon.getCompassHeading())
-                .withWidget(BuiltInWidgets.kGyro)
-                .getEntry();**/
+                .addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState)
+                .withWidget(BuiltInWidgets.kBooleanBox);
+        shuffleboardTab
+                .addDouble("Pigeon Heading", Robot.pigeon::getCompassHeading)
+                .withWidget(BuiltInWidgets.kGyro);
     }
 
 }
