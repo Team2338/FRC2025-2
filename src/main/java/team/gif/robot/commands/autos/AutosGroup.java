@@ -6,7 +6,13 @@ public class AutosGroup extends SequentialCommandGroup {
     public AutosGroup () {
         addCommands(
                 new DriveForwardAuto(),
-                new turnRight90auto()
+                new Drivebackauto(),
+                new turnRight90auto(),
+                new DriveForwardAuto2(),
+                new turnlefto0auto(),
+                new DriveForwardAuto3(),
+                new turnrighto45auto(),
+                new collectauto()
         );
         System.out.println("turn finished ");
     }

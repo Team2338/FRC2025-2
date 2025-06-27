@@ -18,6 +18,10 @@ import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
 import team.gif.robot.commands.AlgaeShooterProcessorShoot;
+import team.gif.robot.commands.drivetrain.Reset0;
+import team.gif.robot.subsystems.drivers.Pigeon;
+
+import static team.gif.robot.Robot.pigeon;
 
 public class
 
@@ -120,7 +124,7 @@ OI {
         dLTrigger.whileTrue(new CoralDumperForward());
         dRTrigger.whileTrue(new CoralDumperBackward());
         dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
-
+        dLStickBtn.and(dBack).onTrue(new Reset0());
         // aux controls
         aA.whileTrue(new bothIN());
         aB.whileTrue(new AlgaeShooterProcessorShoot());

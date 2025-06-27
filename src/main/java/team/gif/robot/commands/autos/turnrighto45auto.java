@@ -1,13 +1,10 @@
 package team.gif.robot.commands.autos;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-import static team.gif.robot.Robot.coralDumper;
-
-public class turnRight90auto extends Command {
-    public turnRight90auto() {
+public class turnrighto45auto extends Command {
+    public turnrighto45auto() {
         super();
         addRequirements(Robot.coralDumper,Robot.driveTrain); // uncomment
     }
@@ -26,7 +23,7 @@ public class turnRight90auto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished(){
-        return Robot.pigeon.get360Heading() > (247) && Robot.pigeon.get360Heading() < (285);
+        return Robot.pigeon.get360Heading() > (310) && Robot.pigeon.get360Heading() < (325);
     }
 
     // Called when the command ends or is interrupted.
