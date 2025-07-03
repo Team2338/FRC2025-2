@@ -21,7 +21,7 @@ public class AlgaeShooterIndexer extends SubsystemBase {
     algaeShooterIndex1.configure(config, SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
   }
-  public void turnmotor(double voltage){
+  public void setVoltage(double voltage){
     algaeShooterIndex1.setVoltage(voltage);
   }
 

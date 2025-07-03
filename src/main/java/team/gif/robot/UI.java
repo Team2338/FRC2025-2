@@ -15,15 +15,13 @@ import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
-import java.util.Map;
-
 public class UI {
 
     public UI() {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
         shuffleboardTab.addDouble("Couch Encoder", Robot.coralDumper::getPosition);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
-        shuffleboardTab.addDouble("Left RPM", Robot.algaeShooter::getRPM);
+        shuffleboardTab.addDouble("Left RPM", Robot.algaeShooterLeft::getRPM);
         shuffleboardTab.addDouble("Right RPM", Robot.algaeShooterRight::getRPM);
         shuffleboardTab
                 .addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState)

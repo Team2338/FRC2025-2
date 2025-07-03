@@ -45,6 +45,10 @@ public class AlgaeShooterRight extends SubsystemBase {
     algaeShooterRight.getClosedLoopController().setReference(Constants.PROCESSOR_SHOOT_RPM, SparkMax.ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
+  public boolean rightFulfillsRPM(double targetVelocity){
+    return getRPM() >= targetVelocity;
+  }
+
   public double getRPM(){
     return algaeShooterRight.getEncoder().getVelocity();
   }

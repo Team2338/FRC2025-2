@@ -28,8 +28,8 @@ public void initialize() {}
 // Called every time the scheduler runs (~20ms) while the command is scheduled
 @Override
 public void execute() {
-    Robot.algaeShooterIndexer2.turnmotor(Constants.ALGAE_SHOOTER_IN);
-    Robot.algaeShooterIndexer.turnmotor(-Constants.ALGAE_SHOOTER_IN);
+    Robot.algaeShooterIndexer2.setVoltage(Constants.ALGAE_SHOOTER_IN);
+    Robot.algaeShooterIndexer.setVoltage(-Constants.ALGAE_SHOOTER_IN);
 
 
 }
@@ -43,8 +43,8 @@ public boolean isFinished() {
 // Called when the command ends or is interrupted.
 @Override
 public void end(boolean interrupted) {
-    Robot.algaeShooterIndexer2.turnmotor(0);
-    Robot.algaeShooterIndexer.turnmotor(0);
+    Robot.algaeShooterIndexer2.setVoltage(0);
+    Robot.algaeShooterIndexer.setVoltage(0);
 
 }
 }
