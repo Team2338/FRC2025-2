@@ -11,13 +11,14 @@ public class DriveForwardAuto extends Command {
     public int timer;
     public DriveForwardAuto() {
         super();
-        addRequirements(Robot.coralDumper,Robot.driveTrain); // uncomment
+        addRequirements(Robot.coralDumper,Robot.driveTrain,Robot.arm); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {time = 0;
         timer = 0;
+        Robot.arm.zeroEncoder();
         Robot.arm.drivePosition();
         System.out.println("Auto started");
 
