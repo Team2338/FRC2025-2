@@ -5,16 +5,14 @@ import team.gif.robot.Robot;
 
 public class DriveBackwardAuto extends Command {
     public int time;
-    public int timer;
     public DriveBackwardAuto() {
         super();
-        addRequirements(Robot.coralDumper,Robot.driveTrain); // uncomment
+        addRequirements(Robot.driveTrain); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {time = 0;
-        timer = 0;
         System.out.println("going backward");
 
     }

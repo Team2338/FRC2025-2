@@ -18,7 +18,6 @@ public class collectauto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
-        Robot.coralDumper.setCollectPosition();
         System.out.println("Auto started");
 
     }
@@ -26,18 +25,33 @@ public class collectauto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 60){
-            time += 1;
+        if(time <= 30){
+        time += 1;
+        Robot.driveTrain.driveArcade(0,-.5);
         }
-        if(time > 60){
+        if(time == 31){
+            Robot.driveTrain.driveArcade(0,0);
+            time+=1;
+
+        }
+        if(timer <= 50){
+            timer += 1;
             coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);
+        }
+        if(timer > 50 && timer <75){
+            timer +=1;
+        }
+        if(timer >=75){
+            timer+=1;
+            coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);
+
         }
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return time>100;
+        return timer>115;
     }
 
     // Called when the command ends or is interrupted.
