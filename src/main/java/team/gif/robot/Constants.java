@@ -28,7 +28,7 @@ public final class Constants {
     public static final double ARM_KP = 2.0;
     public static final double ARM_KI = 0;
     public static final double ARM_KD = 0;
-    public static final double ARM_KS = 1.2515;
+    public static final double ARM_KS = 1.7615;
     public static final double ARM_KG = 1.1703;
     public static final double ARM_KV = 6.1823;
     public static final double ARM_POSITION_TOLERANCE = 0.25;

@@ -15,8 +15,8 @@ public class AlgaeShooterShoot extends Command {
     @Override
     public void initialize() {
         Robot.arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
-        //Robot.algaeShooterRight.setCloseShootRPM();
-        //Robot.algaeShooter.setCloseShootRPM();
+        Robot.algaeShooterRight.setCloseShootRPM();
+        Robot.algaeShooterLeft.setCloseShootRPM();
         //TODO: Remove setRPM methods from commands and shooter subystems if not needed
     }
 
