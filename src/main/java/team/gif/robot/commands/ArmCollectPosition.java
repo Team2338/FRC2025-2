@@ -18,7 +18,10 @@ public class ArmCollectPosition extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.arm.setArmPosition(Constants.ARM_COLLECT_POSITION);
+        if(Robot.arm.isManualArmToggled()){
+            Robot.arm.setArmPosition(Constants.ARM_COLLECT_POSITION);
+        }
+        else Robot.arm.holdArmPosition(Constants.ARM_COLLECT_POSITION);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -34,6 +37,6 @@ public class ArmCollectPosition extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
+        //Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
     }
 }

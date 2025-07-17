@@ -27,6 +27,9 @@ public class UI {
                 .addBoolean("Limit Switch", Robot.algaeLimitSwitch::getState)
                 .withWidget(BuiltInWidgets.kBooleanBox);
         shuffleboardTab
+                .addBoolean("Manual Arm", Robot.arm::isManualArmToggled)
+                .withWidget(BuiltInWidgets.kBooleanBox);
+        shuffleboardTab
                 .addDouble("Pigeon Heading", Robot.pigeon::getCompassHeading)
                 .withWidget(BuiltInWidgets.kGyro);
     }

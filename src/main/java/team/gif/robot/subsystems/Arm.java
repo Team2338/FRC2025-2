@@ -32,6 +32,7 @@ public class Arm extends SubsystemBase {
   public RelativeEncoder armEncoder;
   public SparkClosedLoopController sparkPID;
   public ArmFeedforward armFeedforward;
+  private boolean manualArmToggle = false;
 
   public Arm() {
     armMotor = new SparkMax(RobotMap.ARM_ID, SparkLowLevel.MotorType.kBrushed);
@@ -58,6 +59,14 @@ public class Arm extends SubsystemBase {
             .reverseSoftLimit(0)
             .reverseSoftLimitEnabled(true);
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+  }
+
+  public void toggleManualArmControl(){
+    manualArmToggle = !manualArmToggle;
+  }
+
+  public boolean isManualArmToggled(){
+    return manualArmToggle;
   }
 
   public void setVoltage(double voltage) {

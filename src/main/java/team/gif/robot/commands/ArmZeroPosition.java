@@ -18,13 +18,17 @@ public class ArmZeroPosition extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.arm.setArmPosition(Constants.ARM_ZERO_POSITION);
+        if(Robot.arm.isManualArmToggled()){
+            Robot.arm.setArmPosition(Constants.ARM_ZERO_POSITION);
+        }
+        else
+            Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_ZERO_POSITION) <= .015) {
+        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_ZERO_POSITION) <= .20) {
             return true;
         }
         else
@@ -34,7 +38,7 @@ public class ArmZeroPosition extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
+        //Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
 
     }
 }

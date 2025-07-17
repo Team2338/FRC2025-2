@@ -136,6 +136,7 @@ OI {
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
         aDPadUp.onTrue(new ArmDrivePosition());
         aDPadDown.onTrue(new ArmCollectPosition());
+        aDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
         aLBump.whileTrue(new CoralDumperSycCollect());
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm

@@ -18,13 +18,17 @@ public class ArmDrivePosition extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
+        if(Robot.arm.isManualArmToggled()){
+            Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
+        }
+        else
+            Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_DRIVE_POSITION) <= .02) {
+        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_DRIVE_POSITION) <= .20) {
             return true;
         }
         else
@@ -35,6 +39,6 @@ public class ArmDrivePosition extends Command {
     @Override
     public void end(boolean interrupted) {
         //If this doesn't work, then make a default command that just holds the arm at the current position Robot.arm.setArmPosition(Robot.arm.getPosition())
-        Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
+        //Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
     }
 }
