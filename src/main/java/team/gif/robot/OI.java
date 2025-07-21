@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import team.gif.robot.commands.ArmCollectPosition;
 import team.gif.robot.commands.ArmDrivePosition;
 import team.gif.robot.commands.ArmZeroPosition;
@@ -38,7 +39,7 @@ OI {
 
     public final CommandXboxController driver = new CommandXboxController(RobotMap.DRIVER_CONTROLLER_ID);
     public final CommandXboxController aux = new CommandXboxController(RobotMap.AUX_CONTROLLER_ID);
-//-    public final CommandXboxController test = new CommandXboxController(RobotMap.TEST_CONTROLLER_ID);
+    public final CommandXboxController test = new CommandXboxController(RobotMap.TEST_CONTROLLER_ID);
 
     public final Trigger dA = driver.a();
     public final Trigger dB = driver.b();
@@ -76,22 +77,22 @@ OI {
     public final Trigger aDPadLeft = aux.povLeft();
     public final Trigger aDPadDownLeft = aux.povDownLeft();
 
-//    public final Trigger tA = test.a();
-//    public final Trigger tB = test.b();
-//    public final Trigger tX = test.x();
-//    public final Trigger tY = test.y();
-//    public final Trigger tLBump = test.leftBumper();
-//    public final Trigger tRBump = test.rightBumper();
-//    public final Trigger tBack = test.back();
-//    public final Trigger tStart = test.start();
-//    public final Trigger tLStickBtn = test.leftStick();
-//    public final Trigger tRStickBtn = test.rightStick();
-//    public final Trigger tRTrigger = test.rightTrigger();
-//    public final Trigger tLTrigger = test.leftTrigger();
-//    public final Trigger tDPadUp = test.povUp();
-//    public final Trigger tDPadRight = test.povRight();
-//    public final Trigger tDPadDown = test.povDown();
-//    public final Trigger tDPadLeft = test.povLeft();
+    public final Trigger tA = test.a();
+    public final Trigger tB = test.b();
+    public final Trigger tX = test.x();
+    public final Trigger tY = test.y();
+    public final Trigger tLBump = test.leftBumper();
+    public final Trigger tRBump = test.rightBumper();
+    public final Trigger tBack = test.back();
+    public final Trigger tStart = test.start();
+    public final Trigger tLStickBtn = test.leftStick();
+    public final Trigger tRStickBtn = test.rightStick();
+    public final Trigger tRTrigger = test.rightTrigger();
+    public final Trigger tLTrigger = test.leftTrigger();
+    public final Trigger tDPadUp = test.povUp();
+    public final Trigger tDPadRight = test.povRight();
+    public final Trigger tDPadDown = test.povDown();
+    public final Trigger tDPadLeft = test.povLeft();
 
 
     public OI() {
@@ -135,10 +136,18 @@ OI {
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
         aDPadUp.onTrue(new ArmDrivePosition());
         aDPadDown.onTrue(new ArmCollectPosition());
+        aDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
         aLBump.whileTrue(new CoralDumperSycCollect());
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm
         //right joystick is manual couch
+
+        //test control for sysID routines
+        tA.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
+        tB.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
+        tX.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kForward));
+        tY.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kReverse));
+
 
     }
 }

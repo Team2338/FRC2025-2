@@ -8,7 +8,7 @@ public class AlgaeShooterIn extends Command {
 
     public AlgaeShooterIn(){
         super();
-        addRequirements(Robot.algaeShooter);
+        addRequirements(Robot.algaeShooterLeft);
         addRequirements(Robot.algaeShooterRight);
     }
 
@@ -23,7 +23,7 @@ public class AlgaeShooterIn extends Command {
         // Called every time the scheduler runs (~20ms) while the command is scheduled
         @Override
         public void execute() {
-        Robot.algaeShooter.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
+        Robot.algaeShooterLeft.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
         Robot.algaeShooterRight.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE);
     }
 
@@ -36,7 +36,7 @@ public class AlgaeShooterIn extends Command {
         // Called when the command ends or is interrupted.
         @Override
         public void end(boolean interrupted) {
-        Robot.algaeShooter.setVoltage(0);
+        Robot.algaeShooterLeft.setVoltage(0);
         Robot.algaeShooterRight.setVoltage(0);
 
     }

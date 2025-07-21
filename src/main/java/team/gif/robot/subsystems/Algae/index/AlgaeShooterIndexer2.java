@@ -22,7 +22,7 @@ public class AlgaeShooterIndexer2 extends SubsystemBase {
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config.follow(62, true);
   }
-  public void turnmotor(double voltage){
+  public void setVoltage(double voltage){
     AlgaeShooterIndex2.setVoltage(voltage);
   }
 }
