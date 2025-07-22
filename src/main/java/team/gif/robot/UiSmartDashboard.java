@@ -50,11 +50,11 @@ public class UiSmartDashboard {
         SmartDashboard.putNumber("Heading", Robot.pigeon.getCompassHeading());
         SmartDashboard.putNumber("Match Time", Robot.matchTime);
         SmartDashboard.putNumber("Voltage", RobotController.getBatteryVoltage());
-        SmartDashboard.putNumber("Arm Position", Robot.arm.getPosition());
+        SmartDashboard.putString("Arm Position", String.format("%52.2f", Robot.arm.getPosition()));
         SmartDashboard.putBoolean("Manual Arm Toggled", Robot.arm.isManualArmToggled());
         SmartDashboard.putBoolean("Intake Limit Switch Toggled", Robot.algaeLimitSwitch.getState());
         SmartDashboard.putNumber("Left Shooter Motor RPM", Robot.algaeShooterLeft.getRPM());
         SmartDashboard.putNumber("Right Shooter Motor RPM", Robot.algaeShooterRight.getRPM());
-        SmartDashboard.putNumber("Coral Dumper Position", Robot.coralDumper.getPosition());
+        SmartDashboard.putString("Coral Dumper Position", String.format("%52.2f", Robot.coralDumper.getPosition()));
     }
 }
