@@ -23,7 +23,7 @@ public class turnlefto0auto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished(){
-        return Robot.pigeon.get360Heading() > (340) && Robot.pigeon.get360Heading() < (350);
+        return Robot.pigeon.get360Heading() > (335) && Robot.pigeon.get360Heading() < (345);
     }
 
     // Called when the command ends or is interrupted.

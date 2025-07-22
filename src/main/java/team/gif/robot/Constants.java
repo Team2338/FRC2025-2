@@ -14,6 +14,7 @@ package team.gif.robot;
  */
 public final class Constants {
     public static final double CORAL_NEO_PERCENT = .9;
+    public static final double CORAL_NEO_PERCENT_AUTOS = 1.0;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 12;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 10.8;

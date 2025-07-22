@@ -26,22 +26,21 @@ public class DriveForwardAuto5 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 50){
+        if(time <= 40){
             time += 1;
-            Robot.driveTrain.driveArcade(0,-.7);
+            Robot.driveTrain.driveArcade(0,-.75);
         }
-        if(time > 50){
+        if(time > 40){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
-            if(timer<35){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
-            if(timer>=35){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
+            if(timer<35){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT_AUTOS);}
         }
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return timer>100;
+        return timer>80;
     }
 
     // Called when the command ends or is interrupted.
