@@ -1,12 +1,12 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.algae.shoot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class AlgaeShooterProcessorShoot extends Command {
+public class AlgaeShooterShootProcessor extends Command {
 
-    public AlgaeShooterProcessorShoot() {
+    public AlgaeShooterShootProcessor() {
         super();
         addRequirements(Robot.algaeShooterLeft,Robot.algaeShooterRight,Robot.algaeShooterIndexer,Robot.algaeShooterIndexer2,Robot.arm);
     }

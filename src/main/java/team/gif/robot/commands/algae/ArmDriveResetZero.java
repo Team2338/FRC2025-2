@@ -1,28 +1,24 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.algae;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class ArmJoystickManual extends Command {
+public class ArmDriveResetZero extends Command {
 
-    public ArmJoystickManual() {
+    public ArmDriveResetZero() {
         super();
         addRequirements(Robot.arm);
     }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+        Robot.arm.zeroEncoder();
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-        if(Robot.arm.isManualArmToggled()){
-            double voltage = Robot.oi.aux.getLeftY();
-            Robot.arm.setVoltage(voltage*6);
-        }
-    }
-
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override

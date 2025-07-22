@@ -1,13 +1,13 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.algae.manual;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class CouchJoystickManual extends Command {
+public class ArmJoystickManual extends Command {
 
-    public CouchJoystickManual() {
+    public ArmJoystickManual() {
         super();
-        addRequirements(Robot.coralDumper);
+        addRequirements(Robot.arm);
     }
 
     // Called when the command is initially scheduled.
@@ -17,9 +17,12 @@ public class CouchJoystickManual extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double voltage = Robot.oi.aux.getRightY();
-        Robot.coralDumper.setVoltage(voltage);
+        if(Robot.arm.isManualArmToggled()){
+            double voltage = Robot.oi.aux.getLeftY();
+            Robot.arm.setVoltage(voltage*6);
+        }
     }
+
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override

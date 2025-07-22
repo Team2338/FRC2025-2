@@ -2,31 +2,21 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import team.gif.robot.commands.ArmCollectPosition;
-import team.gif.robot.commands.ArmDrivePosition;
-import team.gif.robot.commands.ArmZeroPosition;
+import team.gif.robot.commands.algae.positions.ArmCollectPosition;
+import team.gif.robot.commands.algae.positions.ArmDrivePosition;
+import team.gif.robot.commands.algae.positions.ArmZeroPosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
-import team.gif.robot.commands.algae.arm.ArmDown;
-import team.gif.robot.commands.algae.arm.ArmUp;
 import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
 import team.gif.robot.commands.coral.manual.CoralDumperBackward;
-import team.gif.robot.commands.coral.positions.CoralDumperCollectPosition;
 import team.gif.robot.commands.coral.manual.CoralDumperForward;
-import team.gif.robot.commands.coral.positions.CoralDumperDrivePosition;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
-import team.gif.robot.commands.AlgaeShooterProcessorShoot;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShootProcessor;
 import team.gif.robot.commands.drivetrain.Reset0;
-import team.gif.robot.subsystems.drivers.Pigeon;
-
-import static team.gif.robot.Robot.pigeon;
-
-import static team.gif.robot.Robot.coralDumper;
 
 public class
 
@@ -134,7 +124,7 @@ OI {
         dLStickBtn.and(dBack).onTrue(new Reset0());
         // aux controls
         aA.whileTrue(new bothIN());
-        aB.whileTrue(new AlgaeShooterProcessorShoot());
+        aB.whileTrue(new AlgaeShooterShootProcessor());
         aX.whileTrue(new AlgaeShooterShoot());
         aY.whileTrue(new AlgaeShooterShootFarther());
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));

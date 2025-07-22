@@ -1,12 +1,12 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.algae.positions;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ArmCollectPosition extends Command {
+public class ArmZeroPosition extends Command {
 
-    public ArmCollectPosition() {
+    public ArmZeroPosition() {
         super();
         addRequirements(Robot.arm);
     }
@@ -19,15 +19,16 @@ public class ArmCollectPosition extends Command {
     @Override
     public void execute() {
         if(Robot.arm.isManualArmToggled()){
-            Robot.arm.setArmPosition(Constants.ARM_COLLECT_POSITION);
+            Robot.arm.setArmPosition(Constants.ARM_ZERO_POSITION);
         }
-        else Robot.arm.holdArmPosition(Constants.ARM_COLLECT_POSITION);
+        else
+            Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_COLLECT_POSITION) <= .20) {
+        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_ZERO_POSITION) <= .20) {
             return true;
         }
         else
@@ -37,6 +38,7 @@ public class ArmCollectPosition extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        //Robot.arm.holdArmPosition(Constants.ARM_DRIVE_POSITION);
+        //Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
+
     }
 }
