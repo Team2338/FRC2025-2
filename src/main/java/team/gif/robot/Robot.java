@@ -5,7 +5,10 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.autos.AutosGroup;
@@ -40,6 +43,7 @@ public class Robot extends TimedRobot {
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
   public static AlgaeLimitSwitch algaeLimitSwitch;
   public static UI ui;
+  public static UiSmartDashboard uiSmartDashboard;
   public static OI oi;
   public static double matchTime;
   public static boolean endGameRumble;
@@ -69,6 +73,7 @@ public class Robot extends TimedRobot {
     //autonomousCommand = new auto2PC();
     autonomousCommand = new AutosGroup();
     ui = new UI();
+    uiSmartDashboard = new UiSmartDashboard();
     oi = new OI();
   }
 
@@ -87,6 +92,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     matchTime = DriverStation.getMatchTime(); //might need to move to teleop init
+    uiSmartDashboard.updateUI();
     //System.out.println(coralDumper.getPosition());
   }
 
@@ -104,9 +110,14 @@ public class Robot extends TimedRobot {
     //autonomousCommand.schedule();
     //autonomousCommand = robotContainer.getAutonomousCommand();
     //arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
-    System.out.println("auto init");
-    new AutosGroup().schedule();
-
+    //new AutosGroup().schedule();
+    Timer.delay(uiSmartDashboard.delayChooser.getSelected());
+    autonomousCommand = uiSmartDashboard.autoChooser.getSelected();
+    if(autonomousCommand != null){
+      System.out.println("auto init: " + autonomousCommand.getName());
+      autonomousCommand.schedule();
+    }
+    else System.out.println("No Auto Selected");
   }
 
   /** This function is called periodically during autonomous. */

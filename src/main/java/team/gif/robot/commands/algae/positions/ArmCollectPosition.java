@@ -27,7 +27,7 @@ public class ArmCollectPosition extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_COLLECT_POSITION) <= .20) {
+        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_COLLECT_POSITION) <= .02) {
             return true;
         }
         else
