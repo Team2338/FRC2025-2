@@ -42,8 +42,8 @@ public class Arm extends SubsystemBase {
     armFeedforward = new ArmFeedforward(Constants.ARM_KS, Constants.ARM_KG, Constants.ARM_KV);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config.encoder
-            .positionConversionFactor(2.0 * Math.PI)
-            .velocityConversionFactor(2.0 * Math.PI / 60)
+            .positionConversionFactor(1) //2.0 * Math.PI
+            .velocityConversionFactor(1) //2.0 * Math.PI / 60
             .countsPerRevolution(8192)
             .inverted(true);
     config.signals
@@ -53,11 +53,6 @@ public class Arm extends SubsystemBase {
             .pid(Constants.ARM_KP, Constants.ARM_KI,Constants.ARM_KD)
             .iMaxAccum(0.1)
             .outputRange(-12, 12);
-    /**config.softLimit
-            .forwardSoftLimit(6.950)
-            .forwardSoftLimitEnabled(true)
-            .reverseSoftLimit(0)
-            .reverseSoftLimitEnabled(true);**/
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
   }
 

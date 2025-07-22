@@ -66,8 +66,8 @@ public class Robot extends TimedRobot {
     arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
-    //autonomousCommand = new DriveForwardAuto();
     algaeLimitSwitch = new AlgaeLimitSwitch();
+    //autonomousCommand = new DriveForwardAuto();
     //autonomousCommand = new auto2PC();
     autonomousCommand = new AutosGroup();
     ui = new UI();
@@ -101,12 +101,12 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    //autonomousCommand = robotContainer.getAutonomousCommand();
-    arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
     // schedule the autonomous command (example)
-      //autonomousCommand.schedule();
-      System.out.println("auto init");
-     new AutosGroup().schedule();
+    //autonomousCommand.schedule();
+    //autonomousCommand = robotContainer.getAutonomousCommand();
+    //arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
+    System.out.println("auto init");
+    new AutosGroup().schedule();
 
   }
 

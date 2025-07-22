@@ -31,12 +31,11 @@ public final class Constants {
     public static final double ARM_KS = 1.7615;
     public static final double ARM_KG = 1.1703;
     public static final double ARM_KV = 6.1823;
-    public static final double ARM_POSITION_TOLERANCE = 0.25;
-    public static final double ARM_COLLECT_POSITION =  6.800; //1.100*(2*Math.PI);
-    public static final double ARM_PROCESSOR_POSITION = 5.246; //0.835*(2*Math.PI);
-    public static final double ARM_FAR_SHOOT_POSITION = 1.225; //0.195*(2*Math.PI);
-    public static final double ARM_CLOSE_SHOOT_POSITION = 0.754; //0.120*(2*Math.PI);
-    public static final double ARM_DRIVE_POSITION = 0.716; //0.114*(2*Math.PI);
+    public static final double ARM_POSITION_TOLERANCE = 0.15;
+    public static final double ARM_COLLECT_POSITION =  1.100; //6.750
+    public static final double ARM_PROCESSOR_POSITION = 0.835; //5.246
+    public static final double ARM_FAR_SHOOT_POSITION = 0.195; //1.225
+    public static final double ARM_CLOSE_SHOOT_POSITION = 0.120; //0.754
+    public static final double ARM_DRIVE_POSITION = 0.114; //0.716
     public static final double ARM_ZERO_POSITION = 0;
-
     }
