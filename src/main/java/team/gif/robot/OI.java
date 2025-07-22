@@ -120,8 +120,9 @@ OI {
         dRBump.onTrue(new CoralDumperSycDump());
         dLTrigger.whileTrue(new CoralDumperForward());
         dRTrigger.whileTrue(new CoralDumperBackward());
-        dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+        dStart.and(dBack).onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder));
         dLStickBtn.and(dBack).onTrue(new Reset0());
+
         // aux controls
         aA.whileTrue(new bothIN());
         aB.whileTrue(new AlgaeShooterShootProcessor());

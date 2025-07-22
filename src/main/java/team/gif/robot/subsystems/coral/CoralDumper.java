@@ -4,9 +4,7 @@
 
 package team.gif.robot.subsystems.coral;
 
-import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
@@ -54,6 +52,10 @@ CoralDumper extends SubsystemBase {
 
       public void setDrivePosition(){
       closedLoopController.setReference(0.88, SparkMax.ControlType.kPosition);
+      }
+
+      public void zeroEncoder(){
+      coralDumperEncoder.setPosition(0);
       }
 
 }
