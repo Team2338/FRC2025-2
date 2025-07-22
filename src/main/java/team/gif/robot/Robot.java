@@ -7,7 +7,6 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.algae.manual.ArmJoystickManual;
 import team.gif.robot.commands.coral.manual.CouchJoystickManual;
@@ -28,7 +27,6 @@ import team.gif.robot.subsystems.drivers.Pigeon;
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
-  public static Subsystem AlgaeShooterIndex2;
   private Command autonomousCommand;
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
