@@ -8,9 +8,11 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.ArmJoystickManual;
 import team.gif.robot.commands.CouchJoystickManual;
+import team.gif.robot.commands.autos.auto2PC;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.subsystems.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.Arm;
@@ -64,11 +66,12 @@ public class Robot extends TimedRobot {
     arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
-    autonomousCommand = new DriveForwardAuto();
+    //autonomousCommand = new DriveForwardAuto();
     algaeLimitSwitch = new AlgaeLimitSwitch();
+    //autonomousCommand = new auto2PC();
+    autonomousCommand = new AutosGroup();
     ui = new UI();
     oi = new OI();
-
   }
 
   /**
@@ -98,12 +101,12 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    autonomousCommand = robotContainer.getAutonomousCommand();
-
+    //autonomousCommand = robotContainer.getAutonomousCommand();
+    arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
     // schedule the autonomous command (example)
-
+      //autonomousCommand.schedule();
       System.out.println("auto init");
-      new DriveForwardAuto().schedule();
+     new AutosGroup().schedule();
 
   }
 

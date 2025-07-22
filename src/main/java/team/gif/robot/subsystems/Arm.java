@@ -53,11 +53,11 @@ public class Arm extends SubsystemBase {
             .pid(Constants.ARM_KP, Constants.ARM_KI,Constants.ARM_KD)
             .iMaxAccum(0.1)
             .outputRange(-12, 12);
-    config.softLimit
+    /**config.softLimit
             .forwardSoftLimit(6.950)
             .forwardSoftLimitEnabled(true)
             .reverseSoftLimit(0)
-            .reverseSoftLimitEnabled(true);
+            .reverseSoftLimitEnabled(true);**/
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
   }
 

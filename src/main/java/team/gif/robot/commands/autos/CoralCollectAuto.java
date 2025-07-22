@@ -6,10 +6,10 @@ import team.gif.robot.Robot;
 
 import static team.gif.robot.Robot.coralDumper;
 
-public class DriveForwardAuto extends Command {
+public class CoralCollectAuto extends Command {
     public int time;
     public int timer;
-    public DriveForwardAuto() {
+    public CoralCollectAuto() {
         super();
         addRequirements(Robot.coralDumper,Robot.driveTrain,Robot.arm); // uncomment
     }
@@ -27,11 +27,11 @@ public class DriveForwardAuto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 65){
+        if(time <= 30){
             time += 1;
             Robot.driveTrain.driveArcade(0,-.6);
         }
-        if(time > 65){
+        if(time > 30){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
@@ -42,7 +42,7 @@ public class DriveForwardAuto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return timer>110;
+        return timer>95;
     }
 
     // Called when the command ends or is interrupted.

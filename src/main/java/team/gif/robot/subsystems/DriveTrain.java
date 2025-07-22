@@ -4,6 +4,8 @@
 
 package team.gif.robot.subsystems;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.config.RobotConfig;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
@@ -50,7 +52,6 @@ public class DriveTrain extends SubsystemBase {
     //configRightBack.follow(RobotMap.RIGHT_FRONT_NEO);
 
     drive = new DifferentialDrive(leftFrontNEO, rightFrontNEO);
-
 
 
   }
