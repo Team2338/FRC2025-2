@@ -1,6 +1,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -173,6 +174,17 @@ OI {
         //right joystick is manual couch
 
         /**
+         * Makes the controllers vibrate for the
+         * final 5 seconds of the match to encourage
+         * drivers to park.
+         */
+        if(Robot.endGameRumble){
+            System.out.println("activating rumble");
+            driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+            aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+        }
+
+        /**
          * These buttons are to perform
          * system identification routines
          * using the test controller (2).
@@ -181,7 +193,5 @@ OI {
         tB.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
         tX.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kForward));
         tY.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kReverse));
-
-
     }
 }

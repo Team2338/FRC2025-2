@@ -4,6 +4,7 @@
 
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -40,7 +41,8 @@ public class Robot extends TimedRobot {
   public static AlgaeLimitSwitch algaeLimitSwitch;
   public static UI ui;
   public static OI oi;
-
+  public static double matchTime;
+  public static boolean endGameRumble;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -84,6 +86,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    matchTime = DriverStation.getMatchTime(); //might need to move to teleop init
     //System.out.println(coralDumper.getPosition());
   }
 
@@ -108,7 +111,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+
+  }
 
   @Override
   public void teleopInit() {
@@ -123,7 +128,12 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    if(matchTime<=5){
+      endGameRumble = true;
+    }
+    else endGameRumble = false;
+  }
 
   @Override
   public void testInit() {
