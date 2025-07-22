@@ -145,22 +145,18 @@ OI {
         aB.whileTrue(new AlgaeShooterShootProcessor());
         aX.whileTrue(new AlgaeShooterShoot());
         aY.whileTrue(new AlgaeShooterShootFarther());
+        aB.whileTrue(new AlgaeShooterShootProcessor());
+        aX.whileTrue(new AlgaeShooterShoot());
+        aY.whileTrue(new AlgaeShooterShootFarther());
         /**
-         * If manual mode for the arm is enabled,
-         * then the shoot commands will not go their positions
-         * and will instead shoot at their current position
-         * with the same amount of voltage applied as their counterparts.
+         * When the button on the left joystick
+         * is pressed along with the normal shoot button,
+         * the motors will shoot at the correct voltages without
+         * going to the position.
          */
-        if(Robot.arm.isManualArmToggled()){
-            aB.whileTrue(new ManualAlgaeShooterShootProcessor());
-            aX.whileTrue(new ManualAlgaeShooterShoot());
-            aY.whileTrue(new ManualAlgaeShooterShootFarther());
-        }
-        else {
-            aB.whileTrue(new AlgaeShooterShootProcessor());
-            aX.whileTrue(new AlgaeShooterShoot());
-            aY.whileTrue(new AlgaeShooterShootFarther());
-        }
+        dLStickBtn.and(dB).whileTrue(new ManualAlgaeShooterShootProcessor());
+        dLStickBtn.and(dX).whileTrue(new ManualAlgaeShooterShoot());
+        dLStickBtn.and(dY).whileTrue(new ManualAlgaeShooterShootFarther());
         aDPadUp.onTrue(new ArmDrivePosition());
         aDPadDown.onTrue(new ArmCollectPosition());
         /**

@@ -16,13 +16,13 @@ public final class Constants {
     public static final double CORAL_NEO_PERCENT = .9;
     public static final double ALGAE_SHOOTER_IN = 2;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 12;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 10.3;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 10.8;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR = 5;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 12;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR = 12;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_PROCESSOR = 3;
-    public static final double CLOSE_SHOOT_RPM = 4600;
-    public static final double FAR_SHOOT_RPM = 5300;
+    public static final double CLOSE_SHOOT_RPM = 4900;
+    public static final double FAR_SHOOT_RPM = 5600;
     public static final double PROCESSOR_SHOOT_RPM = 1200;
     public static final double ARM_MOVE_VOLTAGE = 2;
     public static final double ARM_KP = 2.0;
