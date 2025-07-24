@@ -1,16 +1,12 @@
 package team.gif.robot;
 
-import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.RobotController;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.autos.NoAuto;
-import team.gif.robot.subsystems.drivers.Pigeon;
 
 public class UiSmartDashboard {
 
@@ -61,7 +57,7 @@ public class UiSmartDashboard {
     public void updateUI() {
         SmartDashboard.putData("Pigeon Heading", sendableBuilder -> {
                     sendableBuilder.setSmartDashboardType("Gyro");
-                    sendableBuilder.addDoubleProperty("Value", () -> Robot.pigeon.getCompassHeading(), null);
+                    sendableBuilder.addDoubleProperty("Heading", () -> Robot.pigeon.getCompassHeading(), null);
                 });
         SmartDashboard.putNumber("Match Time", Robot.matchTime);
         SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());

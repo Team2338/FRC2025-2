@@ -11,13 +11,10 @@ package team.gif.robot;
  *   There is many more functions that you can use, example addString, addNumber, etc.
  */
 
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-
 public class UI {
 
     public UI() {
-        ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
+        //ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC 2025");
         /**shuffleboardTab.addDouble("Couch Encoder", Robot.coralDumper::getPosition);
         shuffleboardTab.addDouble("Arm Encoder", Robot.arm::getPosition);
         shuffleboardTab.addDouble("Left RPM", Robot.algaeShooterLeft::getRPM);
