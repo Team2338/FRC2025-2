@@ -5,22 +5,21 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.autos.AutosGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import team.gif.robot.commands.algae.manual.ArmJoystickManual;
+import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.coral.manual.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.algae.arm.AlgaeLimitSwitch;
 import team.gif.robot.subsystems.algae.arm.Arm;
-import team.gif.robot.subsystems.DriveTrain;
-import team.gif.robot.subsystems.algae.shooter.AlgaeShooterLeft;
 import team.gif.robot.subsystems.algae.index.AlgaeShooterIndexer;
 import team.gif.robot.subsystems.algae.index.AlgaeShooterIndexer2;
+import team.gif.robot.subsystems.algae.shooter.AlgaeShooterLeft;
 import team.gif.robot.subsystems.algae.shooter.AlgaeShooterRight;
 import team.gif.robot.subsystems.coral.CoralDumper;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -93,7 +92,6 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
     matchTime = DriverStation.getMatchTime(); //might need to move to teleop init
     uiSmartDashboard.updateUI();
-    //System.out.println(coralDumper.getPosition());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -111,13 +109,13 @@ public class Robot extends TimedRobot {
     //autonomousCommand = robotContainer.getAutonomousCommand();
     //arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
     //new AutosGroup().schedule();
-    Timer.delay(uiSmartDashboard.delayChooser.getSelected());
-    autonomousCommand = uiSmartDashboard.autoChooser.getSelected();
+    autonomousCommand = new WaitCommand(uiSmartDashboard.delayChooser.getSelected()).andThen(uiSmartDashboard.autoChooser.getSelected());
     if(autonomousCommand != null){
       System.out.println("auto init: " + autonomousCommand.getName());
       autonomousCommand.schedule();
+    } else {
+      System.out.println("No Auto Selected");
     }
-    else System.out.println("No Auto Selected");
   }
 
   /** This function is called periodically during autonomous. */
@@ -140,10 +138,18 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    if(matchTime<=5){
-      endGameRumble = true;
+    endGameRumble = matchTime <= 5 && matchTime >= 4;
+
+    if(endGameRumble){
+      System.out.println("activating rumble");
+      oi.driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+      oi.aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+    } else{
+      oi.driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 0.0);
+      oi.aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 0.0);
     }
-    else endGameRumble = false;
+
+
   }
 
   @Override

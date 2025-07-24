@@ -1,5 +1,6 @@
 package team.gif.robot;
 
+import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
@@ -9,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.commands.autos.AutosGroup;
 import team.gif.robot.commands.autos.DriveForwardAuto;
 import team.gif.robot.commands.autos.NoAuto;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 public class UiSmartDashboard {
 
@@ -37,7 +39,17 @@ public class UiSmartDashboard {
         delayChooser.addOption("3", 3.0);
         delayChooser.addOption("4", 4.0);
         delayChooser.addOption("5", 5.0);
-        SmartDashboard.putData("Delay", delayChooser);
+        delayChooser.addOption("6", 6.0);
+        delayChooser.addOption("7", 7.0);
+        delayChooser.addOption("8", 8.0);
+        delayChooser.addOption("9", 9.0);
+        delayChooser.addOption("10", 10.0);
+        delayChooser.addOption("11", 11.0);
+        delayChooser.addOption("12", 12.0);
+        delayChooser.addOption("13", 13.0);
+        delayChooser.addOption("14", 14.0);
+        delayChooser.addOption("15", 15.0);
+        SmartDashboard.putData("Auto Delay (s)", delayChooser);
     }
 
     /**
@@ -47,9 +59,12 @@ public class UiSmartDashboard {
      *     SmartDashboard.putString("Elevator", String.format("%11.2f", Elevator.getPosition()));
      */
     public void updateUI() {
-        SmartDashboard.putNumber("Heading", Robot.pigeon.getCompassHeading());
+        SmartDashboard.putData("Pigeon Heading", sendableBuilder -> {
+                    sendableBuilder.setSmartDashboardType("Gyro");
+                    sendableBuilder.addDoubleProperty("Value", () -> Robot.pigeon.getCompassHeading(), null);
+                });
         SmartDashboard.putNumber("Match Time", Robot.matchTime);
-        SmartDashboard.putNumber("Voltage", RobotController.getBatteryVoltage());
+        SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());
         SmartDashboard.putString("Arm Position", String.format("%52.2f", Robot.arm.getPosition()));
         SmartDashboard.putBoolean("Manual Arm Toggled", Robot.arm.isManualArmToggled());
         SmartDashboard.putBoolean("Intake Limit Switch Toggled", Robot.algaeLimitSwitch.getState());

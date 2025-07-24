@@ -32,7 +32,7 @@ public final class Constants {
     public static final double ARM_KS = 1.7615;
     public static final double ARM_KG = 1.1703;
     public static final double ARM_KV = 6.1823;
-    public static final double ARM_POSITION_TOLERANCE = 0.15;
+    public static final double ARM_POSITION_TOLERANCE = 0.10;
     public static final double ARM_COLLECT_POSITION =  1.100; //6.750
     public static final double ARM_PROCESSOR_POSITION = 0.835; //5.246
     public static final double ARM_FAR_SHOOT_POSITION = 0.195; //1.225

@@ -1,25 +1,25 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
+import team.gif.robot.commands.algae.collect.bothIN;
 import team.gif.robot.commands.algae.positions.ArmCollectPosition;
 import team.gif.robot.commands.algae.positions.ArmDrivePosition;
 import team.gif.robot.commands.algae.positions.ArmZeroPosition;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
 import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShootProcessor;
 import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShoot;
 import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShootFarther;
 import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShootProcessor;
-import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
 import team.gif.robot.commands.coral.manual.CoralDumperBackward;
 import team.gif.robot.commands.coral.manual.CoralDumperForward;
-import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
+import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
 import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
-import team.gif.robot.commands.algae.collect.bothIN;
-import team.gif.robot.commands.algae.shoot.AlgaeShooterShootProcessor;
 import team.gif.robot.commands.drivetrain.Reset0;
 
 public class
@@ -142,21 +142,17 @@ OI {
          */
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
         aA.whileTrue(new bothIN());
-        aB.whileTrue(new AlgaeShooterShootProcessor());
-        aX.whileTrue(new AlgaeShooterShoot());
-        aY.whileTrue(new AlgaeShooterShootFarther());
-        aB.whileTrue(new AlgaeShooterShootProcessor());
-        aX.whileTrue(new AlgaeShooterShoot());
-        aY.whileTrue(new AlgaeShooterShootFarther());
         /**
-         * When the button on the left joystick
-         * is pressed along with the normal shoot button,
-         * the motors will shoot at the correct voltages without
-         * going to the position.
+         * If the arm's manual mode is enabled,
+         * the arm will shoot with correct voltages
+         * without checking for any position/rpm
+         * requirements. If it isn't, the arm will go
+         * to the appropriate position and check all
+         * necessary requirements before shooting.
          */
-        dLStickBtn.and(dB).whileTrue(new ManualAlgaeShooterShootProcessor());
-        dLStickBtn.and(dX).whileTrue(new ManualAlgaeShooterShoot());
-        dLStickBtn.and(dY).whileTrue(new ManualAlgaeShooterShootFarther());
+        aB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
+        aX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
+        aY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
         aDPadUp.onTrue(new ArmDrivePosition());
         aDPadDown.onTrue(new ArmCollectPosition());
         /**
@@ -168,17 +164,6 @@ OI {
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm
         //right joystick is manual couch
-
-        /**
-         * Makes the controllers vibrate for the
-         * final 5 seconds of the match to encourage
-         * drivers to park.
-         */
-        if(Robot.endGameRumble){
-            System.out.println("activating rumble");
-            driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
-            aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
-        }
 
         /**
          * These buttons are to perform
