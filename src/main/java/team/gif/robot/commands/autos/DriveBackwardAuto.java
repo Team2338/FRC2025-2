@@ -22,7 +22,7 @@ public class DriveBackwardAuto extends Command {
     public void execute() {
         if(time <= 45){
             time += 1;
-            Robot.driveTrain.driveArcade(0,.5);
+            Robot.driveTrain.driveArcade(0,.7);
         }
         if(time > 45){
             Robot.driveTrain.driveArcade(0,0);

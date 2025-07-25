@@ -22,11 +22,11 @@ public class DriveForwardAuto3 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 100){
+        if(time <= 82){
             time += 1;
-            Robot.driveTrain.driveArcade(0,-.75);
+            Robot.driveTrain.driveArcade(0,-.8);
         }
-        if(time > 100){
+        if(time > 82){
             Robot.driveTrain.driveArcade(0,0);
         }
     }
@@ -34,7 +34,7 @@ public class DriveForwardAuto3 extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return time>100;
+        return time>82;
     }
 
     // Called when the command ends or is interrupted.

@@ -17,13 +17,13 @@ public class turnrighto225auto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-            Robot.driveTrain.driveArcade(0.53,0);
+            Robot.driveTrain.driveArcade(0.6,0);
         }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished(){
-        return Robot.pigeon.get360Heading() > (130) && Robot.pigeon.get360Heading() < (142);
+        return Robot.pigeon.get360Heading() > (170) && Robot.pigeon.get360Heading() < (190);
     }
 
     // Called when the command ends or is interrupted.

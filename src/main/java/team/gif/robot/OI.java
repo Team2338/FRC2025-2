@@ -1,32 +1,26 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import team.gif.robot.commands.ArmCollectPosition;
-import team.gif.robot.commands.ArmDrivePosition;
-import team.gif.robot.commands.ArmZeroPosition;
-import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
-import team.gif.robot.commands.algae.arm.ArmDown;
-import team.gif.robot.commands.algae.arm.ArmUp;
-import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
-import team.gif.robot.commands.coral.manual.CoralDumperBackward;
-import team.gif.robot.commands.coral.positions.CoralDumperCollectPosition;
-import team.gif.robot.commands.coral.manual.CoralDumperForward;
-import team.gif.robot.commands.coral.positions.CoralDumperDrivePosition;
-import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
-import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.algae.collect.bothIN;
-import team.gif.robot.commands.AlgaeShooterProcessorShoot;
+import team.gif.robot.commands.algae.positions.ArmCollectPosition;
+import team.gif.robot.commands.algae.positions.ArmDrivePosition;
+import team.gif.robot.commands.algae.positions.ArmZeroPosition;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShoot;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShootFarther;
+import team.gif.robot.commands.algae.shoot.AlgaeShooterShootProcessor;
+import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShoot;
+import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShootFarther;
+import team.gif.robot.commands.algae.shoot.ManualAlgaeShooterShootProcessor;
+import team.gif.robot.commands.coral.manual.CoralDumperBackward;
+import team.gif.robot.commands.coral.manual.CoralDumperForward;
+import team.gif.robot.commands.coral.syced.CoralDumperSycCollect;
+import team.gif.robot.commands.coral.syced.CoralDumperSycDump;
 import team.gif.robot.commands.drivetrain.Reset0;
-import team.gif.robot.subsystems.drivers.Pigeon;
-
-import static team.gif.robot.Robot.pigeon;
-
-import static team.gif.robot.Robot.coralDumper;
 
 public class
 
@@ -125,33 +119,60 @@ OI {
          */
 
         // driver controls
+        /**
+         * Zeroes the coral dumper to whatever
+         * position it's currently at.
+         */
+        dStart.and(dBack).onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder));
+        /**
+         * Zeroes the pigeon to whatever
+         * position it's currently at.
+         */
+        dLStickBtn.and(dBack).onTrue(new Reset0());
         dX.onTrue(new ArmZeroPosition());
         dLBump.whileTrue(new CoralDumperSycCollect());
         dRBump.onTrue(new CoralDumperSycDump());
         dLTrigger.whileTrue(new CoralDumperForward());
         dRTrigger.whileTrue(new CoralDumperBackward());
-        dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
-        dLStickBtn.and(dBack).onTrue(new Reset0());
+
         // aux controls
-        aA.whileTrue(new bothIN());
-        aB.whileTrue(new AlgaeShooterProcessorShoot());
-        aX.whileTrue(new AlgaeShooterShoot());
-        aY.whileTrue(new AlgaeShooterShootFarther());
+        /**
+         * Zeroes the arm to whatever
+         * position it's currently at.
+         */
         aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+        aA.whileTrue(new bothIN());
+        /**
+         * If the arm's manual mode is enabled,
+         * the arm will shoot with correct voltages
+         * without checking for any position/rpm
+         * requirements. If it isn't, the arm will go
+         * to the appropriate position and check all
+         * necessary requirements before shooting.
+         */
+        aB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
+        aX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
+        aY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
         aDPadUp.onTrue(new ArmDrivePosition());
         aDPadDown.onTrue(new ArmCollectPosition());
+        /**
+         * Aux will not be able to manually move the
+         * arm unless this is toggled on.
+         */
         aDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
         aLBump.whileTrue(new CoralDumperSycCollect());
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm
         //right joystick is manual couch
 
-        //test control for sysID routines
+        /**
+         * These buttons are to perform
+         * system identification routines
+         * using the test controller (2).
+         */
         tA.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
         tB.whileTrue(Robot.arm.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
         tX.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kForward));
         tY.whileTrue(Robot.arm.sysIDDynamic(SysIdRoutine.Direction.kReverse));
-
-
     }
 }

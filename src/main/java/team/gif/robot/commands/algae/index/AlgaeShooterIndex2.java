@@ -9,7 +9,6 @@ public class AlgaeShooterIndex2 extends Command {
     public AlgaeShooterIndex2() {
         super();
         addRequirements(Robot.algaeShooterIndexer2);
-        //addRequirements(Robot.climber); // uncomment
     }
 
     public static void setVoltage(double voltage) {
@@ -23,10 +22,9 @@ public class AlgaeShooterIndex2 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.algaeShooterIndexer2.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
+        //Robot.algaeShooterIndexer2.setVoltage(Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
         Robot.algaeShooterIndexer2.setVoltage(-Constants.ALGAE_SHOOTER_NEO_VOLTAGE_INDEX);
-
-
+        //TODO: check this
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

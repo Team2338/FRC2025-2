@@ -18,7 +18,6 @@ public class CoralCollectAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
-        Robot.arm.zeroEncoder();
         Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
         System.out.println("Auto started");
 
@@ -27,15 +26,15 @@ public class CoralCollectAuto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 30){
+        if(time <= 50){
             time += 1;
             Robot.driveTrain.driveArcade(0,-.6);
         }
-        if(time > 30){
+        if(time > 50){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
-            if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
-            if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
+            if(timer<50){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT_AUTOS);}
+            if(timer>=50){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT_AUTOS);}
         }
     }
 

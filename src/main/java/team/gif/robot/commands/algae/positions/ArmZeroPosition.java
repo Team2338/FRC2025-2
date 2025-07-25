@@ -1,4 +1,4 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.algae.positions;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
@@ -28,17 +28,12 @@ public class ArmZeroPosition extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        if (Math.abs(Robot.arm.getPosition() - Constants.ARM_ZERO_POSITION) <= .20) {
-            return true;
-        }
-        else
-            return false;
+        return Math.abs(Robot.arm.getPosition() - Constants.ARM_ZERO_POSITION) <= Constants.ARM_POSITION_TOLERANCE;
     }
 
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
         //Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
-
     }
 }

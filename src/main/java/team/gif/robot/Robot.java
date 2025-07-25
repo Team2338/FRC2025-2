@@ -4,23 +4,23 @@
 
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import team.gif.robot.commands.algae.manual.ArmJoystickManual;
 import team.gif.robot.commands.autos.AutosGroup;
-import team.gif.robot.commands.autos.DriveForwardAuto;
-import team.gif.robot.commands.ArmJoystickManual;
-import team.gif.robot.commands.CouchJoystickManual;
-import team.gif.robot.commands.autos.auto2PC;
+import team.gif.robot.commands.coral.manual.CouchJoystickManual;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.subsystems.AlgaeLimitSwitch;
-import team.gif.robot.subsystems.Arm;
 import team.gif.robot.subsystems.DriveTrain;
-import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterLeft;
-import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer;
-import team.gif.robot.subsystems.Algae.index.AlgaeShooterIndexer2;
-import team.gif.robot.subsystems.Algae.shooter.AlgaeShooterRight;
+import team.gif.robot.subsystems.algae.arm.AlgaeLimitSwitch;
+import team.gif.robot.subsystems.algae.arm.Arm;
+import team.gif.robot.subsystems.algae.index.AlgaeShooterIndexer;
+import team.gif.robot.subsystems.algae.index.AlgaeShooterIndexer2;
+import team.gif.robot.subsystems.algae.shooter.AlgaeShooterLeft;
+import team.gif.robot.subsystems.algae.shooter.AlgaeShooterRight;
 import team.gif.robot.subsystems.coral.CoralDumper;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -30,7 +30,6 @@ import team.gif.robot.subsystems.drivers.Pigeon;
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
-  public static Subsystem AlgaeShooterIndex2;
   private Command autonomousCommand;
   private final RobotContainer robotContainer;
   public static DriveTrain driveTrain;
@@ -43,8 +42,10 @@ public class Robot extends TimedRobot {
   public static AlgaeShooterIndexer2 algaeShooterIndexer2;
   public static AlgaeLimitSwitch algaeLimitSwitch;
   public static UI ui;
+  public static UiSmartDashboard uiSmartDashboard;
   public static OI oi;
-
+  public static double matchTime;
+  public static boolean endGameRumble;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -66,11 +67,12 @@ public class Robot extends TimedRobot {
     arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
-    //autonomousCommand = new DriveForwardAuto();
     algaeLimitSwitch = new AlgaeLimitSwitch();
+    //autonomousCommand = new DriveForwardAuto();
     //autonomousCommand = new auto2PC();
     autonomousCommand = new AutosGroup();
     ui = new UI();
+    uiSmartDashboard = new UiSmartDashboard();
     oi = new OI();
   }
 
@@ -88,7 +90,8 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    //System.out.println(coralDumper.getPosition());
+    matchTime = DriverStation.getMatchTime(); //might need to move to teleop init
+    uiSmartDashboard.updateUI();
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -101,18 +104,25 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    //autonomousCommand = robotContainer.getAutonomousCommand();
-    arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
     // schedule the autonomous command (example)
-      //autonomousCommand.schedule();
-      System.out.println("auto init");
-     new AutosGroup().schedule();
-
+    //autonomousCommand.schedule();
+    //autonomousCommand = robotContainer.getAutonomousCommand();
+    //arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
+    //new AutosGroup().schedule();
+    autonomousCommand = new WaitCommand(uiSmartDashboard.delayChooser.getSelected()).andThen(uiSmartDashboard.autoChooser.getSelected());
+    if(autonomousCommand != null){
+      System.out.println("auto init: " + autonomousCommand.getName());
+      autonomousCommand.schedule();
+    } else {
+      System.out.println("No Auto Selected");
+    }
   }
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+
+  }
 
   @Override
   public void teleopInit() {
@@ -127,7 +137,20 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    endGameRumble = matchTime <= 6 && matchTime >= 4;
+
+    if(endGameRumble){
+      System.out.println("activating rumble");
+      oi.driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+      oi.aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 1.0);
+    } else{
+      oi.driver.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 0.0);
+      oi.aux.getHID().setRumble(GenericHID.RumbleType.kBothRumble, 0.0);
+    }
+
+
+  }
 
   @Override
   public void testInit() {

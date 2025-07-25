@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package team.gif.robot.subsystems;
+package team.gif.robot.subsystems.algae.arm;
 
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
@@ -42,8 +42,8 @@ public class Arm extends SubsystemBase {
     armFeedforward = new ArmFeedforward(Constants.ARM_KS, Constants.ARM_KG, Constants.ARM_KV);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config.encoder
-            .positionConversionFactor(2.0 * Math.PI)
-            .velocityConversionFactor(2.0 * Math.PI / 60)
+            .positionConversionFactor(2.0 * Math.PI) //2.0 * Math.PI
+            .velocityConversionFactor((2.0 * Math.PI)/60) //2.0 * Math.PI / 60
             .countsPerRevolution(8192)
             .inverted(true);
     config.signals
@@ -53,11 +53,6 @@ public class Arm extends SubsystemBase {
             .pid(Constants.ARM_KP, Constants.ARM_KI,Constants.ARM_KD)
             .iMaxAccum(0.1)
             .outputRange(-12, 12);
-    /**config.softLimit
-            .forwardSoftLimit(6.950)
-            .forwardSoftLimitEnabled(true)
-            .reverseSoftLimit(0)
-            .reverseSoftLimitEnabled(true);**/
     armMotor.configure(config, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
   }
 

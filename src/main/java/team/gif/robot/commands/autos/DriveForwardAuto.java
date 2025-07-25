@@ -18,7 +18,7 @@ public class DriveForwardAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
-        Robot.arm.zeroEncoder();
+        //Robot.arm.zeroEncoder();
         Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
         System.out.println("Auto started");
 
@@ -27,11 +27,11 @@ public class DriveForwardAuto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 65){
+        if(time <= 45){
             time += 1;
-            Robot.driveTrain.driveArcade(0,-.6);
+            Robot.driveTrain.driveArcade(0,-.7);
         }
-        if(time > 65){
+        if(time > 45){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
             if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
@@ -42,7 +42,7 @@ public class DriveForwardAuto extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return timer>110;
+        return timer>95;
     }
 
     // Called when the command ends or is interrupted.

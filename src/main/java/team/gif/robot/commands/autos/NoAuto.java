@@ -1,13 +1,12 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.autos;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Robot;
 
-public class CouchJoystickManual extends Command {
+public class NoAuto extends Command {
 
-    public CouchJoystickManual() {
+    public NoAuto() {
         super();
-        addRequirements(Robot.coralDumper);
+        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -16,10 +15,7 @@ public class CouchJoystickManual extends Command {
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-        double voltage = Robot.oi.aux.getRightY();
-        Robot.coralDumper.setVoltage(voltage);
-    }
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
