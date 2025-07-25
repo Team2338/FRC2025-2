@@ -28,16 +28,15 @@ public class DriveForwardAuto5 extends Command {
     public void execute() {
         if(time <= 35){
             time += 1;
-            Robot.driveTrain.driveArcade(0,-.75);
+            Robot.driveTrain.driveArcade(0,-.7);
         }
         if(time > 35){
             timer+=1;
-            Robot.driveTrain.driveArcade(0,-.6);
+            Robot.driveTrain.driveArcade(0,-.7);
             if(time > 35){
                 Robot.driveTrain.driveArcade(0,0);
                 timer+=1;
-                if(timer<35){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT_AUTOS);
-            }
+                //if(timer<35){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT_AUTOS);}
             }
         }
     }
@@ -52,5 +51,6 @@ public class DriveForwardAuto5 extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.coralDumper.setVoltage(0);
+        Robot.arm.holdArmPosition(Constants.ARM_ZERO_POSITION);
     }
 }

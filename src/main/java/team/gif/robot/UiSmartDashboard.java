@@ -55,9 +55,9 @@ public class UiSmartDashboard {
      *     SmartDashboard.putString("Elevator", String.format("%11.2f", Elevator.getPosition()));
      */
     public void updateUI() {
-        SmartDashboard.putData("Pigeon Heading", sendableBuilder -> {
+        SmartDashboard.putData("Compass", sendableBuilder -> {
                     sendableBuilder.setSmartDashboardType("Gyro");
-                    sendableBuilder.addDoubleProperty("Heading", () -> Robot.pigeon.getCompassHeading(), null);
+                    sendableBuilder.addDoubleProperty("Heading", () -> Double.parseDouble(String.format("%33.2f", Robot.pigeon.getCompassHeading())), null);
                 });
         SmartDashboard.putNumber("Match Time", Robot.matchTime);
         SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());

@@ -42,8 +42,8 @@ public class Arm extends SubsystemBase {
     armFeedforward = new ArmFeedforward(Constants.ARM_KS, Constants.ARM_KG, Constants.ARM_KV);
     config.idleMode(SparkMaxConfig.IdleMode.kBrake);
     config.encoder
-            .positionConversionFactor(1) //2.0 * Math.PI
-            .velocityConversionFactor(1) //2.0 * Math.PI / 60
+            .positionConversionFactor(2.0 * Math.PI) //2.0 * Math.PI
+            .velocityConversionFactor((2.0 * Math.PI)/60) //2.0 * Math.PI / 60
             .countsPerRevolution(8192)
             .inverted(true);
     config.signals

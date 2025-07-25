@@ -18,7 +18,7 @@ public class DriveForwardAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
-        Robot.arm.zeroEncoder();
+        //Robot.arm.zeroEncoder();
         Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
         System.out.println("Auto started");
 
