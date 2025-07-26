@@ -1,5 +1,7 @@
 package team.gif.robot;
 
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -46,6 +48,14 @@ public class UiSmartDashboard {
         delayChooser.addOption("14", 14.0);
         delayChooser.addOption("15", 15.0);
         SmartDashboard.putData("Auto Delay (s)", delayChooser);
+
+        SmartDashboard.putData("Gyro", new Sendable() {
+            @Override
+            public void initSendable(SendableBuilder sendableBuilder) {
+                sendableBuilder.setSmartDashboardType("Gyro");
+                sendableBuilder.addDoubleProperty("Heading", () -> Robot.pigeon.getCompassHeading(), null);
+            }
+        });
     }
 
     /**
@@ -55,10 +65,6 @@ public class UiSmartDashboard {
      *     SmartDashboard.putString("Elevator", String.format("%11.2f", Elevator.getPosition()));
      */
     public void updateUI() {
-        SmartDashboard.putData("Compass", sendableBuilder -> {
-                    sendableBuilder.setSmartDashboardType("Gyro");
-                    sendableBuilder.addDoubleProperty("Heading", () -> Double.parseDouble(String.format("%33.2f", Robot.pigeon.getCompassHeading())), null);
-                });
         SmartDashboard.putNumber("Match Time", Robot.matchTime);
         SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());
         SmartDashboard.putString("Arm Position", String.format("%52.2f", Robot.arm.getPosition()));
