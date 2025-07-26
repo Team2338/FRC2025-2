@@ -109,6 +109,7 @@ public class Robot extends TimedRobot {
     //autonomousCommand = robotContainer.getAutonomousCommand();
     //arm.setArmPosition(Constants.ARM_CLOSE_SHOOT_POSITION);
     //new AutosGroup().schedule();
+    pigeon.resetPigeonPosition(0);
     autonomousCommand = new WaitCommand(uiSmartDashboard.delayChooser.getSelected()).andThen(uiSmartDashboard.autoChooser.getSelected());
     if(autonomousCommand != null){
       System.out.println("auto init: " + autonomousCommand.getName());
