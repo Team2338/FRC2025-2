@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.commands.autos.AutosGroup;
+import team.gif.robot.commands.autos.CoralCollectAutoTEST;
 import team.gif.robot.commands.autos.DriveForwardAuto;
+import team.gif.robot.commands.autos.LongStraight1pc;
 import team.gif.robot.commands.autos.NoAuto;
 
 public class UiSmartDashboard {
@@ -28,7 +30,9 @@ public class UiSmartDashboard {
         //ShuffleboardTab tab = Shuffleboard.getTab("SmartDashboard"); // Gets a reference to the shuffleboard tab
         autoChooser.setDefaultOption("No Auto", new NoAuto());
         autoChooser.addOption("Center 1pc", new DriveForwardAuto());
+        autoChooser.addOption("Longer 1pc", new LongStraight1pc());
         autoChooser.addOption("Center 2pc Left Side", new AutosGroup());
+        autoChooser.addOption("Coral Dump TEST", new CoralCollectAutoTEST());
         SmartDashboard.putData("Auto", autoChooser);
 
         delayChooser.setDefaultOption("0", 0.0);

@@ -6,10 +6,10 @@ import team.gif.robot.Robot;
 
 import static team.gif.robot.Robot.coralDumper;
 
-public class CoralCollectAuto extends Command {
+public class LongStraight1pc extends Command {
     public int time;
     public int timer;
-    public CoralCollectAuto() {
+    public LongStraight1pc() {
         super();
         addRequirements(Robot.coralDumper,Robot.driveTrain,Robot.arm); // uncomment
     }
@@ -18,6 +18,7 @@ public class CoralCollectAuto extends Command {
     @Override
     public void initialize() {time = 0;
         timer = 0;
+        //Robot.arm.zeroEncoder();
         Robot.arm.setArmPosition(Constants.ARM_DRIVE_POSITION);
         System.out.println("Auto started");
 
@@ -26,16 +27,15 @@ public class CoralCollectAuto extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        if(time <= 50){
+        if(time <= 200){
             time += 1;
-            Robot.driveTrain.driveArcade(0,-.6);
+            Robot.driveTrain.driveArcade(0,-.5);
         }
-        if(time > 50){
+        if(time > 200){
             Robot.driveTrain.driveArcade(0,0);
             timer+=1;
-            if(timer<20){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT_AUTOS);}
-            if(timer>=20 && timer<=75){coralDumper.setVoltage(0);}
-            if(timer>=75){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT_AUTOS);}
+            if(timer<60){coralDumper.setVoltage(Constants.CORAL_NEO_PERCENT);}
+            if(timer>=60){coralDumper.setVoltage(-Constants.CORAL_NEO_PERCENT);}
         }
     }
 

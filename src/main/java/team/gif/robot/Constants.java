@@ -36,7 +36,7 @@ public final class Constants {
     public static final double ARM_COLLECT_POSITION =  6.700; //1.100; //6.750
     public static final double ARM_PROCESSOR_POSITION = 5.246; //0.835; //5.246
     public static final double ARM_FAR_SHOOT_POSITION = 1.225; //0.195; //1.225
-    public static final double ARM_CLOSE_SHOOT_POSITION = 0.754; //0.120; //0.754
+    public static final double ARM_CLOSE_SHOOT_POSITION = 0.85; //0.120; //0.754
     public static final double ARM_DRIVE_POSITION = 0.716; //0.114; //0.716
     public static final double ARM_ZERO_POSITION = 0;
     }
