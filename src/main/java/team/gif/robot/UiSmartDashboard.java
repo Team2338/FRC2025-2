@@ -57,7 +57,7 @@ public class UiSmartDashboard {
             @Override
             public void initSendable(SendableBuilder sendableBuilder) {
                 sendableBuilder.setSmartDashboardType("Gyro");
-                sendableBuilder.addDoubleProperty("Heading", () -> Robot.pigeon.getCompassHeading(), null);
+                sendableBuilder.addDoubleProperty("Value", () -> Robot.pigeon.getCompassHeading(), null);
             }
         });
     }
