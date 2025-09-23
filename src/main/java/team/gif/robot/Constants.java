@@ -17,7 +17,7 @@ public final class Constants {
     public static final double CORAL_NEO_PERCENT_AUTOS = 1.0;
     public static final double ALGAE_SHOOTER_IN = 4;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 12;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 5.5;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 5.25;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR = 3.2;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 6.75;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR = 9.5;
