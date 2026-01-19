@@ -5,7 +5,7 @@
 package team.gif.robot;
 
 
-import com.pathplanner.lib.commands.PathPlannerAuto;
+//import com.pathplanner.lib.commands.PathPlannerAuto;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import team.gif.robot.commands.printA;
