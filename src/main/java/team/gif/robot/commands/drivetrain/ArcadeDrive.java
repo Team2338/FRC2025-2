@@ -26,7 +26,7 @@ public class ArcadeDrive extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double rotation = Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
+        double rotation = -Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
         double speed = Robot.oi.driver.getRightX();
         Robot.driveTrain.driveArcade(speed*.9, slewRateLimiter.calculate(rotation*.9)); //two joysticks - left controls speed and right controls rotations
         //TODO: Add a boost button

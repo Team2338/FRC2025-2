@@ -3,6 +3,7 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
@@ -129,11 +130,14 @@ OI {
          * position it's currently at.
          */
         dLStickBtn.and(dBack).onTrue(new Reset0());
-        dX.onTrue(new ArmZeroPosition());
+        dDPadDown.onTrue(new ArmZeroPosition());
         dLBump.whileTrue(new CoralDumperSycCollect());
         dRBump.onTrue(new CoralDumperSycDump());
         dLTrigger.whileTrue(new CoralDumperForward());
         dRTrigger.whileTrue(new CoralDumperBackward());
+
+//        dA.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
+
 
         // aux controls
         /**
@@ -150,11 +154,13 @@ OI {
          * to the appropriate position and check all
          * necessary requirements before shooting.
          */
-        aB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
-        aX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
-        aY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
-        aDPadUp.onTrue(new ArmDrivePosition());
-        aDPadDown.onTrue(new ArmCollectPosition());
+        dB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
+        dX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
+        dY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
+        dDPadUp.onTrue(new ArmDrivePosition());
+        dA.onTrue(
+                new SequentialCommandGroup(
+                new ArmCollectPosition(), new bothIN()));
         /**
          * Aux will not be able to manually move the
          * arm unless this is toggled on.
