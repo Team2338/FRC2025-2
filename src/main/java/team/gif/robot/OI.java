@@ -125,6 +125,7 @@ OI {
          * position it's currently at.
          */
         dStart.and(dBack).onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder));
+        dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
         /**
          * Zeroes the pigeon to whatever
          * position it's currently at.
@@ -144,8 +145,8 @@ OI {
          * Zeroes the arm to whatever
          * position it's currently at.
          */
-        aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
-        aA.whileTrue(new bothIN());
+//        aStart.and(aBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
+//        aA.whileTrue(new bothIN());
         /**
          * If the arm's manual mode is enabled,
          * the arm will shoot with correct voltages
@@ -165,7 +166,7 @@ OI {
          * Aux will not be able to manually move the
          * arm unless this is toggled on.
          */
-        aDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
+        dDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
         aLBump.whileTrue(new CoralDumperSycCollect());
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm
