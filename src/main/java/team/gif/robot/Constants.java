@@ -17,7 +17,7 @@ public final class Constants {
     public static final double CORAL_NEO_PERCENT_AUTOS = 1.0;
     public static final double ALGAE_SHOOTER_IN = 4;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_FAR = 4; // Windy City Value 5.5;
-    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE =5; // Windy City Value 5.3 ;
+    public static final double ALGAE_SHOOTER_NEO_VOLTAGE_CLOSE = 5; // Windy City Value 5.3 ;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_PROCESSOR = 3.2;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX = 6.75 ;
     public static final double ALGAE_SHOOTER_NEO_VOLTAGE_INDEX_FAR = 6.75;
@@ -33,10 +33,12 @@ public final class Constants {
     public static final double ARM_KG = 1.1703;
     public static final double ARM_KV = 6.1823;
     public static final double ARM_POSITION_TOLERANCE = 0.10;
-    public static final double ARM_COLLECT_POSITION =  6.45; //1.100; //6.750
+    public static final double ARM_COLLECT_POSITION =  6.35; //1.100; //6.750
     public static final double ARM_PROCESSOR_POSITION = 5.246; //0.835; //5.246
     public static final double ARM_FAR_SHOOT_POSITION = 1.85; // Windy City 0.90; //0.195; //1.225
     public static final double ARM_CLOSE_SHOOT_POSITION = 1.5; // Windy City 0.85; //0.120; //0.754
     public static final double ARM_DRIVE_POSITION = 0.716; //0.114; //0.716
     public static final double ARM_ZERO_POSITION = 0;
+    public static final double DRIVETRAIN_SPEED_PERCENT = 0.25;
+    public static final double DRIVETRAIN_ROTATIONAL_SPEED_PERCENT = 0.45;
     }

@@ -2,6 +2,7 @@ package team.gif.robot.commands.drivetrain;
 
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj2.command.Command;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
 public class ArcadeDrive extends Command {
@@ -20,7 +21,7 @@ public class ArcadeDrive extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        slewRateLimiter = new SlewRateLimiter(1.5);
+//        slewRateLimiter = new SlewRateLimiter(1.5);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
@@ -28,8 +29,10 @@ public class ArcadeDrive extends Command {
     public void execute() {
         double rotation = -Robot.oi.driver.getLeftY(); //switch to getLeftX if we were to do one joystick arcade for some reason
         double speed = Robot.oi.driver.getRightX();
-        Robot.driveTrain.driveArcade(speed*.45, slewRateLimiter.calculate(rotation*.45)); //two joysticks - left controls speed and right controls rotations
-        //TODO: Add a boost button
+        speed *= Constants.DRIVETRAIN_ROTATIONAL_SPEED_PERCENT;
+        rotation *= Constants.DRIVETRAIN_SPEED_PERCENT;
+
+        Robot.driveTrain.driveArcade(speed, rotation); //slewRateLimiter.calculate(rotation*.25)); //two joysticks - left controls speed and right controls rotations
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
