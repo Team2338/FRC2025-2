@@ -24,8 +24,8 @@ public class ArmJoystickManual extends Command {
 //            double voltage = Robot.oi.aux.getLeftY();
 //            Robot.arm.setVoltage(voltage*6);
 //        }
-        Robot.oi.driver.leftTrigger().whileTrue(new InstantCommand(() -> Robot.arm.setVoltage(-2)).withTimeout(0.2));
-        Robot.oi.driver.rightTrigger().whileTrue(new InstantCommand(() -> Robot.arm.setVoltage(2)).withTimeout(0.2));
+//        Robot.oi.driver.leftTrigger().whileTrue(new InstantCommand(() -> Robot.arm.setVoltage(-2)).withTimeout(0.2));
+//        Robot.oi.driver.rightTrigger().whileTrue(new InstantCommand(() -> Robot.arm.setVoltage(2)).withTimeout(0.2));
     }
 
 

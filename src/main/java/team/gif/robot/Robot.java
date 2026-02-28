@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
     algaeShooterRight = new AlgaeShooterRight();
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
     arm = new Arm();
-    arm.setDefaultCommand(new ArmJoystickManual());
+//    arm.setDefaultCommand(new ArmJoystickManual());
     algaeShooterIndexer = new AlgaeShooterIndexer();
     algaeShooterIndexer2 = new AlgaeShooterIndexer2();
     algaeLimitSwitch = new AlgaeLimitSwitch();

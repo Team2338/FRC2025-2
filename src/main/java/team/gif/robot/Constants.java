@@ -39,6 +39,6 @@ public final class Constants {
     public static final double ARM_CLOSE_SHOOT_POSITION = 1.5; // Windy City 0.85; //0.120; //0.754
     public static final double ARM_DRIVE_POSITION = 0.716; //0.114; //0.716
     public static final double ARM_ZERO_POSITION = 0;
-    public static final double DRIVETRAIN_SPEED_MAX_PERCENT = 0.50;
-    public static final double DRIVETRAIN_ROTATION_MAX_PERCENT = 0.45;
+    public static final double DRIVETRAIN_SPEED_MAX_PERCENT = 0.55;
+    public static final double DRIVETRAIN_ROTATION_MAX_PERCENT = 0.50;
     }
