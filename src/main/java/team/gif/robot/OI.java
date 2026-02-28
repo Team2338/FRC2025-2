@@ -120,23 +120,25 @@ OI {
          */
 
         // driver controls
-        /**
-         * Zeroes the coral dumper to whatever
-         * position it's currently at.
-         */
         dStart.and(dBack).onTrue(new InstantCommand(Robot.coralDumper::zeroEncoder));
         dStart.and(dBack).onTrue(new InstantCommand(Robot.arm::zeroEncoder));
-        /**
-         * Zeroes the pigeon to whatever
-         * position it's currently at.
-         */
         dLStickBtn.and(dBack).onTrue(new Reset0());
+        dA.onTrue(new SequentialCommandGroup(new ArmCollectPosition(), new bothIN()));
+        dB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
+        dX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
+        dY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
+        dDPadUp.onTrue(new ArmDrivePosition());
         dDPadDown.onTrue(new ArmZeroPosition());
-        dLBump.whileTrue(new CoralDumperSycCollect());
-        dRBump.onTrue(new CoralDumperSycDump());
-        dLTrigger.whileTrue(new CoralDumperForward());
-        dRTrigger.whileTrue(new CoralDumperBackward());
+//        dLBump.whileTrue(new CoralDumperSycCollect());
+//        dRBump.onTrue(new CoralDumperSycDump());
+//        dLTrigger.whileTrue(new CoralDumperForward());
+//        dRTrigger.whileTrue(new CoralDumperBackward());
 
+        /**
+         * Aux will not be able to manually move the
+         * arm unless this is toggled on.
+         */
+        dDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
 //        dA.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
 
 
@@ -155,18 +157,6 @@ OI {
          * to the appropriate position and check all
          * necessary requirements before shooting.
          */
-        dB.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootProcessor(), new AlgaeShooterShootProcessor(), () -> Robot.arm.isManualArmToggled()));
-        dX.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShoot(), new AlgaeShooterShoot(), () -> Robot.arm.isManualArmToggled()));
-        dY.whileTrue(new ConditionalCommand(new ManualAlgaeShooterShootFarther(), new AlgaeShooterShootFarther(), () -> Robot.arm.isManualArmToggled()));
-        dDPadUp.onTrue(new ArmDrivePosition());
-        dA.onTrue(
-                new SequentialCommandGroup(
-                new ArmCollectPosition(), new bothIN()));
-        /**
-         * Aux will not be able to manually move the
-         * arm unless this is toggled on.
-         */
-        dDPadLeft.onTrue(new InstantCommand(Robot.arm::toggleManualArmControl));
         aLBump.whileTrue(new CoralDumperSycCollect());
         aRBump.onTrue(new CoralDumperSycDump());
         //left joystick is manual arm

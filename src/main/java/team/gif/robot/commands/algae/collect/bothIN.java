@@ -12,10 +12,6 @@ public class bothIN extends Command {
 
     }
 
-
-        //addRequirements(Robot.climber); // uncomment
-
-
         // Called when the command is initially scheduled.
         @Override
         public void initialize() {}
@@ -32,10 +28,11 @@ public class bothIN extends Command {
         // Return true when the command should end, false if it should continue. Runs every ~20ms.
         @Override
         public boolean isFinished() {
-            if(Robot.algaeLimitSwitch.getState())
-                return true;
-            else;
-                return false;
+//            if(Robot.algaeLimitSwitch.getState())
+//                return true;
+//            else;
+//                return false;
+            return Robot.algaeLimitSwitch.getState();
     }
 
         // Called when the command ends or is interrupted.
